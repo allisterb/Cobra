@@ -11,6 +11,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NLog", "..\ext\NLog\src\NLo
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{403CAA97-9D96-41E3-ADB0-F3056509E035}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SharpConfig", "..\ext\SharpConfig\Src\SharpConfig.csproj", "{E06BAFBD-09F3-41CB-BB18-B049DC4A7773}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -25,6 +27,10 @@ Global
 		{A0BFF0DB-ED9A-4639-AE86-8E709A1EFC66}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A0BFF0DB-ED9A-4639-AE86-8E709A1EFC66}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A0BFF0DB-ED9A-4639-AE86-8E709A1EFC66}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E06BAFBD-09F3-41CB-BB18-B049DC4A7773}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E06BAFBD-09F3-41CB-BB18-B049DC4A7773}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E06BAFBD-09F3-41CB-BB18-B049DC4A7773}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E06BAFBD-09F3-41CB-BB18-B049DC4A7773}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -32,6 +38,7 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{0EBF85BA-4060-4D97-8A82-F92BB72296F2} = {403CAA97-9D96-41E3-ADB0-F3056509E035}
 		{A0BFF0DB-ED9A-4639-AE86-8E709A1EFC66} = {9DA74D99-3353-4157-87F2-32F44974B338}
+		{E06BAFBD-09F3-41CB-BB18-B049DC4A7773} = {9DA74D99-3353-4157-87F2-32F44974B338}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {E115A3F9-5148-46C1-A501-9EFAC19CEBDE}
