@@ -1,9 +1,6 @@
-namespace Cobra
+namespace Cobra;
+
+public class RuntimeNotInitializedException : Exception
 {
-    public class RuntimeNotInitializedException : Exception
-    {
-        public RuntimeNotInitializedException(Runtime o) : base($"This runtime object is not initialized.") { }
-    }
+    public RuntimeNotInitializedException(Runtime o) : base($"This runtime object is not initialized.") { }
 }
-
-
