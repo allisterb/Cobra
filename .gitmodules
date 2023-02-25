@@ -1,0 +1,3 @@
+[submodule "ext/NLog"]
+	path = ext/NLog
+	url = https://github.com/stratisdevex/NLog.git
