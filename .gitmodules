@@ -1,3 +1,6 @@
 [submodule "ext/NLog"]
 	path = ext/NLog
 	url = https://github.com/stratisdevex/NLog.git
+[submodule "ext/SharpConfig"]
+	path = ext/SharpConfig
+	url = https://github.com/allisterb/SharpConfig.git
