@@ -4,6 +4,8 @@
 // </auto-generated>
 //----------------------
 
+#nullable enable
+
 #pragma warning disable 108 // Disable "CS0108 '{derivedDto}.ToJson()' hides inherited member '{dtoBase}.ToJson()'. Use the new keyword if hiding was intended."
 #pragma warning disable 114 // Disable "CS0114 '{derivedDto}.RaisePropertyChanged(String)' hides inherited member 'dtoBase.RaisePropertyChanged(String)'. To make the current member override that implementation, add the override keyword. Otherwise add the new keyword."
 #pragma warning disable 472 // Disable "CS0472 The result of the expression is always 'false' since a value of type 'Int32' is never equal to 'null' of type 'Int32?'
@@ -54,7 +56,7 @@ namespace Cobra.Api.Node.Cirrus
 
         /// <returns>Success</returns>
         /// <exception cref="CirrusApiException">A server side error occurred.</exception>
-        public virtual System.Threading.Tasks.Task AddressPOSTAsync(AddressBookEntryRequest body)
+        public virtual System.Threading.Tasks.Task<CirrusResponse> AddressPOSTAsync(AddressBookEntryRequest? body)
         {
             return AddressPOSTAsync(body, System.Threading.CancellationToken.None);
         }
@@ -62,7 +64,7 @@ namespace Cobra.Api.Node.Cirrus
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Success</returns>
         /// <exception cref="CirrusApiException">A server side error occurred.</exception>
-        public virtual async System.Threading.Tasks.Task AddressPOSTAsync(AddressBookEntryRequest body, System.Threading.CancellationToken cancellationToken)
+        public virtual async System.Threading.Tasks.Task<CirrusResponse> AddressPOSTAsync(AddressBookEntryRequest? body, System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/api/AddressBook/address");
@@ -102,7 +104,7 @@ namespace Cobra.Api.Node.Cirrus
                         var status_ = (int)response_.StatusCode;
                         if (status_ == 200)
                         {
-                            return;
+                            return new CirrusResponse(status_, headers_);
                         }
                         else
                         if (status_ == 400)
@@ -144,7 +146,7 @@ namespace Cobra.Api.Node.Cirrus
 
         /// <returns>Success</returns>
         /// <exception cref="CirrusApiException">A server side error occurred.</exception>
-        public virtual System.Threading.Tasks.Task AddressDELETEAsync(string label)
+        public virtual System.Threading.Tasks.Task<CirrusResponse> AddressDELETEAsync(string? label)
         {
             return AddressDELETEAsync(label, System.Threading.CancellationToken.None);
         }
@@ -152,7 +154,7 @@ namespace Cobra.Api.Node.Cirrus
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Success</returns>
         /// <exception cref="CirrusApiException">A server side error occurred.</exception>
-        public virtual async System.Threading.Tasks.Task AddressDELETEAsync(string label, System.Threading.CancellationToken cancellationToken)
+        public virtual async System.Threading.Tasks.Task<CirrusResponse> AddressDELETEAsync(string? label, System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/api/AddressBook/address?");
@@ -193,7 +195,7 @@ namespace Cobra.Api.Node.Cirrus
                         var status_ = (int)response_.StatusCode;
                         if (status_ == 200)
                         {
-                            return;
+                            return new CirrusResponse(status_, headers_);
                         }
                         else
                         if (status_ == 400)
@@ -235,7 +237,7 @@ namespace Cobra.Api.Node.Cirrus
 
         /// <returns>Success</returns>
         /// <exception cref="CirrusApiException">A server side error occurred.</exception>
-        public virtual System.Threading.Tasks.Task AddressBookAsync(int? skip, int? take)
+        public virtual System.Threading.Tasks.Task<CirrusResponse> AddressBookAsync(int? skip, int? take)
         {
             return AddressBookAsync(skip, take, System.Threading.CancellationToken.None);
         }
@@ -243,7 +245,7 @@ namespace Cobra.Api.Node.Cirrus
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Success</returns>
         /// <exception cref="CirrusApiException">A server side error occurred.</exception>
-        public virtual async System.Threading.Tasks.Task AddressBookAsync(int? skip, int? take, System.Threading.CancellationToken cancellationToken)
+        public virtual async System.Threading.Tasks.Task<CirrusResponse> AddressBookAsync(int? skip, int? take, System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/api/AddressBook?");
@@ -288,7 +290,7 @@ namespace Cobra.Api.Node.Cirrus
                         var status_ = (int)response_.StatusCode;
                         if (status_ == 200)
                         {
-                            return;
+                            return new CirrusResponse(status_, headers_);
                         }
                         else
                         if (status_ == 400)
@@ -324,7 +326,7 @@ namespace Cobra.Api.Node.Cirrus
 
         /// <returns>Success</returns>
         /// <exception cref="CirrusApiException">A server side error occurred.</exception>
-        public virtual System.Threading.Tasks.Task OverAmountAtHeightAsync(int? blockHeight, double? amount)
+        public virtual System.Threading.Tasks.Task<CirrusResponse> OverAmountAtHeightAsync(int? blockHeight, double? amount)
         {
             return OverAmountAtHeightAsync(blockHeight, amount, System.Threading.CancellationToken.None);
         }
@@ -332,7 +334,7 @@ namespace Cobra.Api.Node.Cirrus
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Success</returns>
         /// <exception cref="CirrusApiException">A server side error occurred.</exception>
-        public virtual async System.Threading.Tasks.Task OverAmountAtHeightAsync(int? blockHeight, double? amount, System.Threading.CancellationToken cancellationToken)
+        public virtual async System.Threading.Tasks.Task<CirrusResponse> OverAmountAtHeightAsync(int? blockHeight, double? amount, System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/api/Balances/over-amount-at-height?");
@@ -377,7 +379,7 @@ namespace Cobra.Api.Node.Cirrus
                         var status_ = (int)response_.StatusCode;
                         if (status_ == 200)
                         {
-                            return;
+                            return new CirrusResponse(status_, headers_);
                         }
                         else
                         {
@@ -401,7 +403,7 @@ namespace Cobra.Api.Node.Cirrus
 
         /// <returns>Success</returns>
         /// <exception cref="CirrusApiException">A server side error occurred.</exception>
-        public virtual System.Threading.Tasks.Task AddressindexertipAsync()
+        public virtual System.Threading.Tasks.Task<CirrusResponse> AddressindexertipAsync()
         {
             return AddressindexertipAsync(System.Threading.CancellationToken.None);
         }
@@ -409,7 +411,7 @@ namespace Cobra.Api.Node.Cirrus
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Success</returns>
         /// <exception cref="CirrusApiException">A server side error occurred.</exception>
-        public virtual async System.Threading.Tasks.Task AddressindexertipAsync(System.Threading.CancellationToken cancellationToken)
+        public virtual async System.Threading.Tasks.Task<CirrusResponse> AddressindexertipAsync(System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/api/BlockStore/addressindexertip");
@@ -445,7 +447,7 @@ namespace Cobra.Api.Node.Cirrus
                         var status_ = (int)response_.StatusCode;
                         if (status_ == 200)
                         {
-                            return;
+                            return new CirrusResponse(status_, headers_);
                         }
                         else
                         if (status_ == 400)
@@ -475,7 +477,7 @@ namespace Cobra.Api.Node.Cirrus
 
         /// <returns>Success</returns>
         /// <exception cref="CirrusApiException">A server side error occurred.</exception>
-        public virtual System.Threading.Tasks.Task BlockAsync(string hash, bool? showTransactionDetails, bool? outputJson)
+        public virtual System.Threading.Tasks.Task<CirrusResponse> BlockAsync(string hash, bool? showTransactionDetails, bool? outputJson)
         {
             return BlockAsync(hash, showTransactionDetails, outputJson, System.Threading.CancellationToken.None);
         }
@@ -483,7 +485,7 @@ namespace Cobra.Api.Node.Cirrus
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Success</returns>
         /// <exception cref="CirrusApiException">A server side error occurred.</exception>
-        public virtual async System.Threading.Tasks.Task BlockAsync(string hash, bool? showTransactionDetails, bool? outputJson, System.Threading.CancellationToken cancellationToken)
+        public virtual async System.Threading.Tasks.Task<CirrusResponse> BlockAsync(string hash, bool? showTransactionDetails, bool? outputJson, System.Threading.CancellationToken cancellationToken)
         {
             if (hash == null)
                 throw new System.ArgumentNullException("hash");
@@ -532,7 +534,7 @@ namespace Cobra.Api.Node.Cirrus
                         var status_ = (int)response_.StatusCode;
                         if (status_ == 200)
                         {
-                            return;
+                            return new CirrusResponse(status_, headers_);
                         }
                         else
                         if (status_ == 400)
@@ -568,7 +570,7 @@ namespace Cobra.Api.Node.Cirrus
 
         /// <returns>Success</returns>
         /// <exception cref="CirrusApiException">A server side error occurred.</exception>
-        public virtual System.Threading.Tasks.Task GetblockcountAsync()
+        public virtual System.Threading.Tasks.Task<CirrusResponse<int>> GetblockcountAsync()
         {
             return GetblockcountAsync(System.Threading.CancellationToken.None);
         }
@@ -576,7 +578,7 @@ namespace Cobra.Api.Node.Cirrus
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Success</returns>
         /// <exception cref="CirrusApiException">A server side error occurred.</exception>
-        public virtual async System.Threading.Tasks.Task GetblockcountAsync(System.Threading.CancellationToken cancellationToken)
+        public virtual async System.Threading.Tasks.Task<CirrusResponse<int>> GetblockcountAsync(System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/api/BlockStore/getblockcount");
@@ -612,7 +614,7 @@ namespace Cobra.Api.Node.Cirrus
                         var status_ = (int)response_.StatusCode;
                         if (status_ == 200)
                         {
-                            return;
+                            return new CirrusResponse<int>(status_, headers_, Int32.Parse(await response_.Content!.ReadAsStringAsync()));
                         }
                         else
                         if (status_ == 400)
@@ -642,7 +644,7 @@ namespace Cobra.Api.Node.Cirrus
 
         /// <returns>Success</returns>
         /// <exception cref="CirrusApiException">A server side error occurred.</exception>
-        public virtual System.Threading.Tasks.Task GetaddressesbalancesAsync(string addresses, int? minConfirmations)
+        public virtual System.Threading.Tasks.Task<CirrusResponse> GetaddressesbalancesAsync(string? addresses, int? minConfirmations)
         {
             return GetaddressesbalancesAsync(addresses, minConfirmations, System.Threading.CancellationToken.None);
         }
@@ -650,7 +652,7 @@ namespace Cobra.Api.Node.Cirrus
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Success</returns>
         /// <exception cref="CirrusApiException">A server side error occurred.</exception>
-        public virtual async System.Threading.Tasks.Task GetaddressesbalancesAsync(string addresses, int? minConfirmations, System.Threading.CancellationToken cancellationToken)
+        public virtual async System.Threading.Tasks.Task<CirrusResponse> GetaddressesbalancesAsync(string? addresses, int? minConfirmations, System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/api/BlockStore/getaddressesbalances?");
@@ -695,7 +697,7 @@ namespace Cobra.Api.Node.Cirrus
                         var status_ = (int)response_.StatusCode;
                         if (status_ == 200)
                         {
-                            return;
+                            return new CirrusResponse(status_, headers_);
                         }
                         else
                         if (status_ == 400)
@@ -725,7 +727,7 @@ namespace Cobra.Api.Node.Cirrus
 
         /// <returns>Success</returns>
         /// <exception cref="CirrusApiException">A server side error occurred.</exception>
-        public virtual System.Threading.Tasks.Task GetverboseaddressesbalancesAsync(string addresses)
+        public virtual System.Threading.Tasks.Task<CirrusResponse> GetverboseaddressesbalancesAsync(string? addresses)
         {
             return GetverboseaddressesbalancesAsync(addresses, System.Threading.CancellationToken.None);
         }
@@ -733,7 +735,7 @@ namespace Cobra.Api.Node.Cirrus
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Success</returns>
         /// <exception cref="CirrusApiException">A server side error occurred.</exception>
-        public virtual async System.Threading.Tasks.Task GetverboseaddressesbalancesAsync(string addresses, System.Threading.CancellationToken cancellationToken)
+        public virtual async System.Threading.Tasks.Task<CirrusResponse> GetverboseaddressesbalancesAsync(string? addresses, System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/api/BlockStore/getverboseaddressesbalances?");
@@ -774,7 +776,7 @@ namespace Cobra.Api.Node.Cirrus
                         var status_ = (int)response_.StatusCode;
                         if (status_ == 200)
                         {
-                            return;
+                            return new CirrusResponse(status_, headers_);
                         }
                         else
                         if (status_ == 400)
@@ -804,7 +806,7 @@ namespace Cobra.Api.Node.Cirrus
 
         /// <returns>Success</returns>
         /// <exception cref="CirrusApiException">A server side error occurred.</exception>
-        public virtual System.Threading.Tasks.Task GetutxosetAsync(int? atBlockHeight)
+        public virtual System.Threading.Tasks.Task<CirrusResponse> GetutxosetAsync(int? atBlockHeight)
         {
             return GetutxosetAsync(atBlockHeight, System.Threading.CancellationToken.None);
         }
@@ -812,7 +814,7 @@ namespace Cobra.Api.Node.Cirrus
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Success</returns>
         /// <exception cref="CirrusApiException">A server side error occurred.</exception>
-        public virtual async System.Threading.Tasks.Task GetutxosetAsync(int? atBlockHeight, System.Threading.CancellationToken cancellationToken)
+        public virtual async System.Threading.Tasks.Task<CirrusResponse> GetutxosetAsync(int? atBlockHeight, System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/api/BlockStore/getutxoset?");
@@ -853,7 +855,7 @@ namespace Cobra.Api.Node.Cirrus
                         var status_ = (int)response_.StatusCode;
                         if (status_ == 200)
                         {
-                            return;
+                            return new CirrusResponse(status_, headers_);
                         }
                         else
                         if (status_ == 400)
@@ -883,7 +885,7 @@ namespace Cobra.Api.Node.Cirrus
 
         /// <returns>Success</returns>
         /// <exception cref="CirrusApiException">A server side error occurred.</exception>
-        public virtual System.Threading.Tasks.Task GetutxosetforaddressAsync(string address)
+        public virtual System.Threading.Tasks.Task<CirrusResponse> GetutxosetforaddressAsync(string? address)
         {
             return GetutxosetforaddressAsync(address, System.Threading.CancellationToken.None);
         }
@@ -891,7 +893,7 @@ namespace Cobra.Api.Node.Cirrus
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Success</returns>
         /// <exception cref="CirrusApiException">A server side error occurred.</exception>
-        public virtual async System.Threading.Tasks.Task GetutxosetforaddressAsync(string address, System.Threading.CancellationToken cancellationToken)
+        public virtual async System.Threading.Tasks.Task<CirrusResponse> GetutxosetforaddressAsync(string? address, System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/api/BlockStore/getutxosetforaddress?");
@@ -932,7 +934,7 @@ namespace Cobra.Api.Node.Cirrus
                         var status_ = (int)response_.StatusCode;
                         if (status_ == 200)
                         {
-                            return;
+                            return new CirrusResponse(status_, headers_);
                         }
                         else
                         if (status_ == 400)
@@ -962,7 +964,7 @@ namespace Cobra.Api.Node.Cirrus
 
         /// <returns>Success</returns>
         /// <exception cref="CirrusApiException">A server side error occurred.</exception>
-        public virtual System.Threading.Tasks.Task GetlastbalanceupdatetransactionAsync(string address)
+        public virtual System.Threading.Tasks.Task<CirrusResponse> GetlastbalanceupdatetransactionAsync(string? address)
         {
             return GetlastbalanceupdatetransactionAsync(address, System.Threading.CancellationToken.None);
         }
@@ -970,7 +972,7 @@ namespace Cobra.Api.Node.Cirrus
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Success</returns>
         /// <exception cref="CirrusApiException">A server side error occurred.</exception>
-        public virtual async System.Threading.Tasks.Task GetlastbalanceupdatetransactionAsync(string address, System.Threading.CancellationToken cancellationToken)
+        public virtual async System.Threading.Tasks.Task<CirrusResponse> GetlastbalanceupdatetransactionAsync(string? address, System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/api/BlockStore/getlastbalanceupdatetransaction?");
@@ -1011,7 +1013,7 @@ namespace Cobra.Api.Node.Cirrus
                         var status_ = (int)response_.StatusCode;
                         if (status_ == 200)
                         {
-                            return;
+                            return new CirrusResponse(status_, headers_);
                         }
                         else
                         if (status_ == 400)
@@ -1041,7 +1043,7 @@ namespace Cobra.Api.Node.Cirrus
 
         /// <returns>Success</returns>
         /// <exception cref="CirrusApiException">A server side error occurred.</exception>
-        public virtual System.Threading.Tasks.Task JoinfederationAsync(JoinFederationRequestModel body)
+        public virtual System.Threading.Tasks.Task<CirrusResponse> JoinfederationAsync(JoinFederationRequestModel? body)
         {
             return JoinfederationAsync(body, System.Threading.CancellationToken.None);
         }
@@ -1049,7 +1051,7 @@ namespace Cobra.Api.Node.Cirrus
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Success</returns>
         /// <exception cref="CirrusApiException">A server side error occurred.</exception>
-        public virtual async System.Threading.Tasks.Task JoinfederationAsync(JoinFederationRequestModel body, System.Threading.CancellationToken cancellationToken)
+        public virtual async System.Threading.Tasks.Task<CirrusResponse> JoinfederationAsync(JoinFederationRequestModel? body, System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/api/Collateral/joinfederation");
@@ -1089,7 +1091,7 @@ namespace Cobra.Api.Node.Cirrus
                         var status_ = (int)response_.StatusCode;
                         if (status_ == 200)
                         {
-                            return;
+                            return new CirrusResponse(status_, headers_);
                         }
                         else
                         if (status_ == 400)
@@ -1125,7 +1127,7 @@ namespace Cobra.Api.Node.Cirrus
 
         /// <returns>Success</returns>
         /// <exception cref="CirrusApiException">A server side error occurred.</exception>
-        public virtual System.Threading.Tasks.Task AddnodeAsync(string endpoint, string command)
+        public virtual System.Threading.Tasks.Task<CirrusResponse> AddnodeAsync(string? endpoint, string? command)
         {
             return AddnodeAsync(endpoint, command, System.Threading.CancellationToken.None);
         }
@@ -1133,7 +1135,7 @@ namespace Cobra.Api.Node.Cirrus
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Success</returns>
         /// <exception cref="CirrusApiException">A server side error occurred.</exception>
-        public virtual async System.Threading.Tasks.Task AddnodeAsync(string endpoint, string command, System.Threading.CancellationToken cancellationToken)
+        public virtual async System.Threading.Tasks.Task<CirrusResponse> AddnodeAsync(string? endpoint, string? command, System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/api/ConnectionManager/addnode?");
@@ -1178,7 +1180,7 @@ namespace Cobra.Api.Node.Cirrus
                         var status_ = (int)response_.StatusCode;
                         if (status_ == 200)
                         {
-                            return;
+                            return new CirrusResponse(status_, headers_);
                         }
                         else
                         if (status_ == 400)
@@ -1208,7 +1210,7 @@ namespace Cobra.Api.Node.Cirrus
 
         /// <returns>Success</returns>
         /// <exception cref="CirrusApiException">A server side error occurred.</exception>
-        public virtual System.Threading.Tasks.Task GetpeerinfoAsync()
+        public virtual System.Threading.Tasks.Task<CirrusResponse> GetpeerinfoAsync()
         {
             return GetpeerinfoAsync(System.Threading.CancellationToken.None);
         }
@@ -1216,7 +1218,7 @@ namespace Cobra.Api.Node.Cirrus
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Success</returns>
         /// <exception cref="CirrusApiException">A server side error occurred.</exception>
-        public virtual async System.Threading.Tasks.Task GetpeerinfoAsync(System.Threading.CancellationToken cancellationToken)
+        public virtual async System.Threading.Tasks.Task<CirrusResponse> GetpeerinfoAsync(System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/api/ConnectionManager/getpeerinfo");
@@ -1252,7 +1254,7 @@ namespace Cobra.Api.Node.Cirrus
                         var status_ = (int)response_.StatusCode;
                         if (status_ == 200)
                         {
-                            return;
+                            return new CirrusResponse(status_, headers_);
                         }
                         else
                         if (status_ == 400)
@@ -1282,7 +1284,7 @@ namespace Cobra.Api.Node.Cirrus
 
         /// <returns>Success</returns>
         /// <exception cref="CirrusApiException">A server side error occurred.</exception>
-        public virtual System.Threading.Tasks.Task DeploymentflagsAsync()
+        public virtual System.Threading.Tasks.Task<CirrusResponse> DeploymentflagsAsync()
         {
             return DeploymentflagsAsync(System.Threading.CancellationToken.None);
         }
@@ -1290,7 +1292,7 @@ namespace Cobra.Api.Node.Cirrus
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Success</returns>
         /// <exception cref="CirrusApiException">A server side error occurred.</exception>
-        public virtual async System.Threading.Tasks.Task DeploymentflagsAsync(System.Threading.CancellationToken cancellationToken)
+        public virtual async System.Threading.Tasks.Task<CirrusResponse> DeploymentflagsAsync(System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/api/Consensus/deploymentflags");
@@ -1326,7 +1328,7 @@ namespace Cobra.Api.Node.Cirrus
                         var status_ = (int)response_.StatusCode;
                         if (status_ == 200)
                         {
-                            return;
+                            return new CirrusResponse(status_, headers_);
                         }
                         else
                         if (status_ == 400)
@@ -1356,7 +1358,7 @@ namespace Cobra.Api.Node.Cirrus
 
         /// <returns>Success</returns>
         /// <exception cref="CirrusApiException">A server side error occurred.</exception>
-        public virtual System.Threading.Tasks.Task LockedindeploymentsAsync()
+        public virtual System.Threading.Tasks.Task<CirrusResponse> LockedindeploymentsAsync()
         {
             return LockedindeploymentsAsync(System.Threading.CancellationToken.None);
         }
@@ -1364,7 +1366,7 @@ namespace Cobra.Api.Node.Cirrus
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Success</returns>
         /// <exception cref="CirrusApiException">A server side error occurred.</exception>
-        public virtual async System.Threading.Tasks.Task LockedindeploymentsAsync(System.Threading.CancellationToken cancellationToken)
+        public virtual async System.Threading.Tasks.Task<CirrusResponse> LockedindeploymentsAsync(System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/api/Consensus/lockedindeployments");
@@ -1400,7 +1402,7 @@ namespace Cobra.Api.Node.Cirrus
                         var status_ = (int)response_.StatusCode;
                         if (status_ == 200)
                         {
-                            return;
+                            return new CirrusResponse(status_, headers_);
                         }
                         else
                         if (status_ == 400)
@@ -1430,7 +1432,7 @@ namespace Cobra.Api.Node.Cirrus
 
         /// <returns>Success</returns>
         /// <exception cref="CirrusApiException">A server side error occurred.</exception>
-        public virtual System.Threading.Tasks.Task GetbestblockhashAsync()
+        public virtual System.Threading.Tasks.Task<CirrusResponse> GetbestblockhashAsync()
         {
             return GetbestblockhashAsync(System.Threading.CancellationToken.None);
         }
@@ -1438,7 +1440,7 @@ namespace Cobra.Api.Node.Cirrus
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Success</returns>
         /// <exception cref="CirrusApiException">A server side error occurred.</exception>
-        public virtual async System.Threading.Tasks.Task GetbestblockhashAsync(System.Threading.CancellationToken cancellationToken)
+        public virtual async System.Threading.Tasks.Task<CirrusResponse> GetbestblockhashAsync(System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/api/Consensus/getbestblockhash");
@@ -1474,7 +1476,7 @@ namespace Cobra.Api.Node.Cirrus
                         var status_ = (int)response_.StatusCode;
                         if (status_ == 200)
                         {
-                            return;
+                            return new CirrusResponse(status_, headers_);
                         }
                         else
                         if (status_ == 400)
@@ -1504,7 +1506,7 @@ namespace Cobra.Api.Node.Cirrus
 
         /// <returns>Success</returns>
         /// <exception cref="CirrusApiException">A server side error occurred.</exception>
-        public virtual System.Threading.Tasks.Task GetblockhashAsync(int? height)
+        public virtual System.Threading.Tasks.Task<CirrusResponse> GetblockhashAsync(int? height)
         {
             return GetblockhashAsync(height, System.Threading.CancellationToken.None);
         }
@@ -1512,7 +1514,7 @@ namespace Cobra.Api.Node.Cirrus
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Success</returns>
         /// <exception cref="CirrusApiException">A server side error occurred.</exception>
-        public virtual async System.Threading.Tasks.Task GetblockhashAsync(int? height, System.Threading.CancellationToken cancellationToken)
+        public virtual async System.Threading.Tasks.Task<CirrusResponse> GetblockhashAsync(int? height, System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/api/Consensus/getblockhash?");
@@ -1553,7 +1555,7 @@ namespace Cobra.Api.Node.Cirrus
                         var status_ = (int)response_.StatusCode;
                         if (status_ == 200)
                         {
-                            return;
+                            return new CirrusResponse(status_, headers_);
                         }
                         else
                         if (status_ == 400)
@@ -1583,7 +1585,7 @@ namespace Cobra.Api.Node.Cirrus
 
         /// <returns>Success</returns>
         /// <exception cref="CirrusApiException">A server side error occurred.</exception>
-        public virtual System.Threading.Tasks.Task TipAsync()
+        public virtual System.Threading.Tasks.Task<CirrusResponse> TipAsync()
         {
             return TipAsync(System.Threading.CancellationToken.None);
         }
@@ -1591,7 +1593,7 @@ namespace Cobra.Api.Node.Cirrus
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Success</returns>
         /// <exception cref="CirrusApiException">A server side error occurred.</exception>
-        public virtual async System.Threading.Tasks.Task TipAsync(System.Threading.CancellationToken cancellationToken)
+        public virtual async System.Threading.Tasks.Task<CirrusResponse> TipAsync(System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/api/Consensus/tip");
@@ -1627,7 +1629,7 @@ namespace Cobra.Api.Node.Cirrus
                         var status_ = (int)response_.StatusCode;
                         if (status_ == 200)
                         {
-                            return;
+                            return new CirrusResponse(status_, headers_);
                         }
                         else
                         if (status_ == 400)
@@ -1661,7 +1663,7 @@ namespace Cobra.Api.Node.Cirrus
         /// <param name="address">The contract's address.</param>
         /// <returns>Success</returns>
         /// <exception cref="CirrusApiException">A server side error occurred.</exception>
-        public virtual System.Threading.Tasks.Task ContractsGETAsync(string address)
+        public virtual System.Threading.Tasks.Task<CirrusResponse> ContractsGETAsync(string address)
         {
             return ContractsGETAsync(address, System.Threading.CancellationToken.None);
         }
@@ -1673,7 +1675,7 @@ namespace Cobra.Api.Node.Cirrus
         /// <param name="address">The contract's address.</param>
         /// <returns>Success</returns>
         /// <exception cref="CirrusApiException">A server side error occurred.</exception>
-        public virtual async System.Threading.Tasks.Task ContractsGETAsync(string address, System.Threading.CancellationToken cancellationToken)
+        public virtual async System.Threading.Tasks.Task<CirrusResponse> ContractsGETAsync(string address, System.Threading.CancellationToken cancellationToken)
         {
             if (address == null)
                 throw new System.ArgumentNullException("address");
@@ -1713,7 +1715,7 @@ namespace Cobra.Api.Node.Cirrus
                         var status_ = (int)response_.StatusCode;
                         if (status_ == 200)
                         {
-                            return;
+                            return new CirrusResponse(status_, headers_);
                         }
                         else
                         {
@@ -1741,7 +1743,7 @@ namespace Cobra.Api.Node.Cirrus
         /// <param name="body">The contract's address.</param>
         /// <returns>Success</returns>
         /// <exception cref="CirrusApiException">A server side error occurred.</exception>
-        public virtual System.Threading.Tasks.Task ContractsPOSTAsync(AddContractRequest body)
+        public virtual System.Threading.Tasks.Task<CirrusResponse> ContractsPOSTAsync(AddContractRequest? body)
         {
             return ContractsPOSTAsync(body, System.Threading.CancellationToken.None);
         }
@@ -1753,7 +1755,7 @@ namespace Cobra.Api.Node.Cirrus
         /// <param name="body">The contract's address.</param>
         /// <returns>Success</returns>
         /// <exception cref="CirrusApiException">A server side error occurred.</exception>
-        public virtual async System.Threading.Tasks.Task ContractsPOSTAsync(AddContractRequest body, System.Threading.CancellationToken cancellationToken)
+        public virtual async System.Threading.Tasks.Task<CirrusResponse> ContractsPOSTAsync(AddContractRequest? body, System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/api/swagger/contracts");
@@ -1793,7 +1795,7 @@ namespace Cobra.Api.Node.Cirrus
                         var status_ = (int)response_.StatusCode;
                         if (status_ == 200)
                         {
-                            return;
+                            return new CirrusResponse(status_, headers_);
                         }
                         else
                         {
@@ -1817,7 +1819,7 @@ namespace Cobra.Api.Node.Cirrus
 
         /// <returns>Success</returns>
         /// <exception cref="CirrusApiException">A server side error occurred.</exception>
-        public virtual System.Threading.Tasks.Task StatsAsync()
+        public virtual System.Threading.Tasks.Task<CirrusResponse> StatsAsync()
         {
             return StatsAsync(System.Threading.CancellationToken.None);
         }
@@ -1825,7 +1827,7 @@ namespace Cobra.Api.Node.Cirrus
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Success</returns>
         /// <exception cref="CirrusApiException">A server side error occurred.</exception>
-        public virtual async System.Threading.Tasks.Task StatsAsync(System.Threading.CancellationToken cancellationToken)
+        public virtual async System.Threading.Tasks.Task<CirrusResponse> StatsAsync(System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/api/Dashboard/Stats");
@@ -1861,7 +1863,7 @@ namespace Cobra.Api.Node.Cirrus
                         var status_ = (int)response_.StatusCode;
                         if (status_ == 200)
                         {
-                            return;
+                            return new CirrusResponse(status_, headers_);
                         }
                         else
                         {
@@ -1885,7 +1887,7 @@ namespace Cobra.Api.Node.Cirrus
 
         /// <returns>Success</returns>
         /// <exception cref="CirrusApiException">A server side error occurred.</exception>
-        public virtual System.Threading.Tasks.Task AsyncLoopsStatsAsync()
+        public virtual System.Threading.Tasks.Task<CirrusResponse> AsyncLoopsStatsAsync()
         {
             return AsyncLoopsStatsAsync(System.Threading.CancellationToken.None);
         }
@@ -1893,7 +1895,7 @@ namespace Cobra.Api.Node.Cirrus
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Success</returns>
         /// <exception cref="CirrusApiException">A server side error occurred.</exception>
-        public virtual async System.Threading.Tasks.Task AsyncLoopsStatsAsync(System.Threading.CancellationToken cancellationToken)
+        public virtual async System.Threading.Tasks.Task<CirrusResponse> AsyncLoopsStatsAsync(System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/api/Dashboard/AsyncLoopsStats");
@@ -1929,7 +1931,7 @@ namespace Cobra.Api.Node.Cirrus
                         var status_ = (int)response_.StatusCode;
                         if (status_ == 200)
                         {
-                            return;
+                            return new CirrusResponse(status_, headers_);
                         }
                         else
                         {
@@ -1956,7 +1958,7 @@ namespace Cobra.Api.Node.Cirrus
         /// </summary>
         /// <returns>Returns connected peers information</returns>
         /// <exception cref="CirrusApiException">A server side error occurred.</exception>
-        public virtual System.Threading.Tasks.Task GetConnectedPeersInfoAsync()
+        public virtual System.Threading.Tasks.Task<CirrusResponse> GetConnectedPeersInfoAsync()
         {
             return GetConnectedPeersInfoAsync(System.Threading.CancellationToken.None);
         }
@@ -1967,7 +1969,7 @@ namespace Cobra.Api.Node.Cirrus
         /// </summary>
         /// <returns>Returns connected peers information</returns>
         /// <exception cref="CirrusApiException">A server side error occurred.</exception>
-        public virtual async System.Threading.Tasks.Task GetConnectedPeersInfoAsync(System.Threading.CancellationToken cancellationToken)
+        public virtual async System.Threading.Tasks.Task<CirrusResponse> GetConnectedPeersInfoAsync(System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/api/Diagnostic/GetConnectedPeersInfo");
@@ -2003,7 +2005,7 @@ namespace Cobra.Api.Node.Cirrus
                         var status_ = (int)response_.StatusCode;
                         if (status_ == 200)
                         {
-                            return;
+                            return new CirrusResponse(status_, headers_);
                         }
                         else
                         if (status_ == 400)
@@ -2036,7 +2038,7 @@ namespace Cobra.Api.Node.Cirrus
         /// </summary>
         /// <returns>Returns the status</returns>
         /// <exception cref="CirrusApiException">A server side error occurred.</exception>
-        public virtual System.Threading.Tasks.Task GetStatusAsync()
+        public virtual System.Threading.Tasks.Task<CirrusResponse> GetStatusAsync()
         {
             return GetStatusAsync(System.Threading.CancellationToken.None);
         }
@@ -2047,7 +2049,7 @@ namespace Cobra.Api.Node.Cirrus
         /// </summary>
         /// <returns>Returns the status</returns>
         /// <exception cref="CirrusApiException">A server side error occurred.</exception>
-        public virtual async System.Threading.Tasks.Task GetStatusAsync(System.Threading.CancellationToken cancellationToken)
+        public virtual async System.Threading.Tasks.Task<CirrusResponse> GetStatusAsync(System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/api/Diagnostic/GetStatus");
@@ -2083,7 +2085,7 @@ namespace Cobra.Api.Node.Cirrus
                         var status_ = (int)response_.StatusCode;
                         if (status_ == 200)
                         {
-                            return;
+                            return new CirrusResponse(status_, headers_);
                         }
                         else
                         if (status_ == 400)
@@ -2117,7 +2119,7 @@ namespace Cobra.Api.Node.Cirrus
         /// <param name="connectedOnly">if set to {true} returns statistics related to connected peers only.</param>
         /// <returns>Returns connected peers statistics</returns>
         /// <exception cref="CirrusApiException">A server side error occurred.</exception>
-        public virtual System.Threading.Tasks.Task<System.Collections.Generic.ICollection<PeerStatisticsModel>> GetPeerStatisticsAsync(bool? connectedOnly)
+        public virtual System.Threading.Tasks.Task<CirrusResponse<System.Collections.Generic.ICollection<PeerStatisticsModel>>> GetPeerStatisticsAsync(bool? connectedOnly)
         {
             return GetPeerStatisticsAsync(connectedOnly, System.Threading.CancellationToken.None);
         }
@@ -2129,7 +2131,7 @@ namespace Cobra.Api.Node.Cirrus
         /// <param name="connectedOnly">if set to {true} returns statistics related to connected peers only.</param>
         /// <returns>Returns connected peers statistics</returns>
         /// <exception cref="CirrusApiException">A server side error occurred.</exception>
-        public virtual async System.Threading.Tasks.Task<System.Collections.Generic.ICollection<PeerStatisticsModel>> GetPeerStatisticsAsync(bool? connectedOnly, System.Threading.CancellationToken cancellationToken)
+        public virtual async System.Threading.Tasks.Task<CirrusResponse<System.Collections.Generic.ICollection<PeerStatisticsModel>>> GetPeerStatisticsAsync(bool? connectedOnly, System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/api/Diagnostic/GetPeerStatistics?");
@@ -2176,7 +2178,7 @@ namespace Cobra.Api.Node.Cirrus
                             {
                                 throw new CirrusApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
                             }
-                            return objectResponse_.Object;
+                            return new CirrusResponse<System.Collections.Generic.ICollection<PeerStatisticsModel>>(status_, headers_, objectResponse_.Object);
                         }
                         else
                         if (status_ == 400)
@@ -2209,7 +2211,7 @@ namespace Cobra.Api.Node.Cirrus
         /// </summary>
         /// <returns>Peer statistics collection started</returns>
         /// <exception cref="CirrusApiException">A server side error occurred.</exception>
-        public virtual System.Threading.Tasks.Task StartCollectingPeerStatisticsAsync()
+        public virtual System.Threading.Tasks.Task<CirrusResponse> StartCollectingPeerStatisticsAsync()
         {
             return StartCollectingPeerStatisticsAsync(System.Threading.CancellationToken.None);
         }
@@ -2220,7 +2222,7 @@ namespace Cobra.Api.Node.Cirrus
         /// </summary>
         /// <returns>Peer statistics collection started</returns>
         /// <exception cref="CirrusApiException">A server side error occurred.</exception>
-        public virtual async System.Threading.Tasks.Task StartCollectingPeerStatisticsAsync(System.Threading.CancellationToken cancellationToken)
+        public virtual async System.Threading.Tasks.Task<CirrusResponse> StartCollectingPeerStatisticsAsync(System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/api/Diagnostic/StartCollectingPeerStatistics");
@@ -2256,7 +2258,7 @@ namespace Cobra.Api.Node.Cirrus
                         var status_ = (int)response_.StatusCode;
                         if (status_ == 200)
                         {
-                            return;
+                            return new CirrusResponse(status_, headers_);
                         }
                         else
                         if (status_ == 400)
@@ -2290,7 +2292,7 @@ namespace Cobra.Api.Node.Cirrus
         /// </summary>
         /// <returns>Peer statistics collection stopped</returns>
         /// <exception cref="CirrusApiException">A server side error occurred.</exception>
-        public virtual System.Threading.Tasks.Task StopCollectingPeerStatisticsAsync()
+        public virtual System.Threading.Tasks.Task<CirrusResponse> StopCollectingPeerStatisticsAsync()
         {
             return StopCollectingPeerStatisticsAsync(System.Threading.CancellationToken.None);
         }
@@ -2302,7 +2304,7 @@ namespace Cobra.Api.Node.Cirrus
         /// </summary>
         /// <returns>Peer statistics collection stopped</returns>
         /// <exception cref="CirrusApiException">A server side error occurred.</exception>
-        public virtual async System.Threading.Tasks.Task StopCollectingPeerStatisticsAsync(System.Threading.CancellationToken cancellationToken)
+        public virtual async System.Threading.Tasks.Task<CirrusResponse> StopCollectingPeerStatisticsAsync(System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/api/Diagnostic/StopCollectingPeerStatistics");
@@ -2338,7 +2340,7 @@ namespace Cobra.Api.Node.Cirrus
                         var status_ = (int)response_.StatusCode;
                         if (status_ == 200)
                         {
-                            return;
+                            return new CirrusResponse(status_, headers_);
                         }
                         else
                         if (status_ == 400)
@@ -2373,7 +2375,7 @@ namespace Cobra.Api.Node.Cirrus
         /// <param name="method">The name of the method on the contract being called.</param>
         /// <returns>Success</returns>
         /// <exception cref="CirrusApiException">A server side error occurred.</exception>
-        public virtual System.Threading.Tasks.Task MethodAsync(string address, string method, object body)
+        public virtual System.Threading.Tasks.Task<CirrusResponse> MethodAsync(string address, string method, object? body)
         {
             return MethodAsync(address, method, body, System.Threading.CancellationToken.None);
         }
@@ -2386,7 +2388,7 @@ namespace Cobra.Api.Node.Cirrus
         /// <param name="method">The name of the method on the contract being called.</param>
         /// <returns>Success</returns>
         /// <exception cref="CirrusApiException">A server side error occurred.</exception>
-        public virtual async System.Threading.Tasks.Task MethodAsync(string address, string method, object body, System.Threading.CancellationToken cancellationToken)
+        public virtual async System.Threading.Tasks.Task<CirrusResponse> MethodAsync(string address, string method, object? body, System.Threading.CancellationToken cancellationToken)
         {
             if (address == null)
                 throw new System.ArgumentNullException("address");
@@ -2434,7 +2436,7 @@ namespace Cobra.Api.Node.Cirrus
                         var status_ = (int)response_.StatusCode;
                         if (status_ == 200)
                         {
-                            return;
+                            return new CirrusResponse(status_, headers_);
                         }
                         else
                         {
@@ -2463,7 +2465,7 @@ namespace Cobra.Api.Node.Cirrus
         /// <param name="property">The name of the property to query.</param>
         /// <returns>Success</returns>
         /// <exception cref="CirrusApiException">A server side error occurred.</exception>
-        public virtual System.Threading.Tasks.Task PropertyAsync(string address, string property)
+        public virtual System.Threading.Tasks.Task<CirrusResponse> PropertyAsync(string address, string property)
         {
             return PropertyAsync(address, property, System.Threading.CancellationToken.None);
         }
@@ -2476,7 +2478,7 @@ namespace Cobra.Api.Node.Cirrus
         /// <param name="property">The name of the property to query.</param>
         /// <returns>Success</returns>
         /// <exception cref="CirrusApiException">A server side error occurred.</exception>
-        public virtual async System.Threading.Tasks.Task PropertyAsync(string address, string property, System.Threading.CancellationToken cancellationToken)
+        public virtual async System.Threading.Tasks.Task<CirrusResponse> PropertyAsync(string address, string property, System.Threading.CancellationToken cancellationToken)
         {
             if (address == null)
                 throw new System.ArgumentNullException("address");
@@ -2520,7 +2522,7 @@ namespace Cobra.Api.Node.Cirrus
                         var status_ = (int)response_.StatusCode;
                         if (status_ == 200)
                         {
-                            return;
+                            return new CirrusResponse(status_, headers_);
                         }
                         else
                         {
@@ -2544,7 +2546,7 @@ namespace Cobra.Api.Node.Cirrus
 
         /// <returns>Success</returns>
         /// <exception cref="CirrusApiException">A server side error occurred.</exception>
-        public virtual System.Threading.Tasks.Task ReconstructAsync()
+        public virtual System.Threading.Tasks.Task<CirrusResponse> ReconstructAsync()
         {
             return ReconstructAsync(System.Threading.CancellationToken.None);
         }
@@ -2552,7 +2554,7 @@ namespace Cobra.Api.Node.Cirrus
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Success</returns>
         /// <exception cref="CirrusApiException">A server side error occurred.</exception>
-        public virtual async System.Threading.Tasks.Task ReconstructAsync(System.Threading.CancellationToken cancellationToken)
+        public virtual async System.Threading.Tasks.Task<CirrusResponse> ReconstructAsync(System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/api/Federation/reconstruct");
@@ -2589,7 +2591,7 @@ namespace Cobra.Api.Node.Cirrus
                         var status_ = (int)response_.StatusCode;
                         if (status_ == 200)
                         {
-                            return;
+                            return new CirrusResponse(status_, headers_);
                         }
                         else
                         if (status_ == 400)
@@ -2619,7 +2621,7 @@ namespace Cobra.Api.Node.Cirrus
 
         /// <returns>Success</returns>
         /// <exception cref="CirrusApiException">A server side error occurred.</exception>
-        public virtual System.Threading.Tasks.Task CurrentAsync()
+        public virtual System.Threading.Tasks.Task<CirrusResponse> CurrentAsync()
         {
             return CurrentAsync(System.Threading.CancellationToken.None);
         }
@@ -2627,7 +2629,7 @@ namespace Cobra.Api.Node.Cirrus
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Success</returns>
         /// <exception cref="CirrusApiException">A server side error occurred.</exception>
-        public virtual async System.Threading.Tasks.Task CurrentAsync(System.Threading.CancellationToken cancellationToken)
+        public virtual async System.Threading.Tasks.Task<CirrusResponse> CurrentAsync(System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/api/Federation/members/current");
@@ -2663,7 +2665,7 @@ namespace Cobra.Api.Node.Cirrus
                         var status_ = (int)response_.StatusCode;
                         if (status_ == 200)
                         {
-                            return;
+                            return new CirrusResponse(status_, headers_);
                         }
                         else
                         if (status_ == 400)
@@ -2693,7 +2695,7 @@ namespace Cobra.Api.Node.Cirrus
 
         /// <returns>Success</returns>
         /// <exception cref="CirrusApiException">A server side error occurred.</exception>
-        public virtual System.Threading.Tasks.Task MembersAsync()
+        public virtual System.Threading.Tasks.Task<CirrusResponse> MembersAsync()
         {
             return MembersAsync(System.Threading.CancellationToken.None);
         }
@@ -2701,7 +2703,7 @@ namespace Cobra.Api.Node.Cirrus
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Success</returns>
         /// <exception cref="CirrusApiException">A server side error occurred.</exception>
-        public virtual async System.Threading.Tasks.Task MembersAsync(System.Threading.CancellationToken cancellationToken)
+        public virtual async System.Threading.Tasks.Task<CirrusResponse> MembersAsync(System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/api/Federation/members");
@@ -2737,7 +2739,7 @@ namespace Cobra.Api.Node.Cirrus
                         var status_ = (int)response_.StatusCode;
                         if (status_ == 200)
                         {
-                            return;
+                            return new CirrusResponse(status_, headers_);
                         }
                         else
                         if (status_ == 400)
@@ -2767,7 +2769,7 @@ namespace Cobra.Api.Node.Cirrus
 
         /// <returns>Success</returns>
         /// <exception cref="CirrusApiException">A server side error occurred.</exception>
-        public virtual System.Threading.Tasks.Task MineratheightAsync(int? blockHeight)
+        public virtual System.Threading.Tasks.Task<CirrusResponse> MineratheightAsync(int? blockHeight)
         {
             return MineratheightAsync(blockHeight, System.Threading.CancellationToken.None);
         }
@@ -2775,7 +2777,7 @@ namespace Cobra.Api.Node.Cirrus
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Success</returns>
         /// <exception cref="CirrusApiException">A server side error occurred.</exception>
-        public virtual async System.Threading.Tasks.Task MineratheightAsync(int? blockHeight, System.Threading.CancellationToken cancellationToken)
+        public virtual async System.Threading.Tasks.Task<CirrusResponse> MineratheightAsync(int? blockHeight, System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/api/Federation/mineratheight?");
@@ -2816,7 +2818,7 @@ namespace Cobra.Api.Node.Cirrus
                         var status_ = (int)response_.StatusCode;
                         if (status_ == 200)
                         {
-                            return;
+                            return new CirrusResponse(status_, headers_);
                         }
                         else
                         if (status_ == 400)
@@ -2846,7 +2848,7 @@ namespace Cobra.Api.Node.Cirrus
 
         /// <returns>Success</returns>
         /// <exception cref="CirrusApiException">A server side error occurred.</exception>
-        public virtual System.Threading.Tasks.Task FederationatheightAsync(int? blockHeight)
+        public virtual System.Threading.Tasks.Task<CirrusResponse> FederationatheightAsync(int? blockHeight)
         {
             return FederationatheightAsync(blockHeight, System.Threading.CancellationToken.None);
         }
@@ -2854,7 +2856,7 @@ namespace Cobra.Api.Node.Cirrus
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Success</returns>
         /// <exception cref="CirrusApiException">A server side error occurred.</exception>
-        public virtual async System.Threading.Tasks.Task FederationatheightAsync(int? blockHeight, System.Threading.CancellationToken cancellationToken)
+        public virtual async System.Threading.Tasks.Task<CirrusResponse> FederationatheightAsync(int? blockHeight, System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/api/Federation/federationatheight?");
@@ -2895,7 +2897,7 @@ namespace Cobra.Api.Node.Cirrus
                         var status_ = (int)response_.StatusCode;
                         if (status_ == 200)
                         {
-                            return;
+                            return new CirrusResponse(status_, headers_);
                         }
                         else
                         if (status_ == 400)
@@ -2925,7 +2927,7 @@ namespace Cobra.Api.Node.Cirrus
 
         /// <returns>Success</returns>
         /// <exception cref="CirrusApiException">A server side error occurred.</exception>
-        public virtual System.Threading.Tasks.Task GetrawmempoolAsync()
+        public virtual System.Threading.Tasks.Task<CirrusResponse> GetrawmempoolAsync()
         {
             return GetrawmempoolAsync(System.Threading.CancellationToken.None);
         }
@@ -2933,7 +2935,7 @@ namespace Cobra.Api.Node.Cirrus
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Success</returns>
         /// <exception cref="CirrusApiException">A server side error occurred.</exception>
-        public virtual async System.Threading.Tasks.Task GetrawmempoolAsync(System.Threading.CancellationToken cancellationToken)
+        public virtual async System.Threading.Tasks.Task<CirrusResponse> GetrawmempoolAsync(System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/api/Mempool/getrawmempool");
@@ -2969,7 +2971,7 @@ namespace Cobra.Api.Node.Cirrus
                         var status_ = (int)response_.StatusCode;
                         if (status_ == 200)
                         {
-                            return;
+                            return new CirrusResponse(status_, headers_);
                         }
                         else
                         if (status_ == 400)
@@ -2999,7 +3001,7 @@ namespace Cobra.Api.Node.Cirrus
 
         /// <returns>Success</returns>
         /// <exception cref="CirrusApiException">A server side error occurred.</exception>
-        public virtual System.Threading.Tasks.Task DisconnectAsync(DisconnectPeerViewModel body)
+        public virtual System.Threading.Tasks.Task<CirrusResponse> DisconnectAsync(DisconnectPeerViewModel? body)
         {
             return DisconnectAsync(body, System.Threading.CancellationToken.None);
         }
@@ -3007,7 +3009,7 @@ namespace Cobra.Api.Node.Cirrus
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Success</returns>
         /// <exception cref="CirrusApiException">A server side error occurred.</exception>
-        public virtual async System.Threading.Tasks.Task DisconnectAsync(DisconnectPeerViewModel body, System.Threading.CancellationToken cancellationToken)
+        public virtual async System.Threading.Tasks.Task<CirrusResponse> DisconnectAsync(DisconnectPeerViewModel? body, System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/api/Network/disconnect");
@@ -3047,7 +3049,7 @@ namespace Cobra.Api.Node.Cirrus
                         var status_ = (int)response_.StatusCode;
                         if (status_ == 200)
                         {
-                            return;
+                            return new CirrusResponse(status_, headers_);
                         }
                         else
                         if (status_ == 400)
@@ -3077,7 +3079,7 @@ namespace Cobra.Api.Node.Cirrus
 
         /// <returns>Success</returns>
         /// <exception cref="CirrusApiException">A server side error occurred.</exception>
-        public virtual System.Threading.Tasks.Task SetbanAsync(SetBanPeerViewModel body)
+        public virtual System.Threading.Tasks.Task<CirrusResponse> SetbanAsync(SetBanPeerViewModel? body)
         {
             return SetbanAsync(body, System.Threading.CancellationToken.None);
         }
@@ -3085,7 +3087,7 @@ namespace Cobra.Api.Node.Cirrus
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Success</returns>
         /// <exception cref="CirrusApiException">A server side error occurred.</exception>
-        public virtual async System.Threading.Tasks.Task SetbanAsync(SetBanPeerViewModel body, System.Threading.CancellationToken cancellationToken)
+        public virtual async System.Threading.Tasks.Task<CirrusResponse> SetbanAsync(SetBanPeerViewModel? body, System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/api/Network/setban");
@@ -3125,7 +3127,7 @@ namespace Cobra.Api.Node.Cirrus
                         var status_ = (int)response_.StatusCode;
                         if (status_ == 200)
                         {
-                            return;
+                            return new CirrusResponse(status_, headers_);
                         }
                         else
                         if (status_ == 400)
@@ -3155,7 +3157,7 @@ namespace Cobra.Api.Node.Cirrus
 
         /// <returns>Success</returns>
         /// <exception cref="CirrusApiException">A server side error occurred.</exception>
-        public virtual System.Threading.Tasks.Task GetbansAsync()
+        public virtual System.Threading.Tasks.Task<CirrusResponse> GetbansAsync()
         {
             return GetbansAsync(System.Threading.CancellationToken.None);
         }
@@ -3163,7 +3165,7 @@ namespace Cobra.Api.Node.Cirrus
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Success</returns>
         /// <exception cref="CirrusApiException">A server side error occurred.</exception>
-        public virtual async System.Threading.Tasks.Task GetbansAsync(System.Threading.CancellationToken cancellationToken)
+        public virtual async System.Threading.Tasks.Task<CirrusResponse> GetbansAsync(System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/api/Network/getbans");
@@ -3199,7 +3201,7 @@ namespace Cobra.Api.Node.Cirrus
                         var status_ = (int)response_.StatusCode;
                         if (status_ == 200)
                         {
-                            return;
+                            return new CirrusResponse(status_, headers_);
                         }
                         else
                         if (status_ == 400)
@@ -3229,7 +3231,7 @@ namespace Cobra.Api.Node.Cirrus
 
         /// <returns>Success</returns>
         /// <exception cref="CirrusApiException">A server side error occurred.</exception>
-        public virtual System.Threading.Tasks.Task ClearbannedAsync(bool? body)
+        public virtual System.Threading.Tasks.Task<CirrusResponse> ClearbannedAsync(bool? body)
         {
             return ClearbannedAsync(body, System.Threading.CancellationToken.None);
         }
@@ -3237,7 +3239,7 @@ namespace Cobra.Api.Node.Cirrus
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Success</returns>
         /// <exception cref="CirrusApiException">A server side error occurred.</exception>
-        public virtual async System.Threading.Tasks.Task ClearbannedAsync(bool? body, System.Threading.CancellationToken cancellationToken)
+        public virtual async System.Threading.Tasks.Task<CirrusResponse> ClearbannedAsync(bool? body, System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/api/Network/clearbanned");
@@ -3277,7 +3279,7 @@ namespace Cobra.Api.Node.Cirrus
                         var status_ = (int)response_.StatusCode;
                         if (status_ == 200)
                         {
-                            return;
+                            return new CirrusResponse(status_, headers_);
                         }
                         else
                         if (status_ == 400)
@@ -3307,7 +3309,7 @@ namespace Cobra.Api.Node.Cirrus
 
         /// <returns>Success</returns>
         /// <exception cref="CirrusApiException">A server side error occurred.</exception>
-        public virtual System.Threading.Tasks.Task StatusAsync(bool? publish)
+        public virtual System.Threading.Tasks.Task<CirrusResponse> StatusAsync(bool? publish)
         {
             return StatusAsync(publish, System.Threading.CancellationToken.None);
         }
@@ -3315,7 +3317,7 @@ namespace Cobra.Api.Node.Cirrus
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Success</returns>
         /// <exception cref="CirrusApiException">A server side error occurred.</exception>
-        public virtual async System.Threading.Tasks.Task StatusAsync(bool? publish, System.Threading.CancellationToken cancellationToken)
+        public virtual async System.Threading.Tasks.Task<CirrusResponse> StatusAsync(bool? publish, System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/api/Node/status?");
@@ -3356,7 +3358,7 @@ namespace Cobra.Api.Node.Cirrus
                         var status_ = (int)response_.StatusCode;
                         if (status_ == 200)
                         {
-                            return;
+                            return new CirrusResponse(status_, headers_);
                         }
                         else
                         {
@@ -3380,7 +3382,7 @@ namespace Cobra.Api.Node.Cirrus
 
         /// <returns>Success</returns>
         /// <exception cref="CirrusApiException">A server side error occurred.</exception>
-        public virtual System.Threading.Tasks.Task GetblockheaderAsync(string hash, bool? isJsonFormat)
+        public virtual System.Threading.Tasks.Task<CirrusResponse> GetblockheaderAsync(string? hash, bool? isJsonFormat)
         {
             return GetblockheaderAsync(hash, isJsonFormat, System.Threading.CancellationToken.None);
         }
@@ -3388,7 +3390,7 @@ namespace Cobra.Api.Node.Cirrus
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Success</returns>
         /// <exception cref="CirrusApiException">A server side error occurred.</exception>
-        public virtual async System.Threading.Tasks.Task GetblockheaderAsync(string hash, bool? isJsonFormat, System.Threading.CancellationToken cancellationToken)
+        public virtual async System.Threading.Tasks.Task<CirrusResponse> GetblockheaderAsync(string? hash, bool? isJsonFormat, System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/api/Node/getblockheader?");
@@ -3433,7 +3435,7 @@ namespace Cobra.Api.Node.Cirrus
                         var status_ = (int)response_.StatusCode;
                         if (status_ == 200)
                         {
-                            return;
+                            return new CirrusResponse(status_, headers_);
                         }
                         else
                         if (status_ == 400)
@@ -3469,7 +3471,7 @@ namespace Cobra.Api.Node.Cirrus
 
         /// <returns>Success</returns>
         /// <exception cref="CirrusApiException">A server side error occurred.</exception>
-        public virtual System.Threading.Tasks.Task GetrawtransactionAsync(string trxid, bool? verbose)
+        public virtual System.Threading.Tasks.Task<CirrusResponse> GetrawtransactionAsync(string? trxid, bool? verbose)
         {
             return GetrawtransactionAsync(trxid, verbose, System.Threading.CancellationToken.None);
         }
@@ -3477,7 +3479,7 @@ namespace Cobra.Api.Node.Cirrus
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Success</returns>
         /// <exception cref="CirrusApiException">A server side error occurred.</exception>
-        public virtual async System.Threading.Tasks.Task GetrawtransactionAsync(string trxid, bool? verbose, System.Threading.CancellationToken cancellationToken)
+        public virtual async System.Threading.Tasks.Task<CirrusResponse> GetrawtransactionAsync(string? trxid, bool? verbose, System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/api/Node/getrawtransaction?");
@@ -3522,7 +3524,7 @@ namespace Cobra.Api.Node.Cirrus
                         var status_ = (int)response_.StatusCode;
                         if (status_ == 200)
                         {
-                            return;
+                            return new CirrusResponse(status_, headers_);
                         }
                         else
                         {
@@ -3546,7 +3548,7 @@ namespace Cobra.Api.Node.Cirrus
 
         /// <returns>Success</returns>
         /// <exception cref="CirrusApiException">A server side error occurred.</exception>
-        public virtual System.Threading.Tasks.Task DecoderawtransactionAsync(DecodeRawTransactionModel body)
+        public virtual System.Threading.Tasks.Task<CirrusResponse> DecoderawtransactionAsync(DecodeRawTransactionModel? body)
         {
             return DecoderawtransactionAsync(body, System.Threading.CancellationToken.None);
         }
@@ -3554,7 +3556,7 @@ namespace Cobra.Api.Node.Cirrus
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Success</returns>
         /// <exception cref="CirrusApiException">A server side error occurred.</exception>
-        public virtual async System.Threading.Tasks.Task DecoderawtransactionAsync(DecodeRawTransactionModel body, System.Threading.CancellationToken cancellationToken)
+        public virtual async System.Threading.Tasks.Task<CirrusResponse> DecoderawtransactionAsync(DecodeRawTransactionModel? body, System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/api/Node/decoderawtransaction");
@@ -3594,7 +3596,7 @@ namespace Cobra.Api.Node.Cirrus
                         var status_ = (int)response_.StatusCode;
                         if (status_ == 200)
                         {
-                            return;
+                            return new CirrusResponse(status_, headers_);
                         }
                         else
                         {
@@ -3618,7 +3620,7 @@ namespace Cobra.Api.Node.Cirrus
 
         /// <returns>Success</returns>
         /// <exception cref="CirrusApiException">A server side error occurred.</exception>
-        public virtual System.Threading.Tasks.Task ValidateaddressAsync(string address)
+        public virtual System.Threading.Tasks.Task<CirrusResponse> ValidateaddressAsync(string? address)
         {
             return ValidateaddressAsync(address, System.Threading.CancellationToken.None);
         }
@@ -3626,7 +3628,7 @@ namespace Cobra.Api.Node.Cirrus
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Success</returns>
         /// <exception cref="CirrusApiException">A server side error occurred.</exception>
-        public virtual async System.Threading.Tasks.Task ValidateaddressAsync(string address, System.Threading.CancellationToken cancellationToken)
+        public virtual async System.Threading.Tasks.Task<CirrusResponse> ValidateaddressAsync(string? address, System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/api/Node/validateaddress?");
@@ -3667,7 +3669,7 @@ namespace Cobra.Api.Node.Cirrus
                         var status_ = (int)response_.StatusCode;
                         if (status_ == 200)
                         {
-                            return;
+                            return new CirrusResponse(status_, headers_);
                         }
                         else
                         {
@@ -3691,7 +3693,7 @@ namespace Cobra.Api.Node.Cirrus
 
         /// <returns>Success</returns>
         /// <exception cref="CirrusApiException">A server side error occurred.</exception>
-        public virtual System.Threading.Tasks.Task GettxoutAsync(string trxid, int? vout, bool? includeMemPool)
+        public virtual System.Threading.Tasks.Task<CirrusResponse> GettxoutAsync(string? trxid, int? vout, bool? includeMemPool)
         {
             return GettxoutAsync(trxid, vout, includeMemPool, System.Threading.CancellationToken.None);
         }
@@ -3699,7 +3701,7 @@ namespace Cobra.Api.Node.Cirrus
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Success</returns>
         /// <exception cref="CirrusApiException">A server side error occurred.</exception>
-        public virtual async System.Threading.Tasks.Task GettxoutAsync(string trxid, int? vout, bool? includeMemPool, System.Threading.CancellationToken cancellationToken)
+        public virtual async System.Threading.Tasks.Task<CirrusResponse> GettxoutAsync(string? trxid, int? vout, bool? includeMemPool, System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/api/Node/gettxout?");
@@ -3748,7 +3750,7 @@ namespace Cobra.Api.Node.Cirrus
                         var status_ = (int)response_.StatusCode;
                         if (status_ == 200)
                         {
-                            return;
+                            return new CirrusResponse(status_, headers_);
                         }
                         else
                         {
@@ -3772,7 +3774,7 @@ namespace Cobra.Api.Node.Cirrus
 
         /// <returns>Success</returns>
         /// <exception cref="CirrusApiException">A server side error occurred.</exception>
-        public virtual System.Threading.Tasks.Task GettxoutproofAsync(System.Collections.Generic.IEnumerable<string> txids, string blockhash)
+        public virtual System.Threading.Tasks.Task<CirrusResponse> GettxoutproofAsync(System.Collections.Generic.IEnumerable<string>? txids, string? blockhash)
         {
             return GettxoutproofAsync(txids, blockhash, System.Threading.CancellationToken.None);
         }
@@ -3780,7 +3782,7 @@ namespace Cobra.Api.Node.Cirrus
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Success</returns>
         /// <exception cref="CirrusApiException">A server side error occurred.</exception>
-        public virtual async System.Threading.Tasks.Task GettxoutproofAsync(System.Collections.Generic.IEnumerable<string> txids, string blockhash, System.Threading.CancellationToken cancellationToken)
+        public virtual async System.Threading.Tasks.Task<CirrusResponse> GettxoutproofAsync(System.Collections.Generic.IEnumerable<string>? txids, string? blockhash, System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/api/Node/gettxoutproof?");
@@ -3825,7 +3827,7 @@ namespace Cobra.Api.Node.Cirrus
                         var status_ = (int)response_.StatusCode;
                         if (status_ == 200)
                         {
-                            return;
+                            return new CirrusResponse(status_, headers_);
                         }
                         else
                         {
@@ -3849,7 +3851,7 @@ namespace Cobra.Api.Node.Cirrus
 
         /// <returns>Success</returns>
         /// <exception cref="CirrusApiException">A server side error occurred.</exception>
-        public virtual System.Threading.Tasks.Task ShutdownAsync(bool? body)
+        public virtual System.Threading.Tasks.Task<CirrusResponse> ShutdownAsync(bool? body)
         {
             return ShutdownAsync(body, System.Threading.CancellationToken.None);
         }
@@ -3857,7 +3859,7 @@ namespace Cobra.Api.Node.Cirrus
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Success</returns>
         /// <exception cref="CirrusApiException">A server side error occurred.</exception>
-        public virtual async System.Threading.Tasks.Task ShutdownAsync(bool? body, System.Threading.CancellationToken cancellationToken)
+        public virtual async System.Threading.Tasks.Task<CirrusResponse> ShutdownAsync(bool? body, System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/api/Node/shutdown");
@@ -3897,7 +3899,7 @@ namespace Cobra.Api.Node.Cirrus
                         var status_ = (int)response_.StatusCode;
                         if (status_ == 200)
                         {
-                            return;
+                            return new CirrusResponse(status_, headers_);
                         }
                         else
                         {
@@ -3921,7 +3923,7 @@ namespace Cobra.Api.Node.Cirrus
 
         /// <returns>Success</returns>
         /// <exception cref="CirrusApiException">A server side error occurred.</exception>
-        public virtual System.Threading.Tasks.Task StopAsync(bool? body)
+        public virtual System.Threading.Tasks.Task<CirrusResponse> StopAsync(bool? body)
         {
             return StopAsync(body, System.Threading.CancellationToken.None);
         }
@@ -3929,7 +3931,7 @@ namespace Cobra.Api.Node.Cirrus
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Success</returns>
         /// <exception cref="CirrusApiException">A server side error occurred.</exception>
-        public virtual async System.Threading.Tasks.Task StopAsync(bool? body, System.Threading.CancellationToken cancellationToken)
+        public virtual async System.Threading.Tasks.Task<CirrusResponse> StopAsync(bool? body, System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/api/Node/stop");
@@ -3969,7 +3971,7 @@ namespace Cobra.Api.Node.Cirrus
                         var status_ = (int)response_.StatusCode;
                         if (status_ == 200)
                         {
-                            return;
+                            return new CirrusResponse(status_, headers_);
                         }
                         else
                         {
@@ -3993,7 +3995,7 @@ namespace Cobra.Api.Node.Cirrus
 
         /// <returns>Success</returns>
         /// <exception cref="CirrusApiException">A server side error occurred.</exception>
-        public virtual System.Threading.Tasks.Task RewindAsync(int? height)
+        public virtual System.Threading.Tasks.Task<CirrusResponse> RewindAsync(int? height)
         {
             return RewindAsync(height, System.Threading.CancellationToken.None);
         }
@@ -4001,7 +4003,7 @@ namespace Cobra.Api.Node.Cirrus
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Success</returns>
         /// <exception cref="CirrusApiException">A server side error occurred.</exception>
-        public virtual async System.Threading.Tasks.Task RewindAsync(int? height, System.Threading.CancellationToken cancellationToken)
+        public virtual async System.Threading.Tasks.Task<CirrusResponse> RewindAsync(int? height, System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/api/Node/rewind?");
@@ -4043,7 +4045,7 @@ namespace Cobra.Api.Node.Cirrus
                         var status_ = (int)response_.StatusCode;
                         if (status_ == 200)
                         {
-                            return;
+                            return new CirrusResponse(status_, headers_);
                         }
                         else
                         if (status_ == 400)
@@ -4073,7 +4075,7 @@ namespace Cobra.Api.Node.Cirrus
 
         /// <returns>Success</returns>
         /// <exception cref="CirrusApiException">A server side error occurred.</exception>
-        public virtual System.Threading.Tasks.Task LoglevelsAsync(LogRulesRequest body)
+        public virtual System.Threading.Tasks.Task<CirrusResponse> LoglevelsAsync(LogRulesRequest? body)
         {
             return LoglevelsAsync(body, System.Threading.CancellationToken.None);
         }
@@ -4081,7 +4083,7 @@ namespace Cobra.Api.Node.Cirrus
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Success</returns>
         /// <exception cref="CirrusApiException">A server side error occurred.</exception>
-        public virtual async System.Threading.Tasks.Task LoglevelsAsync(LogRulesRequest body, System.Threading.CancellationToken cancellationToken)
+        public virtual async System.Threading.Tasks.Task<CirrusResponse> LoglevelsAsync(LogRulesRequest? body, System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/api/Node/loglevels");
@@ -4121,7 +4123,7 @@ namespace Cobra.Api.Node.Cirrus
                         var status_ = (int)response_.StatusCode;
                         if (status_ == 200)
                         {
-                            return;
+                            return new CirrusResponse(status_, headers_);
                         }
                         else
                         {
@@ -4145,7 +4147,7 @@ namespace Cobra.Api.Node.Cirrus
 
         /// <returns>Success</returns>
         /// <exception cref="CirrusApiException">A server side error occurred.</exception>
-        public virtual System.Threading.Tasks.Task LogrulesAsync()
+        public virtual System.Threading.Tasks.Task<CirrusResponse> LogrulesAsync()
         {
             return LogrulesAsync(System.Threading.CancellationToken.None);
         }
@@ -4153,7 +4155,7 @@ namespace Cobra.Api.Node.Cirrus
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Success</returns>
         /// <exception cref="CirrusApiException">A server side error occurred.</exception>
-        public virtual async System.Threading.Tasks.Task LogrulesAsync(System.Threading.CancellationToken cancellationToken)
+        public virtual async System.Threading.Tasks.Task<CirrusResponse> LogrulesAsync(System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/api/Node/logrules");
@@ -4189,7 +4191,7 @@ namespace Cobra.Api.Node.Cirrus
                         var status_ = (int)response_.StatusCode;
                         if (status_ == 200)
                         {
-                            return;
+                            return new CirrusResponse(status_, headers_);
                         }
                         else
                         {
@@ -4213,7 +4215,7 @@ namespace Cobra.Api.Node.Cirrus
 
         /// <returns>Success</returns>
         /// <exception cref="CirrusApiException">A server side error occurred.</exception>
-        public virtual System.Threading.Tasks.Task AsyncloopsAsync()
+        public virtual System.Threading.Tasks.Task<CirrusResponse> AsyncloopsAsync()
         {
             return AsyncloopsAsync(System.Threading.CancellationToken.None);
         }
@@ -4221,7 +4223,7 @@ namespace Cobra.Api.Node.Cirrus
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Success</returns>
         /// <exception cref="CirrusApiException">A server side error occurred.</exception>
-        public virtual async System.Threading.Tasks.Task AsyncloopsAsync(System.Threading.CancellationToken cancellationToken)
+        public virtual async System.Threading.Tasks.Task<CirrusResponse> AsyncloopsAsync(System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/api/Node/asyncloops");
@@ -4257,7 +4259,7 @@ namespace Cobra.Api.Node.Cirrus
                         var status_ = (int)response_.StatusCode;
                         if (status_ == 200)
                         {
-                            return;
+                            return new CirrusResponse(status_, headers_);
                         }
                         else
                         {
@@ -4281,7 +4283,7 @@ namespace Cobra.Api.Node.Cirrus
 
         /// <returns>Success</returns>
         /// <exception cref="CirrusApiException">A server side error occurred.</exception>
-        public virtual System.Threading.Tasks.Task ChainAsync()
+        public virtual System.Threading.Tasks.Task<CirrusResponse> ChainAsync()
         {
             return ChainAsync(System.Threading.CancellationToken.None);
         }
@@ -4289,7 +4291,7 @@ namespace Cobra.Api.Node.Cirrus
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Success</returns>
         /// <exception cref="CirrusApiException">A server side error occurred.</exception>
-        public virtual async System.Threading.Tasks.Task ChainAsync(System.Threading.CancellationToken cancellationToken)
+        public virtual async System.Threading.Tasks.Task<CirrusResponse> ChainAsync(System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/api/Node/datafolder/chain");
@@ -4325,7 +4327,7 @@ namespace Cobra.Api.Node.Cirrus
                         var status_ = (int)response_.StatusCode;
                         if (status_ == 200)
                         {
-                            return;
+                            return new CirrusResponse(status_, headers_);
                         }
                         else
                         {
@@ -4349,7 +4351,7 @@ namespace Cobra.Api.Node.Cirrus
 
         /// <returns>Success</returns>
         /// <exception cref="CirrusApiException">A server side error occurred.</exception>
-        public virtual System.Threading.Tasks.Task CallbynameAsync(object body)
+        public virtual System.Threading.Tasks.Task<CirrusResponse> CallbynameAsync(object? body)
         {
             return CallbynameAsync(body, System.Threading.CancellationToken.None);
         }
@@ -4357,7 +4359,7 @@ namespace Cobra.Api.Node.Cirrus
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Success</returns>
         /// <exception cref="CirrusApiException">A server side error occurred.</exception>
-        public virtual async System.Threading.Tasks.Task CallbynameAsync(object body, System.Threading.CancellationToken cancellationToken)
+        public virtual async System.Threading.Tasks.Task<CirrusResponse> CallbynameAsync(object? body, System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/api/RPC/callbyname");
@@ -4397,7 +4399,7 @@ namespace Cobra.Api.Node.Cirrus
                         var status_ = (int)response_.StatusCode;
                         if (status_ == 200)
                         {
-                            return;
+                            return new CirrusResponse(status_, headers_);
                         }
                         else
                         if (status_ == 400)
@@ -4439,7 +4441,7 @@ namespace Cobra.Api.Node.Cirrus
 
         /// <returns>Success</returns>
         /// <exception cref="CirrusApiException">A server side error occurred.</exception>
-        public virtual System.Threading.Tasks.Task ListmethodsAsync()
+        public virtual System.Threading.Tasks.Task<CirrusResponse> ListmethodsAsync()
         {
             return ListmethodsAsync(System.Threading.CancellationToken.None);
         }
@@ -4447,7 +4449,7 @@ namespace Cobra.Api.Node.Cirrus
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Success</returns>
         /// <exception cref="CirrusApiException">A server side error occurred.</exception>
-        public virtual async System.Threading.Tasks.Task ListmethodsAsync(System.Threading.CancellationToken cancellationToken)
+        public virtual async System.Threading.Tasks.Task<CirrusResponse> ListmethodsAsync(System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/api/RPC/listmethods");
@@ -4483,7 +4485,7 @@ namespace Cobra.Api.Node.Cirrus
                         var status_ = (int)response_.StatusCode;
                         if (status_ == 200)
                         {
-                            return;
+                            return new CirrusResponse(status_, headers_);
                         }
                         else
                         if (status_ == 400)
@@ -4519,7 +4521,7 @@ namespace Cobra.Api.Node.Cirrus
 
         /// <returns>Success</returns>
         /// <exception cref="CirrusApiException">A server side error occurred.</exception>
-        public virtual System.Threading.Tasks.Task GetConnectionInfoAsync()
+        public virtual System.Threading.Tasks.Task<CirrusResponse> GetConnectionInfoAsync()
         {
             return GetConnectionInfoAsync(System.Threading.CancellationToken.None);
         }
@@ -4527,7 +4529,7 @@ namespace Cobra.Api.Node.Cirrus
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Success</returns>
         /// <exception cref="CirrusApiException">A server side error occurred.</exception>
-        public virtual async System.Threading.Tasks.Task GetConnectionInfoAsync(System.Threading.CancellationToken cancellationToken)
+        public virtual async System.Threading.Tasks.Task<CirrusResponse> GetConnectionInfoAsync(System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/api/SignalR/getConnectionInfo");
@@ -4563,7 +4565,7 @@ namespace Cobra.Api.Node.Cirrus
                         var status_ = (int)response_.StatusCode;
                         if (status_ == 200)
                         {
-                            return;
+                            return new CirrusResponse(status_, headers_);
                         }
                         else
                         {
@@ -4593,7 +4595,7 @@ namespace Cobra.Api.Node.Cirrus
         /// <param name="address">The address of the smart contract to retrieve as bytecode and C# source.</param>
         /// <returns>Returns code response (may be unsuccessful)</returns>
         /// <exception cref="CirrusApiException">A server side error occurred.</exception>
-        public virtual System.Threading.Tasks.Task CodeAsync(string address)
+        public virtual System.Threading.Tasks.Task<CirrusResponse> CodeAsync(string? address)
         {
             return CodeAsync(address, System.Threading.CancellationToken.None);
         }
@@ -4607,7 +4609,7 @@ namespace Cobra.Api.Node.Cirrus
         /// <param name="address">The address of the smart contract to retrieve as bytecode and C# source.</param>
         /// <returns>Returns code response (may be unsuccessful)</returns>
         /// <exception cref="CirrusApiException">A server side error occurred.</exception>
-        public virtual async System.Threading.Tasks.Task CodeAsync(string address, System.Threading.CancellationToken cancellationToken)
+        public virtual async System.Threading.Tasks.Task<CirrusResponse> CodeAsync(string? address, System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/api/SmartContracts/code?");
@@ -4648,7 +4650,7 @@ namespace Cobra.Api.Node.Cirrus
                         var status_ = (int)response_.StatusCode;
                         if (status_ == 200)
                         {
-                            return;
+                            return new CirrusResponse(status_, headers_);
                         }
                         else
                         {
@@ -4676,7 +4678,7 @@ namespace Cobra.Api.Node.Cirrus
         /// <param name="address">The address of the smart contract to retrieve the balance for.</param>
         /// <returns>Returns balance</returns>
         /// <exception cref="CirrusApiException">A server side error occurred.</exception>
-        public virtual System.Threading.Tasks.Task BalanceAsync(string address)
+        public virtual System.Threading.Tasks.Task<CirrusResponse> BalanceAsync(string? address)
         {
             return BalanceAsync(address, System.Threading.CancellationToken.None);
         }
@@ -4688,7 +4690,7 @@ namespace Cobra.Api.Node.Cirrus
         /// <param name="address">The address of the smart contract to retrieve the balance for.</param>
         /// <returns>Returns balance</returns>
         /// <exception cref="CirrusApiException">A server side error occurred.</exception>
-        public virtual async System.Threading.Tasks.Task BalanceAsync(string address, System.Threading.CancellationToken cancellationToken)
+        public virtual async System.Threading.Tasks.Task<CirrusResponse> BalanceAsync(string? address, System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/api/SmartContracts/balance?");
@@ -4729,7 +4731,7 @@ namespace Cobra.Api.Node.Cirrus
                         var status_ = (int)response_.StatusCode;
                         if (status_ == 200)
                         {
-                            return;
+                            return new CirrusResponse(status_, headers_);
                         }
                         else
                         {
@@ -4766,7 +4768,7 @@ namespace Cobra.Api.Node.Cirrus
         /// <param name="dataType">The stored data type.</param>
         /// <returns>Returns data response (may be unsuccessful)</returns>
         /// <exception cref="CirrusApiException">A server side error occurred.</exception>
-        public virtual System.Threading.Tasks.Task StorageAsync(long? blockHeight, string contractAddress, string storageKey, MethodParameterDataType dataType)
+        public virtual System.Threading.Tasks.Task<CirrusResponse> StorageAsync(long? blockHeight, string contractAddress, string storageKey, MethodParameterDataType dataType)
         {
             return StorageAsync(blockHeight, contractAddress, storageKey, dataType, System.Threading.CancellationToken.None);
         }
@@ -4787,7 +4789,7 @@ namespace Cobra.Api.Node.Cirrus
         /// <param name="dataType">The stored data type.</param>
         /// <returns>Returns data response (may be unsuccessful)</returns>
         /// <exception cref="CirrusApiException">A server side error occurred.</exception>
-        public virtual async System.Threading.Tasks.Task StorageAsync(long? blockHeight, string contractAddress, string storageKey, MethodParameterDataType dataType, System.Threading.CancellationToken cancellationToken)
+        public virtual async System.Threading.Tasks.Task<CirrusResponse> StorageAsync(long? blockHeight, string contractAddress, string storageKey, MethodParameterDataType dataType, System.Threading.CancellationToken cancellationToken)
         {
             if (contractAddress == null)
                 throw new System.ArgumentNullException("contractAddress");
@@ -4840,7 +4842,7 @@ namespace Cobra.Api.Node.Cirrus
                         var status_ = (int)response_.StatusCode;
                         if (status_ == 200)
                         {
-                            return;
+                            return new CirrusResponse(status_, headers_);
                         }
                         else
                         if (status_ == 400)
@@ -4875,7 +4877,7 @@ namespace Cobra.Api.Node.Cirrus
         /// <param name="txHash">A hash of the smart contract transaction (the transaction ID).</param>
         /// <returns>Returns transaction receipt</returns>
         /// <exception cref="CirrusApiException">A server side error occurred.</exception>
-        public virtual System.Threading.Tasks.Task ReceiptAsync(string txHash)
+        public virtual System.Threading.Tasks.Task<CirrusResponse> ReceiptAsync(string? txHash)
         {
             return ReceiptAsync(txHash, System.Threading.CancellationToken.None);
         }
@@ -4888,7 +4890,7 @@ namespace Cobra.Api.Node.Cirrus
         /// <param name="txHash">A hash of the smart contract transaction (the transaction ID).</param>
         /// <returns>Returns transaction receipt</returns>
         /// <exception cref="CirrusApiException">A server side error occurred.</exception>
-        public virtual async System.Threading.Tasks.Task ReceiptAsync(string txHash, System.Threading.CancellationToken cancellationToken)
+        public virtual async System.Threading.Tasks.Task<CirrusResponse> ReceiptAsync(string? txHash, System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/api/SmartContracts/receipt?");
@@ -4929,7 +4931,7 @@ namespace Cobra.Api.Node.Cirrus
                         var status_ = (int)response_.StatusCode;
                         if (status_ == 200)
                         {
-                            return;
+                            return new CirrusResponse(status_, headers_);
                         }
                         else
                         if (status_ == 400)
@@ -4973,7 +4975,7 @@ namespace Cobra.Api.Node.Cirrus
         /// <param name="toBlock">The block number where searching finishes.</param>
         /// <returns>Success</returns>
         /// <exception cref="CirrusApiException">A server side error occurred.</exception>
-        public virtual System.Threading.Tasks.Task ReceiptSearchAsync(string contractAddress, string eventName, System.Collections.Generic.IEnumerable<string> topics, int? fromBlock, int? toBlock)
+        public virtual System.Threading.Tasks.Task<CirrusResponse> ReceiptSearchAsync(string? contractAddress, string? eventName, System.Collections.Generic.IEnumerable<string>? topics, int? fromBlock, int? toBlock)
         {
             return ReceiptSearchAsync(contractAddress, eventName, topics, fromBlock, toBlock, System.Threading.CancellationToken.None);
         }
@@ -4995,7 +4997,7 @@ namespace Cobra.Api.Node.Cirrus
         /// <param name="toBlock">The block number where searching finishes.</param>
         /// <returns>Success</returns>
         /// <exception cref="CirrusApiException">A server side error occurred.</exception>
-        public virtual async System.Threading.Tasks.Task ReceiptSearchAsync(string contractAddress, string eventName, System.Collections.Generic.IEnumerable<string> topics, int? fromBlock, int? toBlock, System.Threading.CancellationToken cancellationToken)
+        public virtual async System.Threading.Tasks.Task<CirrusResponse> ReceiptSearchAsync(string? contractAddress, string? eventName, System.Collections.Generic.IEnumerable<string>? topics, int? fromBlock, int? toBlock, System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/api/SmartContracts/receipt-search?");
@@ -5052,7 +5054,7 @@ namespace Cobra.Api.Node.Cirrus
                         var status_ = (int)response_.StatusCode;
                         if (status_ == 200)
                         {
-                            return;
+                            return new CirrusResponse(status_, headers_);
                         }
                         else
                         {
@@ -5085,7 +5087,7 @@ namespace Cobra.Api.Node.Cirrus
         /// <param name="body">An object containing the necessary parameters to build the transaction.</param>
         /// <returns>Returns create contract response</returns>
         /// <exception cref="CirrusApiException">A server side error occurred.</exception>
-        public virtual System.Threading.Tasks.Task BuildCreateAsync(BuildCreateContractTransactionRequest body)
+        public virtual System.Threading.Tasks.Task<CirrusResponse> BuildCreateAsync(BuildCreateContractTransactionRequest? body)
         {
             return BuildCreateAsync(body, System.Threading.CancellationToken.None);
         }
@@ -5102,7 +5104,7 @@ namespace Cobra.Api.Node.Cirrus
         /// <param name="body">An object containing the necessary parameters to build the transaction.</param>
         /// <returns>Returns create contract response</returns>
         /// <exception cref="CirrusApiException">A server side error occurred.</exception>
-        public virtual async System.Threading.Tasks.Task BuildCreateAsync(BuildCreateContractTransactionRequest body, System.Threading.CancellationToken cancellationToken)
+        public virtual async System.Threading.Tasks.Task<CirrusResponse> BuildCreateAsync(BuildCreateContractTransactionRequest? body, System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/api/SmartContracts/build-create");
@@ -5142,7 +5144,7 @@ namespace Cobra.Api.Node.Cirrus
                         var status_ = (int)response_.StatusCode;
                         if (status_ == 200)
                         {
-                            return;
+                            return new CirrusResponse(status_, headers_);
                         }
                         else
                         if (status_ == 400)
@@ -5181,7 +5183,7 @@ namespace Cobra.Api.Node.Cirrus
         /// <param name="body">An object containing the necessary parameters to build the transaction.</param>
         /// <returns>Returns call contract response</returns>
         /// <exception cref="CirrusApiException">A server side error occurred.</exception>
-        public virtual System.Threading.Tasks.Task BuildCallAsync(BuildCallContractTransactionRequest body)
+        public virtual System.Threading.Tasks.Task<CirrusResponse> BuildCallAsync(BuildCallContractTransactionRequest? body)
         {
             return BuildCallAsync(body, System.Threading.CancellationToken.None);
         }
@@ -5198,7 +5200,7 @@ namespace Cobra.Api.Node.Cirrus
         /// <param name="body">An object containing the necessary parameters to build the transaction.</param>
         /// <returns>Returns call contract response</returns>
         /// <exception cref="CirrusApiException">A server side error occurred.</exception>
-        public virtual async System.Threading.Tasks.Task BuildCallAsync(BuildCallContractTransactionRequest body, System.Threading.CancellationToken cancellationToken)
+        public virtual async System.Threading.Tasks.Task<CirrusResponse> BuildCallAsync(BuildCallContractTransactionRequest? body, System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/api/SmartContracts/build-call");
@@ -5238,7 +5240,7 @@ namespace Cobra.Api.Node.Cirrus
                         var status_ = (int)response_.StatusCode;
                         if (status_ == 200)
                         {
-                            return;
+                            return new CirrusResponse(status_, headers_);
                         }
                         else
                         if (status_ == 400)
@@ -5272,7 +5274,7 @@ namespace Cobra.Api.Node.Cirrus
         /// <param name="body">An object containing the necessary parameters to build the transaction.</param>
         /// <returns>Returns transaction response</returns>
         /// <exception cref="CirrusApiException">A server side error occurred.</exception>
-        public virtual System.Threading.Tasks.Task BuildTransactionAsync(BuildContractTransactionRequest body)
+        public virtual System.Threading.Tasks.Task<CirrusResponse> BuildTransactionAsync(BuildContractTransactionRequest? body)
         {
             return BuildTransactionAsync(body, System.Threading.CancellationToken.None);
         }
@@ -5284,7 +5286,7 @@ namespace Cobra.Api.Node.Cirrus
         /// <param name="body">An object containing the necessary parameters to build the transaction.</param>
         /// <returns>Returns transaction response</returns>
         /// <exception cref="CirrusApiException">A server side error occurred.</exception>
-        public virtual async System.Threading.Tasks.Task BuildTransactionAsync(BuildContractTransactionRequest body, System.Threading.CancellationToken cancellationToken)
+        public virtual async System.Threading.Tasks.Task<CirrusResponse> BuildTransactionAsync(BuildContractTransactionRequest? body, System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/api/SmartContracts/build-transaction");
@@ -5324,7 +5326,7 @@ namespace Cobra.Api.Node.Cirrus
                         var status_ = (int)response_.StatusCode;
                         if (status_ == 200)
                         {
-                            return;
+                            return new CirrusResponse(status_, headers_);
                         }
                         else
                         if (status_ == 400)
@@ -5359,7 +5361,7 @@ namespace Cobra.Api.Node.Cirrus
         /// <param name="body">An object containing the parameters used to build the the fee estimation transaction.</param>
         /// <returns>Returns estimated fee</returns>
         /// <exception cref="CirrusApiException">A server side error occurred.</exception>
-        public virtual System.Threading.Tasks.Task EstimateFeeAsync(ScTxFeeEstimateRequest body)
+        public virtual System.Threading.Tasks.Task<CirrusResponse> EstimateFeeAsync(ScTxFeeEstimateRequest? body)
         {
             return EstimateFeeAsync(body, System.Threading.CancellationToken.None);
         }
@@ -5372,7 +5374,7 @@ namespace Cobra.Api.Node.Cirrus
         /// <param name="body">An object containing the parameters used to build the the fee estimation transaction.</param>
         /// <returns>Returns estimated fee</returns>
         /// <exception cref="CirrusApiException">A server side error occurred.</exception>
-        public virtual async System.Threading.Tasks.Task EstimateFeeAsync(ScTxFeeEstimateRequest body, System.Threading.CancellationToken cancellationToken)
+        public virtual async System.Threading.Tasks.Task<CirrusResponse> EstimateFeeAsync(ScTxFeeEstimateRequest? body, System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/api/SmartContracts/estimate-fee");
@@ -5412,7 +5414,7 @@ namespace Cobra.Api.Node.Cirrus
                         var status_ = (int)response_.StatusCode;
                         if (status_ == 200)
                         {
-                            return;
+                            return new CirrusResponse(status_, headers_);
                         }
                         else
                         if (status_ == 400)
@@ -5447,7 +5449,7 @@ namespace Cobra.Api.Node.Cirrus
         /// <param name="body">An object containing the necessary parameters to build the transaction.</param>
         /// <returns>Returns create transaction response</returns>
         /// <exception cref="CirrusApiException">A server side error occurred.</exception>
-        public virtual System.Threading.Tasks.Task BuildAndSendCreateAsync(BuildCreateContractTransactionRequest body)
+        public virtual System.Threading.Tasks.Task<CirrusResponse> BuildAndSendCreateAsync(BuildCreateContractTransactionRequest? body)
         {
             return BuildAndSendCreateAsync(body, System.Threading.CancellationToken.None);
         }
@@ -5460,7 +5462,7 @@ namespace Cobra.Api.Node.Cirrus
         /// <param name="body">An object containing the necessary parameters to build the transaction.</param>
         /// <returns>Returns create transaction response</returns>
         /// <exception cref="CirrusApiException">A server side error occurred.</exception>
-        public virtual async System.Threading.Tasks.Task BuildAndSendCreateAsync(BuildCreateContractTransactionRequest body, System.Threading.CancellationToken cancellationToken)
+        public virtual async System.Threading.Tasks.Task<CirrusResponse> BuildAndSendCreateAsync(BuildCreateContractTransactionRequest? body, System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/api/SmartContracts/build-and-send-create");
@@ -5500,7 +5502,7 @@ namespace Cobra.Api.Node.Cirrus
                         var status_ = (int)response_.StatusCode;
                         if (status_ == 200)
                         {
-                            return;
+                            return new CirrusResponse(status_, headers_);
                         }
                         else
                         if (status_ == 400)
@@ -5542,7 +5544,7 @@ namespace Cobra.Api.Node.Cirrus
         /// <param name="body">An object containing the necessary parameters to build the transaction.</param>
         /// <returns>Returns call transaction response</returns>
         /// <exception cref="CirrusApiException">A server side error occurred.</exception>
-        public virtual System.Threading.Tasks.Task BuildAndSendCallAsync(BuildCallContractTransactionRequest body)
+        public virtual System.Threading.Tasks.Task<CirrusResponse> BuildAndSendCallAsync(BuildCallContractTransactionRequest? body)
         {
             return BuildAndSendCallAsync(body, System.Threading.CancellationToken.None);
         }
@@ -5556,7 +5558,7 @@ namespace Cobra.Api.Node.Cirrus
         /// <param name="body">An object containing the necessary parameters to build the transaction.</param>
         /// <returns>Returns call transaction response</returns>
         /// <exception cref="CirrusApiException">A server side error occurred.</exception>
-        public virtual async System.Threading.Tasks.Task BuildAndSendCallAsync(BuildCallContractTransactionRequest body, System.Threading.CancellationToken cancellationToken)
+        public virtual async System.Threading.Tasks.Task<CirrusResponse> BuildAndSendCallAsync(BuildCallContractTransactionRequest? body, System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/api/SmartContracts/build-and-send-call");
@@ -5596,7 +5598,7 @@ namespace Cobra.Api.Node.Cirrus
                         var status_ = (int)response_.StatusCode;
                         if (status_ == 200)
                         {
-                            return;
+                            return new CirrusResponse(status_, headers_);
                         }
                         else
                         if (status_ == 400)
@@ -5641,7 +5643,7 @@ namespace Cobra.Api.Node.Cirrus
         /// <param name="body">An object containing the necessary parameters to build the transaction.</param>
         /// <returns>Returns call response</returns>
         /// <exception cref="CirrusApiException">A server side error occurred.</exception>
-        public virtual System.Threading.Tasks.Task LocalCallAsync(LocalCallContractRequest body)
+        public virtual System.Threading.Tasks.Task<CirrusResponse> LocalCallAsync(LocalCallContractRequest? body)
         {
             return LocalCallAsync(body, System.Threading.CancellationToken.None);
         }
@@ -5658,7 +5660,7 @@ namespace Cobra.Api.Node.Cirrus
         /// <param name="body">An object containing the necessary parameters to build the transaction.</param>
         /// <returns>Returns call response</returns>
         /// <exception cref="CirrusApiException">A server side error occurred.</exception>
-        public virtual async System.Threading.Tasks.Task LocalCallAsync(LocalCallContractRequest body, System.Threading.CancellationToken cancellationToken)
+        public virtual async System.Threading.Tasks.Task<CirrusResponse> LocalCallAsync(LocalCallContractRequest? body, System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/api/SmartContracts/local-call");
@@ -5698,7 +5700,7 @@ namespace Cobra.Api.Node.Cirrus
                         var status_ = (int)response_.StatusCode;
                         if (status_ == 200)
                         {
-                            return;
+                            return new CirrusResponse(status_, headers_);
                         }
                         else
                         if (status_ == 400)
@@ -5741,7 +5743,7 @@ namespace Cobra.Api.Node.Cirrus
         /// <param name="walletName">The name of the wallet to retrieve the addresses from.</param>
         /// <returns>Returns address balances</returns>
         /// <exception cref="CirrusApiException">A server side error occurred.</exception>
-        public virtual System.Threading.Tasks.Task AddressBalancesAsync(string walletName)
+        public virtual System.Threading.Tasks.Task<CirrusResponse> AddressBalancesAsync(string? walletName)
         {
             return AddressBalancesAsync(walletName, System.Threading.CancellationToken.None);
         }
@@ -5756,7 +5758,7 @@ namespace Cobra.Api.Node.Cirrus
         /// <param name="walletName">The name of the wallet to retrieve the addresses from.</param>
         /// <returns>Returns address balances</returns>
         /// <exception cref="CirrusApiException">A server side error occurred.</exception>
-        public virtual async System.Threading.Tasks.Task AddressBalancesAsync(string walletName, System.Threading.CancellationToken cancellationToken)
+        public virtual async System.Threading.Tasks.Task<CirrusResponse> AddressBalancesAsync(string? walletName, System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/api/SmartContracts/address-balances?");
@@ -5797,7 +5799,7 @@ namespace Cobra.Api.Node.Cirrus
                         var status_ = (int)response_.StatusCode;
                         if (status_ == 200)
                         {
-                            return;
+                            return new CirrusResponse(status_, headers_);
                         }
                         else
                         {
@@ -5844,7 +5846,7 @@ namespace Cobra.Api.Node.Cirrus
         /// <param name="walletName">The name of the wallet to retrieve a smart contract account address for.</param>
         /// <returns>Returns account addresses</returns>
         /// <exception cref="CirrusApiException">A server side error occurred.</exception>
-        public virtual System.Threading.Tasks.Task AccountAddressesAsync(string walletName)
+        public virtual System.Threading.Tasks.Task<CirrusResponse> AccountAddressesAsync(string? walletName)
         {
             return AccountAddressesAsync(walletName, System.Threading.CancellationToken.None);
         }
@@ -5875,7 +5877,7 @@ namespace Cobra.Api.Node.Cirrus
         /// <param name="walletName">The name of the wallet to retrieve a smart contract account address for.</param>
         /// <returns>Returns account addresses</returns>
         /// <exception cref="CirrusApiException">A server side error occurred.</exception>
-        public virtual async System.Threading.Tasks.Task AccountAddressesAsync(string walletName, System.Threading.CancellationToken cancellationToken)
+        public virtual async System.Threading.Tasks.Task<CirrusResponse> AccountAddressesAsync(string? walletName, System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/api/SmartContractWallet/account-addresses?");
@@ -5916,7 +5918,7 @@ namespace Cobra.Api.Node.Cirrus
                         var status_ = (int)response_.StatusCode;
                         if (status_ == 200)
                         {
-                            return;
+                            return new CirrusResponse(status_, headers_);
                         }
                         else
                         if (status_ == 400)
@@ -5953,7 +5955,7 @@ namespace Cobra.Api.Node.Cirrus
         /// <param name="address">The address at which to retrieve the balance.</param>
         /// <returns>Returns address balance</returns>
         /// <exception cref="CirrusApiException">A server side error occurred.</exception>
-        public virtual System.Threading.Tasks.Task AddressBalanceAsync(string address)
+        public virtual System.Threading.Tasks.Task<CirrusResponse> AddressBalanceAsync(string? address)
         {
             return AddressBalanceAsync(address, System.Threading.CancellationToken.None);
         }
@@ -5968,7 +5970,7 @@ namespace Cobra.Api.Node.Cirrus
         /// <param name="address">The address at which to retrieve the balance.</param>
         /// <returns>Returns address balance</returns>
         /// <exception cref="CirrusApiException">A server side error occurred.</exception>
-        public virtual async System.Threading.Tasks.Task AddressBalanceAsync(string address, System.Threading.CancellationToken cancellationToken)
+        public virtual async System.Threading.Tasks.Task<CirrusResponse> AddressBalanceAsync(string? address, System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/api/SmartContractWallet/address-balance?");
@@ -6009,7 +6011,7 @@ namespace Cobra.Api.Node.Cirrus
                         var status_ = (int)response_.StatusCode;
                         if (status_ == 200)
                         {
-                            return;
+                            return new CirrusResponse(status_, headers_);
                         }
                         else
                         {
@@ -6049,7 +6051,7 @@ namespace Cobra.Api.Node.Cirrus
         /// <br/>wallet history records are retrieved.</param>
         /// <returns>Returns transaction history</returns>
         /// <exception cref="CirrusApiException">A server side error occurred.</exception>
-        public virtual System.Threading.Tasks.Task HistoryAsync(string walletName, string address, int? skip, int? take)
+        public virtual System.Threading.Tasks.Task<CirrusResponse> HistoryAsync(string? walletName, string? address, int? skip, int? take)
         {
             return HistoryAsync(walletName, address, skip, take, System.Threading.CancellationToken.None);
         }
@@ -6073,7 +6075,7 @@ namespace Cobra.Api.Node.Cirrus
         /// <br/>wallet history records are retrieved.</param>
         /// <returns>Returns transaction history</returns>
         /// <exception cref="CirrusApiException">A server side error occurred.</exception>
-        public virtual async System.Threading.Tasks.Task HistoryAsync(string walletName, string address, int? skip, int? take, System.Threading.CancellationToken cancellationToken)
+        public virtual async System.Threading.Tasks.Task<CirrusResponse> HistoryAsync(string? walletName, string? address, int? skip, int? take, System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/api/SmartContractWallet/history?");
@@ -6126,7 +6128,7 @@ namespace Cobra.Api.Node.Cirrus
                         var status_ = (int)response_.StatusCode;
                         if (status_ == 200)
                         {
-                            return;
+                            return new CirrusResponse(status_, headers_);
                         }
                         else
                         if (status_ == 400)
@@ -6167,7 +6169,7 @@ namespace Cobra.Api.Node.Cirrus
         /// <param name="body">An object containing the necessary parameters to build the transaction.</param>
         /// <returns>Returns build transaction response</returns>
         /// <exception cref="CirrusApiException">A server side error occurred.</exception>
-        public virtual System.Threading.Tasks.Task CreateAsync(BuildCreateContractTransactionRequest body)
+        public virtual System.Threading.Tasks.Task<CirrusResponse> CreateAsync(BuildCreateContractTransactionRequest? body)
         {
             return CreateAsync(body, System.Threading.CancellationToken.None);
         }
@@ -6180,7 +6182,7 @@ namespace Cobra.Api.Node.Cirrus
         /// <param name="body">An object containing the necessary parameters to build the transaction.</param>
         /// <returns>Returns build transaction response</returns>
         /// <exception cref="CirrusApiException">A server side error occurred.</exception>
-        public virtual async System.Threading.Tasks.Task CreateAsync(BuildCreateContractTransactionRequest body, System.Threading.CancellationToken cancellationToken)
+        public virtual async System.Threading.Tasks.Task<CirrusResponse> CreateAsync(BuildCreateContractTransactionRequest? body, System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/api/SmartContractWallet/create");
@@ -6220,7 +6222,7 @@ namespace Cobra.Api.Node.Cirrus
                         var status_ = (int)response_.StatusCode;
                         if (status_ == 200)
                         {
-                            return;
+                            return new CirrusResponse(status_, headers_);
                         }
                         else
                         if (status_ == 400)
@@ -6256,7 +6258,7 @@ namespace Cobra.Api.Node.Cirrus
         /// <param name="body">An object containing the necessary parameters to build the transaction.</param>
         /// <returns>Returns build transaction response</returns>
         /// <exception cref="CirrusApiException">A server side error occurred.</exception>
-        public virtual System.Threading.Tasks.Task CallAsync(BuildCallContractTransactionRequest body)
+        public virtual System.Threading.Tasks.Task<CirrusResponse> CallAsync(BuildCallContractTransactionRequest? body)
         {
             return CallAsync(body, System.Threading.CancellationToken.None);
         }
@@ -6270,7 +6272,7 @@ namespace Cobra.Api.Node.Cirrus
         /// <param name="body">An object containing the necessary parameters to build the transaction.</param>
         /// <returns>Returns build transaction response</returns>
         /// <exception cref="CirrusApiException">A server side error occurred.</exception>
-        public virtual async System.Threading.Tasks.Task CallAsync(BuildCallContractTransactionRequest body, System.Threading.CancellationToken cancellationToken)
+        public virtual async System.Threading.Tasks.Task<CirrusResponse> CallAsync(BuildCallContractTransactionRequest? body, System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/api/SmartContractWallet/call");
@@ -6310,7 +6312,7 @@ namespace Cobra.Api.Node.Cirrus
                         var status_ = (int)response_.StatusCode;
                         if (status_ == 200)
                         {
-                            return;
+                            return new CirrusResponse(status_, headers_);
                         }
                         else
                         if (status_ == 400)
@@ -6345,7 +6347,7 @@ namespace Cobra.Api.Node.Cirrus
         /// <param name="body">An object containing the necessary parameters to send the transaction.</param>
         /// <returns>Returns the broadcast transaction</returns>
         /// <exception cref="CirrusApiException">A server side error occurred.</exception>
-        public virtual System.Threading.Tasks.Task SendTransactionAsync(SendTransactionRequest body)
+        public virtual System.Threading.Tasks.Task<CirrusResponse> SendTransactionAsync(SendTransactionRequest? body)
         {
             return SendTransactionAsync(body, System.Threading.CancellationToken.None);
         }
@@ -6358,7 +6360,7 @@ namespace Cobra.Api.Node.Cirrus
         /// <param name="body">An object containing the necessary parameters to send the transaction.</param>
         /// <returns>Returns the broadcast transaction</returns>
         /// <exception cref="CirrusApiException">A server side error occurred.</exception>
-        public virtual async System.Threading.Tasks.Task SendTransactionAsync(SendTransactionRequest body, System.Threading.CancellationToken cancellationToken)
+        public virtual async System.Threading.Tasks.Task<CirrusResponse> SendTransactionAsync(SendTransactionRequest? body, System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/api/SmartContractWallet/send-transaction");
@@ -6398,7 +6400,7 @@ namespace Cobra.Api.Node.Cirrus
                         var status_ = (int)response_.StatusCode;
                         if (status_ == 200)
                         {
-                            return;
+                            return new CirrusResponse(status_, headers_);
                         }
                         else
                         if (status_ == 400)
@@ -6434,7 +6436,7 @@ namespace Cobra.Api.Node.Cirrus
 
         /// <returns>Success</returns>
         /// <exception cref="CirrusApiException">A server side error occurred.</exception>
-        public virtual System.Threading.Tasks.Task ListAsync(NetworkType? networkType)
+        public virtual System.Threading.Tasks.Task<CirrusResponse> ListAsync(NetworkType? networkType)
         {
             return ListAsync(networkType, System.Threading.CancellationToken.None);
         }
@@ -6442,7 +6444,7 @@ namespace Cobra.Api.Node.Cirrus
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Success</returns>
         /// <exception cref="CirrusApiException">A server side error occurred.</exception>
-        public virtual async System.Threading.Tasks.Task ListAsync(NetworkType? networkType, System.Threading.CancellationToken cancellationToken)
+        public virtual async System.Threading.Tasks.Task<CirrusResponse> ListAsync(NetworkType? networkType, System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/api/SupportedContracts/list?");
@@ -6483,7 +6485,7 @@ namespace Cobra.Api.Node.Cirrus
                         var status_ = (int)response_.StatusCode;
                         if (status_ == 200)
                         {
-                            return;
+                            return new CirrusResponse(status_, headers_);
                         }
                         else
                         if (status_ == 400)
@@ -6519,7 +6521,7 @@ namespace Cobra.Api.Node.Cirrus
 
         /// <returns>Success</returns>
         /// <exception cref="CirrusApiException">A server side error occurred.</exception>
-        public virtual System.Threading.Tasks.Task Tip2Async()
+        public virtual System.Threading.Tasks.Task<CirrusResponse> Tip2Async()
         {
             return Tip2Async(System.Threading.CancellationToken.None);
         }
@@ -6527,7 +6529,7 @@ namespace Cobra.Api.Node.Cirrus
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Success</returns>
         /// <exception cref="CirrusApiException">A server side error occurred.</exception>
-        public virtual async System.Threading.Tasks.Task Tip2Async(System.Threading.CancellationToken cancellationToken)
+        public virtual async System.Threading.Tasks.Task<CirrusResponse> Tip2Async(System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/api/Voting/polls/tip");
@@ -6563,7 +6565,7 @@ namespace Cobra.Api.Node.Cirrus
                         var status_ = (int)response_.StatusCode;
                         if (status_ == 200)
                         {
-                            return;
+                            return new CirrusResponse(status_, headers_);
                         }
                         else
                         if (status_ == 400)
@@ -6593,7 +6595,7 @@ namespace Cobra.Api.Node.Cirrus
 
         /// <returns>Success</returns>
         /// <exception cref="CirrusApiException">A server side error occurred.</exception>
-        public virtual System.Threading.Tasks.Task PendingAsync(VoteKey? voteType, string pubKeyOfMemberBeingVotedOn)
+        public virtual System.Threading.Tasks.Task<CirrusResponse> PendingAsync(VoteKey? voteType, string? pubKeyOfMemberBeingVotedOn)
         {
             return PendingAsync(voteType, pubKeyOfMemberBeingVotedOn, System.Threading.CancellationToken.None);
         }
@@ -6601,7 +6603,7 @@ namespace Cobra.Api.Node.Cirrus
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Success</returns>
         /// <exception cref="CirrusApiException">A server side error occurred.</exception>
-        public virtual async System.Threading.Tasks.Task PendingAsync(VoteKey? voteType, string pubKeyOfMemberBeingVotedOn, System.Threading.CancellationToken cancellationToken)
+        public virtual async System.Threading.Tasks.Task<CirrusResponse> PendingAsync(VoteKey? voteType, string? pubKeyOfMemberBeingVotedOn, System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/api/Voting/polls/pending?");
@@ -6646,7 +6648,7 @@ namespace Cobra.Api.Node.Cirrus
                         var status_ = (int)response_.StatusCode;
                         if (status_ == 200)
                         {
-                            return;
+                            return new CirrusResponse(status_, headers_);
                         }
                         else
                         if (status_ == 400)
@@ -6676,7 +6678,7 @@ namespace Cobra.Api.Node.Cirrus
 
         /// <returns>Success</returns>
         /// <exception cref="CirrusApiException">A server side error occurred.</exception>
-        public virtual System.Threading.Tasks.Task FinishedAsync(VoteKey? voteType, string pubKeyOfMemberBeingVotedOn)
+        public virtual System.Threading.Tasks.Task<CirrusResponse> FinishedAsync(VoteKey? voteType, string? pubKeyOfMemberBeingVotedOn)
         {
             return FinishedAsync(voteType, pubKeyOfMemberBeingVotedOn, System.Threading.CancellationToken.None);
         }
@@ -6684,7 +6686,7 @@ namespace Cobra.Api.Node.Cirrus
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Success</returns>
         /// <exception cref="CirrusApiException">A server side error occurred.</exception>
-        public virtual async System.Threading.Tasks.Task FinishedAsync(VoteKey? voteType, string pubKeyOfMemberBeingVotedOn, System.Threading.CancellationToken cancellationToken)
+        public virtual async System.Threading.Tasks.Task<CirrusResponse> FinishedAsync(VoteKey? voteType, string? pubKeyOfMemberBeingVotedOn, System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/api/Voting/polls/finished?");
@@ -6729,7 +6731,7 @@ namespace Cobra.Api.Node.Cirrus
                         var status_ = (int)response_.StatusCode;
                         if (status_ == 200)
                         {
-                            return;
+                            return new CirrusResponse(status_, headers_);
                         }
                         else
                         if (status_ == 400)
@@ -6759,7 +6761,7 @@ namespace Cobra.Api.Node.Cirrus
 
         /// <returns>Success</returns>
         /// <exception cref="CirrusApiException">A server side error occurred.</exception>
-        public virtual System.Threading.Tasks.Task ExecutedAsync(VoteKey? voteType, string pubKeyOfMemberBeingVotedOn)
+        public virtual System.Threading.Tasks.Task<CirrusResponse> ExecutedAsync(VoteKey? voteType, string? pubKeyOfMemberBeingVotedOn)
         {
             return ExecutedAsync(voteType, pubKeyOfMemberBeingVotedOn, System.Threading.CancellationToken.None);
         }
@@ -6767,7 +6769,7 @@ namespace Cobra.Api.Node.Cirrus
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Success</returns>
         /// <exception cref="CirrusApiException">A server side error occurred.</exception>
-        public virtual async System.Threading.Tasks.Task ExecutedAsync(VoteKey? voteType, string pubKeyOfMemberBeingVotedOn, System.Threading.CancellationToken cancellationToken)
+        public virtual async System.Threading.Tasks.Task<CirrusResponse> ExecutedAsync(VoteKey? voteType, string? pubKeyOfMemberBeingVotedOn, System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/api/Voting/polls/executed?");
@@ -6812,7 +6814,7 @@ namespace Cobra.Api.Node.Cirrus
                         var status_ = (int)response_.StatusCode;
                         if (status_ == 200)
                         {
-                            return;
+                            return new CirrusResponse(status_, headers_);
                         }
                         else
                         if (status_ == 400)
@@ -6842,7 +6844,7 @@ namespace Cobra.Api.Node.Cirrus
 
         /// <returns>Success</returns>
         /// <exception cref="CirrusApiException">A server side error occurred.</exception>
-        public virtual System.Threading.Tasks.Task Executed2Async(string pubKeyOfMemberBeingVotedOn)
+        public virtual System.Threading.Tasks.Task<CirrusResponse> Executed2Async(string? pubKeyOfMemberBeingVotedOn)
         {
             return Executed2Async(pubKeyOfMemberBeingVotedOn, System.Threading.CancellationToken.None);
         }
@@ -6850,7 +6852,7 @@ namespace Cobra.Api.Node.Cirrus
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Success</returns>
         /// <exception cref="CirrusApiException">A server side error occurred.</exception>
-        public virtual async System.Threading.Tasks.Task Executed2Async(string pubKeyOfMemberBeingVotedOn, System.Threading.CancellationToken cancellationToken)
+        public virtual async System.Threading.Tasks.Task<CirrusResponse> Executed2Async(string? pubKeyOfMemberBeingVotedOn, System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/api/Voting/polls/members/executed?");
@@ -6891,7 +6893,7 @@ namespace Cobra.Api.Node.Cirrus
                         var status_ = (int)response_.StatusCode;
                         if (status_ == 200)
                         {
-                            return;
+                            return new CirrusResponse(status_, headers_);
                         }
                         else
                         if (status_ == 400)
@@ -6921,7 +6923,7 @@ namespace Cobra.Api.Node.Cirrus
 
         /// <returns>Success</returns>
         /// <exception cref="CirrusApiException">A server side error occurred.</exception>
-        public virtual System.Threading.Tasks.Task Members2Async()
+        public virtual System.Threading.Tasks.Task<CirrusResponse> Members2Async()
         {
             return Members2Async(System.Threading.CancellationToken.None);
         }
@@ -6929,7 +6931,7 @@ namespace Cobra.Api.Node.Cirrus
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Success</returns>
         /// <exception cref="CirrusApiException">A server side error occurred.</exception>
-        public virtual async System.Threading.Tasks.Task Members2Async(System.Threading.CancellationToken cancellationToken)
+        public virtual async System.Threading.Tasks.Task<CirrusResponse> Members2Async(System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/api/Voting/polls/expired/members");
@@ -6965,7 +6967,7 @@ namespace Cobra.Api.Node.Cirrus
                         var status_ = (int)response_.StatusCode;
                         if (status_ == 200)
                         {
-                            return;
+                            return new CirrusResponse(status_, headers_);
                         }
                         else
                         if (status_ == 400)
@@ -6995,7 +6997,7 @@ namespace Cobra.Api.Node.Cirrus
 
         /// <returns>Success</returns>
         /// <exception cref="CirrusApiException">A server side error occurred.</exception>
-        public virtual System.Threading.Tasks.Task WhitelistAsync()
+        public virtual System.Threading.Tasks.Task<CirrusResponse> WhitelistAsync()
         {
             return WhitelistAsync(System.Threading.CancellationToken.None);
         }
@@ -7003,7 +7005,7 @@ namespace Cobra.Api.Node.Cirrus
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Success</returns>
         /// <exception cref="CirrusApiException">A server side error occurred.</exception>
-        public virtual async System.Threading.Tasks.Task WhitelistAsync(System.Threading.CancellationToken cancellationToken)
+        public virtual async System.Threading.Tasks.Task<CirrusResponse> WhitelistAsync(System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/api/Voting/polls/expired/whitelist");
@@ -7039,7 +7041,7 @@ namespace Cobra.Api.Node.Cirrus
                         var status_ = (int)response_.StatusCode;
                         if (status_ == 200)
                         {
-                            return;
+                            return new CirrusResponse(status_, headers_);
                         }
                         else
                         if (status_ == 400)
@@ -7069,7 +7071,7 @@ namespace Cobra.Api.Node.Cirrus
 
         /// <returns>Success</returns>
         /// <exception cref="CirrusApiException">A server side error occurred.</exception>
-        public virtual System.Threading.Tasks.Task WhitelistedhashesAsync()
+        public virtual System.Threading.Tasks.Task<CirrusResponse> WhitelistedhashesAsync()
         {
             return WhitelistedhashesAsync(System.Threading.CancellationToken.None);
         }
@@ -7077,7 +7079,7 @@ namespace Cobra.Api.Node.Cirrus
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Success</returns>
         /// <exception cref="CirrusApiException">A server side error occurred.</exception>
-        public virtual async System.Threading.Tasks.Task WhitelistedhashesAsync(System.Threading.CancellationToken cancellationToken)
+        public virtual async System.Threading.Tasks.Task<CirrusResponse> WhitelistedhashesAsync(System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/api/Voting/whitelistedhashes");
@@ -7113,7 +7115,7 @@ namespace Cobra.Api.Node.Cirrus
                         var status_ = (int)response_.StatusCode;
                         if (status_ == 200)
                         {
-                            return;
+                            return new CirrusResponse(status_, headers_);
                         }
                         else
                         if (status_ == 400)
@@ -7143,7 +7145,7 @@ namespace Cobra.Api.Node.Cirrus
 
         /// <returns>Success</returns>
         /// <exception cref="CirrusApiException">A server side error occurred.</exception>
-        public virtual System.Threading.Tasks.Task SchedulevoteWhitelisthashAsync(HashModel body)
+        public virtual System.Threading.Tasks.Task<CirrusResponse> SchedulevoteWhitelisthashAsync(HashModel? body)
         {
             return SchedulevoteWhitelisthashAsync(body, System.Threading.CancellationToken.None);
         }
@@ -7151,7 +7153,7 @@ namespace Cobra.Api.Node.Cirrus
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Success</returns>
         /// <exception cref="CirrusApiException">A server side error occurred.</exception>
-        public virtual async System.Threading.Tasks.Task SchedulevoteWhitelisthashAsync(HashModel body, System.Threading.CancellationToken cancellationToken)
+        public virtual async System.Threading.Tasks.Task<CirrusResponse> SchedulevoteWhitelisthashAsync(HashModel? body, System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/api/Voting/schedulevote-whitelisthash");
@@ -7191,7 +7193,7 @@ namespace Cobra.Api.Node.Cirrus
                         var status_ = (int)response_.StatusCode;
                         if (status_ == 200)
                         {
-                            return;
+                            return new CirrusResponse(status_, headers_);
                         }
                         else
                         if (status_ == 400)
@@ -7227,7 +7229,7 @@ namespace Cobra.Api.Node.Cirrus
 
         /// <returns>Success</returns>
         /// <exception cref="CirrusApiException">A server side error occurred.</exception>
-        public virtual System.Threading.Tasks.Task SchedulevoteRemovehashAsync(HashModel body)
+        public virtual System.Threading.Tasks.Task<CirrusResponse> SchedulevoteRemovehashAsync(HashModel? body)
         {
             return SchedulevoteRemovehashAsync(body, System.Threading.CancellationToken.None);
         }
@@ -7235,7 +7237,7 @@ namespace Cobra.Api.Node.Cirrus
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Success</returns>
         /// <exception cref="CirrusApiException">A server side error occurred.</exception>
-        public virtual async System.Threading.Tasks.Task SchedulevoteRemovehashAsync(HashModel body, System.Threading.CancellationToken cancellationToken)
+        public virtual async System.Threading.Tasks.Task<CirrusResponse> SchedulevoteRemovehashAsync(HashModel? body, System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/api/Voting/schedulevote-removehash");
@@ -7275,7 +7277,7 @@ namespace Cobra.Api.Node.Cirrus
                         var status_ = (int)response_.StatusCode;
                         if (status_ == 200)
                         {
-                            return;
+                            return new CirrusResponse(status_, headers_);
                         }
                         else
                         if (status_ == 400)
@@ -7311,7 +7313,7 @@ namespace Cobra.Api.Node.Cirrus
 
         /// <returns>Success</returns>
         /// <exception cref="CirrusApiException">A server side error occurred.</exception>
-        public virtual System.Threading.Tasks.Task ScheduledvotesAsync()
+        public virtual System.Threading.Tasks.Task<CirrusResponse> ScheduledvotesAsync()
         {
             return ScheduledvotesAsync(System.Threading.CancellationToken.None);
         }
@@ -7319,7 +7321,7 @@ namespace Cobra.Api.Node.Cirrus
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Success</returns>
         /// <exception cref="CirrusApiException">A server side error occurred.</exception>
-        public virtual async System.Threading.Tasks.Task ScheduledvotesAsync(System.Threading.CancellationToken cancellationToken)
+        public virtual async System.Threading.Tasks.Task<CirrusResponse> ScheduledvotesAsync(System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/api/Voting/scheduledvotes");
@@ -7355,7 +7357,7 @@ namespace Cobra.Api.Node.Cirrus
                         var status_ = (int)response_.StatusCode;
                         if (status_ == 200)
                         {
-                            return;
+                            return new CirrusResponse(status_, headers_);
                         }
                         else
                         if (status_ == 400)
@@ -7385,7 +7387,7 @@ namespace Cobra.Api.Node.Cirrus
 
         /// <returns>Success</returns>
         /// <exception cref="CirrusApiException">A server side error occurred.</exception>
-        public virtual System.Threading.Tasks.Task SchedulevoteKickmemberAsync(KickFederationMemberModel body)
+        public virtual System.Threading.Tasks.Task<CirrusResponse> SchedulevoteKickmemberAsync(KickFederationMemberModel? body)
         {
             return SchedulevoteKickmemberAsync(body, System.Threading.CancellationToken.None);
         }
@@ -7393,7 +7395,7 @@ namespace Cobra.Api.Node.Cirrus
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Success</returns>
         /// <exception cref="CirrusApiException">A server side error occurred.</exception>
-        public virtual async System.Threading.Tasks.Task SchedulevoteKickmemberAsync(KickFederationMemberModel body, System.Threading.CancellationToken cancellationToken)
+        public virtual async System.Threading.Tasks.Task<CirrusResponse> SchedulevoteKickmemberAsync(KickFederationMemberModel? body, System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/api/Voting/schedulevote-kickmember");
@@ -7433,7 +7435,7 @@ namespace Cobra.Api.Node.Cirrus
                         var status_ = (int)response_.StatusCode;
                         if (status_ == 200)
                         {
-                            return;
+                            return new CirrusResponse(status_, headers_);
                         }
                         else
                         if (status_ == 400)
@@ -7469,7 +7471,7 @@ namespace Cobra.Api.Node.Cirrus
 
         /// <returns>Success</returns>
         /// <exception cref="CirrusApiException">A server side error occurred.</exception>
-        public virtual System.Threading.Tasks.Task MnemonicAsync(string language, int? wordCount)
+        public virtual System.Threading.Tasks.Task<CirrusResponse> MnemonicAsync(string? language, int? wordCount)
         {
             return MnemonicAsync(language, wordCount, System.Threading.CancellationToken.None);
         }
@@ -7477,7 +7479,7 @@ namespace Cobra.Api.Node.Cirrus
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Success</returns>
         /// <exception cref="CirrusApiException">A server side error occurred.</exception>
-        public virtual async System.Threading.Tasks.Task MnemonicAsync(string language, int? wordCount, System.Threading.CancellationToken cancellationToken)
+        public virtual async System.Threading.Tasks.Task<CirrusResponse> MnemonicAsync(string? language, int? wordCount, System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/api/Wallet/mnemonic?");
@@ -7522,7 +7524,7 @@ namespace Cobra.Api.Node.Cirrus
                         var status_ = (int)response_.StatusCode;
                         if (status_ == 200)
                         {
-                            return;
+                            return new CirrusResponse(status_, headers_);
                         }
                         else
                         if (status_ == 400)
@@ -7552,7 +7554,7 @@ namespace Cobra.Api.Node.Cirrus
 
         /// <returns>Success</returns>
         /// <exception cref="CirrusApiException">A server side error occurred.</exception>
-        public virtual System.Threading.Tasks.Task Create2Async(WalletCreationRequest body)
+        public virtual System.Threading.Tasks.Task<CirrusResponse> Create2Async(WalletCreationRequest? body)
         {
             return Create2Async(body, System.Threading.CancellationToken.None);
         }
@@ -7560,7 +7562,7 @@ namespace Cobra.Api.Node.Cirrus
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Success</returns>
         /// <exception cref="CirrusApiException">A server side error occurred.</exception>
-        public virtual async System.Threading.Tasks.Task Create2Async(WalletCreationRequest body, System.Threading.CancellationToken cancellationToken)
+        public virtual async System.Threading.Tasks.Task<CirrusResponse> Create2Async(WalletCreationRequest? body, System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/api/Wallet/create");
@@ -7600,7 +7602,7 @@ namespace Cobra.Api.Node.Cirrus
                         var status_ = (int)response_.StatusCode;
                         if (status_ == 200)
                         {
-                            return;
+                            return new CirrusResponse(status_, headers_);
                         }
                         else
                         if (status_ == 400)
@@ -7642,7 +7644,7 @@ namespace Cobra.Api.Node.Cirrus
 
         /// <returns>Success</returns>
         /// <exception cref="CirrusApiException">A server side error occurred.</exception>
-        public virtual System.Threading.Tasks.Task SignmessageAsync(SignMessageRequest body)
+        public virtual System.Threading.Tasks.Task<CirrusResponse> SignmessageAsync(SignMessageRequest? body)
         {
             return SignmessageAsync(body, System.Threading.CancellationToken.None);
         }
@@ -7650,7 +7652,7 @@ namespace Cobra.Api.Node.Cirrus
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Success</returns>
         /// <exception cref="CirrusApiException">A server side error occurred.</exception>
-        public virtual async System.Threading.Tasks.Task SignmessageAsync(SignMessageRequest body, System.Threading.CancellationToken cancellationToken)
+        public virtual async System.Threading.Tasks.Task<CirrusResponse> SignmessageAsync(SignMessageRequest? body, System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/api/Wallet/signmessage");
@@ -7690,7 +7692,7 @@ namespace Cobra.Api.Node.Cirrus
                         var status_ = (int)response_.StatusCode;
                         if (status_ == 200)
                         {
-                            return;
+                            return new CirrusResponse(status_, headers_);
                         }
                         else
                         if (status_ == 400)
@@ -7726,7 +7728,7 @@ namespace Cobra.Api.Node.Cirrus
 
         /// <returns>Success</returns>
         /// <exception cref="CirrusApiException">A server side error occurred.</exception>
-        public virtual System.Threading.Tasks.Task PubkeyAsync(PubKeyRequest body)
+        public virtual System.Threading.Tasks.Task<CirrusResponse> PubkeyAsync(PubKeyRequest? body)
         {
             return PubkeyAsync(body, System.Threading.CancellationToken.None);
         }
@@ -7734,7 +7736,7 @@ namespace Cobra.Api.Node.Cirrus
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Success</returns>
         /// <exception cref="CirrusApiException">A server side error occurred.</exception>
-        public virtual async System.Threading.Tasks.Task PubkeyAsync(PubKeyRequest body, System.Threading.CancellationToken cancellationToken)
+        public virtual async System.Threading.Tasks.Task<CirrusResponse> PubkeyAsync(PubKeyRequest? body, System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/api/Wallet/pubkey");
@@ -7774,7 +7776,7 @@ namespace Cobra.Api.Node.Cirrus
                         var status_ = (int)response_.StatusCode;
                         if (status_ == 200)
                         {
-                            return;
+                            return new CirrusResponse(status_, headers_);
                         }
                         else
                         if (status_ == 400)
@@ -7810,7 +7812,7 @@ namespace Cobra.Api.Node.Cirrus
 
         /// <returns>Success</returns>
         /// <exception cref="CirrusApiException">A server side error occurred.</exception>
-        public virtual System.Threading.Tasks.Task VerifymessageAsync(VerifyRequest body)
+        public virtual System.Threading.Tasks.Task<CirrusResponse> VerifymessageAsync(VerifyRequest? body)
         {
             return VerifymessageAsync(body, System.Threading.CancellationToken.None);
         }
@@ -7818,7 +7820,7 @@ namespace Cobra.Api.Node.Cirrus
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Success</returns>
         /// <exception cref="CirrusApiException">A server side error occurred.</exception>
-        public virtual async System.Threading.Tasks.Task VerifymessageAsync(VerifyRequest body, System.Threading.CancellationToken cancellationToken)
+        public virtual async System.Threading.Tasks.Task<CirrusResponse> VerifymessageAsync(VerifyRequest? body, System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/api/Wallet/verifymessage");
@@ -7858,7 +7860,7 @@ namespace Cobra.Api.Node.Cirrus
                         var status_ = (int)response_.StatusCode;
                         if (status_ == 200)
                         {
-                            return;
+                            return new CirrusResponse(status_, headers_);
                         }
                         else
                         if (status_ == 400)
@@ -7894,7 +7896,7 @@ namespace Cobra.Api.Node.Cirrus
 
         /// <returns>Success</returns>
         /// <exception cref="CirrusApiException">A server side error occurred.</exception>
-        public virtual System.Threading.Tasks.Task LoadAsync(WalletLoadRequest body)
+        public virtual System.Threading.Tasks.Task<CirrusResponse> LoadAsync(WalletLoadRequest? body)
         {
             return LoadAsync(body, System.Threading.CancellationToken.None);
         }
@@ -7902,7 +7904,7 @@ namespace Cobra.Api.Node.Cirrus
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Success</returns>
         /// <exception cref="CirrusApiException">A server side error occurred.</exception>
-        public virtual async System.Threading.Tasks.Task LoadAsync(WalletLoadRequest body, System.Threading.CancellationToken cancellationToken)
+        public virtual async System.Threading.Tasks.Task<CirrusResponse> LoadAsync(WalletLoadRequest? body, System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/api/Wallet/load");
@@ -7942,7 +7944,7 @@ namespace Cobra.Api.Node.Cirrus
                         var status_ = (int)response_.StatusCode;
                         if (status_ == 200)
                         {
-                            return;
+                            return new CirrusResponse(status_, headers_);
                         }
                         else
                         if (status_ == 400)
@@ -7990,7 +7992,7 @@ namespace Cobra.Api.Node.Cirrus
 
         /// <returns>Success</returns>
         /// <exception cref="CirrusApiException">A server side error occurred.</exception>
-        public virtual System.Threading.Tasks.Task RecoverAsync(WalletRecoveryRequest body)
+        public virtual System.Threading.Tasks.Task<CirrusResponse> RecoverAsync(WalletRecoveryRequest? body)
         {
             return RecoverAsync(body, System.Threading.CancellationToken.None);
         }
@@ -7998,7 +8000,7 @@ namespace Cobra.Api.Node.Cirrus
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Success</returns>
         /// <exception cref="CirrusApiException">A server side error occurred.</exception>
-        public virtual async System.Threading.Tasks.Task RecoverAsync(WalletRecoveryRequest body, System.Threading.CancellationToken cancellationToken)
+        public virtual async System.Threading.Tasks.Task<CirrusResponse> RecoverAsync(WalletRecoveryRequest? body, System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/api/Wallet/recover");
@@ -8038,7 +8040,7 @@ namespace Cobra.Api.Node.Cirrus
                         var status_ = (int)response_.StatusCode;
                         if (status_ == 200)
                         {
-                            return;
+                            return new CirrusResponse(status_, headers_);
                         }
                         else
                         if (status_ == 400)
@@ -8086,7 +8088,7 @@ namespace Cobra.Api.Node.Cirrus
 
         /// <returns>Success</returns>
         /// <exception cref="CirrusApiException">A server side error occurred.</exception>
-        public virtual System.Threading.Tasks.Task RecoverViaExtpubkeyAsync(WalletExtPubRecoveryRequest body)
+        public virtual System.Threading.Tasks.Task<CirrusResponse> RecoverViaExtpubkeyAsync(WalletExtPubRecoveryRequest? body)
         {
             return RecoverViaExtpubkeyAsync(body, System.Threading.CancellationToken.None);
         }
@@ -8094,7 +8096,7 @@ namespace Cobra.Api.Node.Cirrus
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Success</returns>
         /// <exception cref="CirrusApiException">A server side error occurred.</exception>
-        public virtual async System.Threading.Tasks.Task RecoverViaExtpubkeyAsync(WalletExtPubRecoveryRequest body, System.Threading.CancellationToken cancellationToken)
+        public virtual async System.Threading.Tasks.Task<CirrusResponse> RecoverViaExtpubkeyAsync(WalletExtPubRecoveryRequest? body, System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/api/Wallet/recover-via-extpubkey");
@@ -8134,7 +8136,7 @@ namespace Cobra.Api.Node.Cirrus
                         var status_ = (int)response_.StatusCode;
                         if (status_ == 200)
                         {
-                            return;
+                            return new CirrusResponse(status_, headers_);
                         }
                         else
                         if (status_ == 400)
@@ -8182,7 +8184,7 @@ namespace Cobra.Api.Node.Cirrus
 
         /// <returns>Success</returns>
         /// <exception cref="CirrusApiException">A server side error occurred.</exception>
-        public virtual System.Threading.Tasks.Task GeneralInfoAsync(string name)
+        public virtual System.Threading.Tasks.Task<CirrusResponse> GeneralInfoAsync(string name)
         {
             return GeneralInfoAsync(name, System.Threading.CancellationToken.None);
         }
@@ -8190,7 +8192,7 @@ namespace Cobra.Api.Node.Cirrus
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Success</returns>
         /// <exception cref="CirrusApiException">A server side error occurred.</exception>
-        public virtual async System.Threading.Tasks.Task GeneralInfoAsync(string name, System.Threading.CancellationToken cancellationToken)
+        public virtual async System.Threading.Tasks.Task<CirrusResponse> GeneralInfoAsync(string name, System.Threading.CancellationToken cancellationToken)
         {
             if (name == null)
                 throw new System.ArgumentNullException("name");
@@ -8231,7 +8233,7 @@ namespace Cobra.Api.Node.Cirrus
                         var status_ = (int)response_.StatusCode;
                         if (status_ == 200)
                         {
-                            return;
+                            return new CirrusResponse(status_, headers_);
                         }
                         else
                         if (status_ == 400)
@@ -8267,7 +8269,7 @@ namespace Cobra.Api.Node.Cirrus
 
         /// <returns>Success</returns>
         /// <exception cref="CirrusApiException">A server side error occurred.</exception>
-        public virtual System.Threading.Tasks.Task TransactionCountAsync(string walletName, string accountName)
+        public virtual System.Threading.Tasks.Task<CirrusResponse> TransactionCountAsync(string walletName, string? accountName)
         {
             return TransactionCountAsync(walletName, accountName, System.Threading.CancellationToken.None);
         }
@@ -8275,7 +8277,7 @@ namespace Cobra.Api.Node.Cirrus
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Success</returns>
         /// <exception cref="CirrusApiException">A server side error occurred.</exception>
-        public virtual async System.Threading.Tasks.Task TransactionCountAsync(string walletName, string accountName, System.Threading.CancellationToken cancellationToken)
+        public virtual async System.Threading.Tasks.Task<CirrusResponse> TransactionCountAsync(string walletName, string? accountName, System.Threading.CancellationToken cancellationToken)
         {
             if (walletName == null)
                 throw new System.ArgumentNullException("walletName");
@@ -8320,7 +8322,7 @@ namespace Cobra.Api.Node.Cirrus
                         var status_ = (int)response_.StatusCode;
                         if (status_ == 200)
                         {
-                            return;
+                            return new CirrusResponse(status_, headers_);
                         }
                         else
                         {
@@ -8344,7 +8346,7 @@ namespace Cobra.Api.Node.Cirrus
 
         /// <returns>Success</returns>
         /// <exception cref="CirrusApiException">A server side error occurred.</exception>
-        public virtual System.Threading.Tasks.Task History2Async(string walletName, string accountName, string address, int? skip, int? take, string searchQuery)
+        public virtual System.Threading.Tasks.Task<CirrusResponse> History2Async(string walletName, string? accountName, string? address, int? skip, int? take, string? searchQuery)
         {
             return History2Async(walletName, accountName, address, skip, take, searchQuery, System.Threading.CancellationToken.None);
         }
@@ -8352,7 +8354,7 @@ namespace Cobra.Api.Node.Cirrus
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Success</returns>
         /// <exception cref="CirrusApiException">A server side error occurred.</exception>
-        public virtual async System.Threading.Tasks.Task History2Async(string walletName, string accountName, string address, int? skip, int? take, string searchQuery, System.Threading.CancellationToken cancellationToken)
+        public virtual async System.Threading.Tasks.Task<CirrusResponse> History2Async(string walletName, string? accountName, string? address, int? skip, int? take, string? searchQuery, System.Threading.CancellationToken cancellationToken)
         {
             if (walletName == null)
                 throw new System.ArgumentNullException("walletName");
@@ -8413,7 +8415,7 @@ namespace Cobra.Api.Node.Cirrus
                         var status_ = (int)response_.StatusCode;
                         if (status_ == 200)
                         {
-                            return;
+                            return new CirrusResponse(status_, headers_);
                         }
                         else
                         {
@@ -8437,7 +8439,7 @@ namespace Cobra.Api.Node.Cirrus
 
         /// <returns>Success</returns>
         /// <exception cref="CirrusApiException">A server side error occurred.</exception>
-        public virtual System.Threading.Tasks.Task Balance2Async(string walletName, string accountName, bool? includeBalanceByAddress)
+        public virtual System.Threading.Tasks.Task<CirrusResponse> Balance2Async(string walletName, string? accountName, bool? includeBalanceByAddress)
         {
             return Balance2Async(walletName, accountName, includeBalanceByAddress, System.Threading.CancellationToken.None);
         }
@@ -8445,7 +8447,7 @@ namespace Cobra.Api.Node.Cirrus
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Success</returns>
         /// <exception cref="CirrusApiException">A server side error occurred.</exception>
-        public virtual async System.Threading.Tasks.Task Balance2Async(string walletName, string accountName, bool? includeBalanceByAddress, System.Threading.CancellationToken cancellationToken)
+        public virtual async System.Threading.Tasks.Task<CirrusResponse> Balance2Async(string walletName, string? accountName, bool? includeBalanceByAddress, System.Threading.CancellationToken cancellationToken)
         {
             if (walletName == null)
                 throw new System.ArgumentNullException("walletName");
@@ -8494,7 +8496,7 @@ namespace Cobra.Api.Node.Cirrus
                         var status_ = (int)response_.StatusCode;
                         if (status_ == 200)
                         {
-                            return;
+                            return new CirrusResponse(status_, headers_);
                         }
                         else
                         {
@@ -8518,7 +8520,7 @@ namespace Cobra.Api.Node.Cirrus
 
         /// <returns>Success</returns>
         /// <exception cref="CirrusApiException">A server side error occurred.</exception>
-        public virtual System.Threading.Tasks.Task ReceivedByAddressAsync(string address)
+        public virtual System.Threading.Tasks.Task<CirrusResponse> ReceivedByAddressAsync(string address)
         {
             return ReceivedByAddressAsync(address, System.Threading.CancellationToken.None);
         }
@@ -8526,7 +8528,7 @@ namespace Cobra.Api.Node.Cirrus
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Success</returns>
         /// <exception cref="CirrusApiException">A server side error occurred.</exception>
-        public virtual async System.Threading.Tasks.Task ReceivedByAddressAsync(string address, System.Threading.CancellationToken cancellationToken)
+        public virtual async System.Threading.Tasks.Task<CirrusResponse> ReceivedByAddressAsync(string address, System.Threading.CancellationToken cancellationToken)
         {
             if (address == null)
                 throw new System.ArgumentNullException("address");
@@ -8567,7 +8569,7 @@ namespace Cobra.Api.Node.Cirrus
                         var status_ = (int)response_.StatusCode;
                         if (status_ == 200)
                         {
-                            return;
+                            return new CirrusResponse(status_, headers_);
                         }
                         else
                         {
@@ -8591,7 +8593,7 @@ namespace Cobra.Api.Node.Cirrus
 
         /// <returns>Success</returns>
         /// <exception cref="CirrusApiException">A server side error occurred.</exception>
-        public virtual System.Threading.Tasks.Task MaxbalanceAsync(string walletName, string accountName, string feeType, bool? allowUnconfirmed)
+        public virtual System.Threading.Tasks.Task<CirrusResponse> MaxbalanceAsync(string walletName, string? accountName, string feeType, bool? allowUnconfirmed)
         {
             return MaxbalanceAsync(walletName, accountName, feeType, allowUnconfirmed, System.Threading.CancellationToken.None);
         }
@@ -8599,7 +8601,7 @@ namespace Cobra.Api.Node.Cirrus
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Success</returns>
         /// <exception cref="CirrusApiException">A server side error occurred.</exception>
-        public virtual async System.Threading.Tasks.Task MaxbalanceAsync(string walletName, string accountName, string feeType, bool? allowUnconfirmed, System.Threading.CancellationToken cancellationToken)
+        public virtual async System.Threading.Tasks.Task<CirrusResponse> MaxbalanceAsync(string walletName, string? accountName, string feeType, bool? allowUnconfirmed, System.Threading.CancellationToken cancellationToken)
         {
             if (walletName == null)
                 throw new System.ArgumentNullException("walletName");
@@ -8652,7 +8654,7 @@ namespace Cobra.Api.Node.Cirrus
                         var status_ = (int)response_.StatusCode;
                         if (status_ == 200)
                         {
-                            return;
+                            return new CirrusResponse(status_, headers_);
                         }
                         else
                         {
@@ -8676,7 +8678,7 @@ namespace Cobra.Api.Node.Cirrus
 
         /// <returns>Success</returns>
         /// <exception cref="CirrusApiException">A server side error occurred.</exception>
-        public virtual System.Threading.Tasks.Task SpendableTransactionsAsync(string walletName, string accountName, int? minConfirmations)
+        public virtual System.Threading.Tasks.Task<CirrusResponse> SpendableTransactionsAsync(string walletName, string? accountName, int? minConfirmations)
         {
             return SpendableTransactionsAsync(walletName, accountName, minConfirmations, System.Threading.CancellationToken.None);
         }
@@ -8684,7 +8686,7 @@ namespace Cobra.Api.Node.Cirrus
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Success</returns>
         /// <exception cref="CirrusApiException">A server side error occurred.</exception>
-        public virtual async System.Threading.Tasks.Task SpendableTransactionsAsync(string walletName, string accountName, int? minConfirmations, System.Threading.CancellationToken cancellationToken)
+        public virtual async System.Threading.Tasks.Task<CirrusResponse> SpendableTransactionsAsync(string walletName, string? accountName, int? minConfirmations, System.Threading.CancellationToken cancellationToken)
         {
             if (walletName == null)
                 throw new System.ArgumentNullException("walletName");
@@ -8733,7 +8735,7 @@ namespace Cobra.Api.Node.Cirrus
                         var status_ = (int)response_.StatusCode;
                         if (status_ == 200)
                         {
-                            return;
+                            return new CirrusResponse(status_, headers_);
                         }
                         else
                         if (status_ == 400)
@@ -8769,7 +8771,7 @@ namespace Cobra.Api.Node.Cirrus
 
         /// <returns>Success</returns>
         /// <exception cref="CirrusApiException">A server side error occurred.</exception>
-        public virtual System.Threading.Tasks.Task EstimateTxfeeAsync(TxFeeEstimateRequest body)
+        public virtual System.Threading.Tasks.Task<CirrusResponse> EstimateTxfeeAsync(TxFeeEstimateRequest? body)
         {
             return EstimateTxfeeAsync(body, System.Threading.CancellationToken.None);
         }
@@ -8777,7 +8779,7 @@ namespace Cobra.Api.Node.Cirrus
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Success</returns>
         /// <exception cref="CirrusApiException">A server side error occurred.</exception>
-        public virtual async System.Threading.Tasks.Task EstimateTxfeeAsync(TxFeeEstimateRequest body, System.Threading.CancellationToken cancellationToken)
+        public virtual async System.Threading.Tasks.Task<CirrusResponse> EstimateTxfeeAsync(TxFeeEstimateRequest? body, System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/api/Wallet/estimate-txfee");
@@ -8817,7 +8819,7 @@ namespace Cobra.Api.Node.Cirrus
                         var status_ = (int)response_.StatusCode;
                         if (status_ == 200)
                         {
-                            return;
+                            return new CirrusResponse(status_, headers_);
                         }
                         else
                         if (status_ == 400)
@@ -8853,7 +8855,7 @@ namespace Cobra.Api.Node.Cirrus
 
         /// <returns>Success</returns>
         /// <exception cref="CirrusApiException">A server side error occurred.</exception>
-        public virtual System.Threading.Tasks.Task BuildTransaction2Async(BuildTransactionRequest body)
+        public virtual System.Threading.Tasks.Task<CirrusResponse> BuildTransaction2Async(BuildTransactionRequest? body)
         {
             return BuildTransaction2Async(body, System.Threading.CancellationToken.None);
         }
@@ -8861,7 +8863,7 @@ namespace Cobra.Api.Node.Cirrus
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Success</returns>
         /// <exception cref="CirrusApiException">A server side error occurred.</exception>
-        public virtual async System.Threading.Tasks.Task BuildTransaction2Async(BuildTransactionRequest body, System.Threading.CancellationToken cancellationToken)
+        public virtual async System.Threading.Tasks.Task<CirrusResponse> BuildTransaction2Async(BuildTransactionRequest? body, System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/api/Wallet/build-transaction");
@@ -8901,7 +8903,7 @@ namespace Cobra.Api.Node.Cirrus
                         var status_ = (int)response_.StatusCode;
                         if (status_ == 200)
                         {
-                            return;
+                            return new CirrusResponse(status_, headers_);
                         }
                         else
                         if (status_ == 400)
@@ -8937,7 +8939,7 @@ namespace Cobra.Api.Node.Cirrus
 
         /// <returns>Success</returns>
         /// <exception cref="CirrusApiException">A server side error occurred.</exception>
-        public virtual System.Threading.Tasks.Task BuildInterfluxTransactionAsync(BuildInterFluxTransactionRequest body)
+        public virtual System.Threading.Tasks.Task<CirrusResponse> BuildInterfluxTransactionAsync(BuildInterFluxTransactionRequest? body)
         {
             return BuildInterfluxTransactionAsync(body, System.Threading.CancellationToken.None);
         }
@@ -8945,7 +8947,7 @@ namespace Cobra.Api.Node.Cirrus
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Success</returns>
         /// <exception cref="CirrusApiException">A server side error occurred.</exception>
-        public virtual async System.Threading.Tasks.Task BuildInterfluxTransactionAsync(BuildInterFluxTransactionRequest body, System.Threading.CancellationToken cancellationToken)
+        public virtual async System.Threading.Tasks.Task<CirrusResponse> BuildInterfluxTransactionAsync(BuildInterFluxTransactionRequest? body, System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/api/Wallet/build-interflux-transaction");
@@ -8985,7 +8987,7 @@ namespace Cobra.Api.Node.Cirrus
                         var status_ = (int)response_.StatusCode;
                         if (status_ == 200)
                         {
-                            return;
+                            return new CirrusResponse(status_, headers_);
                         }
                         else
                         if (status_ == 400)
@@ -9021,7 +9023,7 @@ namespace Cobra.Api.Node.Cirrus
 
         /// <returns>Success</returns>
         /// <exception cref="CirrusApiException">A server side error occurred.</exception>
-        public virtual System.Threading.Tasks.Task SendTransaction2Async(SendTransactionRequest body)
+        public virtual System.Threading.Tasks.Task<CirrusResponse> SendTransaction2Async(SendTransactionRequest? body)
         {
             return SendTransaction2Async(body, System.Threading.CancellationToken.None);
         }
@@ -9029,7 +9031,7 @@ namespace Cobra.Api.Node.Cirrus
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Success</returns>
         /// <exception cref="CirrusApiException">A server side error occurred.</exception>
-        public virtual async System.Threading.Tasks.Task SendTransaction2Async(SendTransactionRequest body, System.Threading.CancellationToken cancellationToken)
+        public virtual async System.Threading.Tasks.Task<CirrusResponse> SendTransaction2Async(SendTransactionRequest? body, System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/api/Wallet/send-transaction");
@@ -9069,7 +9071,7 @@ namespace Cobra.Api.Node.Cirrus
                         var status_ = (int)response_.StatusCode;
                         if (status_ == 200)
                         {
-                            return;
+                            return new CirrusResponse(status_, headers_);
                         }
                         else
                         if (status_ == 400)
@@ -9111,7 +9113,7 @@ namespace Cobra.Api.Node.Cirrus
 
         /// <returns>Success</returns>
         /// <exception cref="CirrusApiException">A server side error occurred.</exception>
-        public virtual System.Threading.Tasks.Task ListWalletsAsync()
+        public virtual System.Threading.Tasks.Task<CirrusResponse> ListWalletsAsync()
         {
             return ListWalletsAsync(System.Threading.CancellationToken.None);
         }
@@ -9119,7 +9121,7 @@ namespace Cobra.Api.Node.Cirrus
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Success</returns>
         /// <exception cref="CirrusApiException">A server side error occurred.</exception>
-        public virtual async System.Threading.Tasks.Task ListWalletsAsync(System.Threading.CancellationToken cancellationToken)
+        public virtual async System.Threading.Tasks.Task<CirrusResponse> ListWalletsAsync(System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/api/Wallet/list-wallets");
@@ -9155,7 +9157,7 @@ namespace Cobra.Api.Node.Cirrus
                         var status_ = (int)response_.StatusCode;
                         if (status_ == 200)
                         {
-                            return;
+                            return new CirrusResponse(status_, headers_);
                         }
                         else
                         {
@@ -9179,7 +9181,7 @@ namespace Cobra.Api.Node.Cirrus
 
         /// <returns>Success</returns>
         /// <exception cref="CirrusApiException">A server side error occurred.</exception>
-        public virtual System.Threading.Tasks.Task AccountAsync(GetUnusedAccountModel body)
+        public virtual System.Threading.Tasks.Task<CirrusResponse> AccountAsync(GetUnusedAccountModel? body)
         {
             return AccountAsync(body, System.Threading.CancellationToken.None);
         }
@@ -9187,7 +9189,7 @@ namespace Cobra.Api.Node.Cirrus
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Success</returns>
         /// <exception cref="CirrusApiException">A server side error occurred.</exception>
-        public virtual async System.Threading.Tasks.Task AccountAsync(GetUnusedAccountModel body, System.Threading.CancellationToken cancellationToken)
+        public virtual async System.Threading.Tasks.Task<CirrusResponse> AccountAsync(GetUnusedAccountModel? body, System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/api/Wallet/account");
@@ -9227,7 +9229,7 @@ namespace Cobra.Api.Node.Cirrus
                         var status_ = (int)response_.StatusCode;
                         if (status_ == 200)
                         {
-                            return;
+                            return new CirrusResponse(status_, headers_);
                         }
                         else
                         if (status_ == 400)
@@ -9269,7 +9271,7 @@ namespace Cobra.Api.Node.Cirrus
 
         /// <returns>Success</returns>
         /// <exception cref="CirrusApiException">A server side error occurred.</exception>
-        public virtual System.Threading.Tasks.Task AccountsAsync(string walletName)
+        public virtual System.Threading.Tasks.Task<CirrusResponse> AccountsAsync(string walletName)
         {
             return AccountsAsync(walletName, System.Threading.CancellationToken.None);
         }
@@ -9277,7 +9279,7 @@ namespace Cobra.Api.Node.Cirrus
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Success</returns>
         /// <exception cref="CirrusApiException">A server side error occurred.</exception>
-        public virtual async System.Threading.Tasks.Task AccountsAsync(string walletName, System.Threading.CancellationToken cancellationToken)
+        public virtual async System.Threading.Tasks.Task<CirrusResponse> AccountsAsync(string walletName, System.Threading.CancellationToken cancellationToken)
         {
             if (walletName == null)
                 throw new System.ArgumentNullException("walletName");
@@ -9318,7 +9320,7 @@ namespace Cobra.Api.Node.Cirrus
                         var status_ = (int)response_.StatusCode;
                         if (status_ == 200)
                         {
-                            return;
+                            return new CirrusResponse(status_, headers_);
                         }
                         else
                         if (status_ == 400)
@@ -9354,7 +9356,7 @@ namespace Cobra.Api.Node.Cirrus
 
         /// <returns>Success</returns>
         /// <exception cref="CirrusApiException">A server side error occurred.</exception>
-        public virtual System.Threading.Tasks.Task UnusedaddressAsync(string walletName, string accountName, bool? segwit)
+        public virtual System.Threading.Tasks.Task<CirrusResponse> UnusedaddressAsync(string walletName, string? accountName, bool? segwit)
         {
             return UnusedaddressAsync(walletName, accountName, segwit, System.Threading.CancellationToken.None);
         }
@@ -9362,7 +9364,7 @@ namespace Cobra.Api.Node.Cirrus
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Success</returns>
         /// <exception cref="CirrusApiException">A server side error occurred.</exception>
-        public virtual async System.Threading.Tasks.Task UnusedaddressAsync(string walletName, string accountName, bool? segwit, System.Threading.CancellationToken cancellationToken)
+        public virtual async System.Threading.Tasks.Task<CirrusResponse> UnusedaddressAsync(string walletName, string? accountName, bool? segwit, System.Threading.CancellationToken cancellationToken)
         {
             if (walletName == null)
                 throw new System.ArgumentNullException("walletName");
@@ -9411,7 +9413,7 @@ namespace Cobra.Api.Node.Cirrus
                         var status_ = (int)response_.StatusCode;
                         if (status_ == 200)
                         {
-                            return;
+                            return new CirrusResponse(status_, headers_);
                         }
                         else
                         if (status_ == 400)
@@ -9447,7 +9449,7 @@ namespace Cobra.Api.Node.Cirrus
 
         /// <returns>Success</returns>
         /// <exception cref="CirrusApiException">A server side error occurred.</exception>
-        public virtual System.Threading.Tasks.Task UnusedaddressesAsync(string walletName, string accountName, string count, bool? segwit)
+        public virtual System.Threading.Tasks.Task<CirrusResponse> UnusedaddressesAsync(string walletName, string? accountName, string count, bool? segwit)
         {
             return UnusedaddressesAsync(walletName, accountName, count, segwit, System.Threading.CancellationToken.None);
         }
@@ -9455,7 +9457,7 @@ namespace Cobra.Api.Node.Cirrus
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Success</returns>
         /// <exception cref="CirrusApiException">A server side error occurred.</exception>
-        public virtual async System.Threading.Tasks.Task UnusedaddressesAsync(string walletName, string accountName, string count, bool? segwit, System.Threading.CancellationToken cancellationToken)
+        public virtual async System.Threading.Tasks.Task<CirrusResponse> UnusedaddressesAsync(string walletName, string? accountName, string count, bool? segwit, System.Threading.CancellationToken cancellationToken)
         {
             if (walletName == null)
                 throw new System.ArgumentNullException("walletName");
@@ -9508,7 +9510,7 @@ namespace Cobra.Api.Node.Cirrus
                         var status_ = (int)response_.StatusCode;
                         if (status_ == 200)
                         {
-                            return;
+                            return new CirrusResponse(status_, headers_);
                         }
                         else
                         if (status_ == 400)
@@ -9544,7 +9546,7 @@ namespace Cobra.Api.Node.Cirrus
 
         /// <returns>Success</returns>
         /// <exception cref="CirrusApiException">A server side error occurred.</exception>
-        public virtual System.Threading.Tasks.Task NewaddressesAsync(string walletName, string accountName, string count, bool? segwit)
+        public virtual System.Threading.Tasks.Task<CirrusResponse> NewaddressesAsync(string walletName, string? accountName, string count, bool? segwit)
         {
             return NewaddressesAsync(walletName, accountName, count, segwit, System.Threading.CancellationToken.None);
         }
@@ -9552,7 +9554,7 @@ namespace Cobra.Api.Node.Cirrus
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Success</returns>
         /// <exception cref="CirrusApiException">A server side error occurred.</exception>
-        public virtual async System.Threading.Tasks.Task NewaddressesAsync(string walletName, string accountName, string count, bool? segwit, System.Threading.CancellationToken cancellationToken)
+        public virtual async System.Threading.Tasks.Task<CirrusResponse> NewaddressesAsync(string walletName, string? accountName, string count, bool? segwit, System.Threading.CancellationToken cancellationToken)
         {
             if (walletName == null)
                 throw new System.ArgumentNullException("walletName");
@@ -9605,7 +9607,7 @@ namespace Cobra.Api.Node.Cirrus
                         var status_ = (int)response_.StatusCode;
                         if (status_ == 200)
                         {
-                            return;
+                            return new CirrusResponse(status_, headers_);
                         }
                         else
                         if (status_ == 400)
@@ -9641,7 +9643,7 @@ namespace Cobra.Api.Node.Cirrus
 
         /// <returns>Success</returns>
         /// <exception cref="CirrusApiException">A server side error occurred.</exception>
-        public virtual System.Threading.Tasks.Task AddressesAsync(string walletName, string accountName, bool? segwit)
+        public virtual System.Threading.Tasks.Task<CirrusResponse> AddressesAsync(string walletName, string? accountName, bool? segwit)
         {
             return AddressesAsync(walletName, accountName, segwit, System.Threading.CancellationToken.None);
         }
@@ -9649,7 +9651,7 @@ namespace Cobra.Api.Node.Cirrus
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Success</returns>
         /// <exception cref="CirrusApiException">A server side error occurred.</exception>
-        public virtual async System.Threading.Tasks.Task AddressesAsync(string walletName, string accountName, bool? segwit, System.Threading.CancellationToken cancellationToken)
+        public virtual async System.Threading.Tasks.Task<CirrusResponse> AddressesAsync(string walletName, string? accountName, bool? segwit, System.Threading.CancellationToken cancellationToken)
         {
             if (walletName == null)
                 throw new System.ArgumentNullException("walletName");
@@ -9698,7 +9700,7 @@ namespace Cobra.Api.Node.Cirrus
                         var status_ = (int)response_.StatusCode;
                         if (status_ == 200)
                         {
-                            return;
+                            return new CirrusResponse(status_, headers_);
                         }
                         else
                         {
@@ -9722,7 +9724,7 @@ namespace Cobra.Api.Node.Cirrus
 
         /// <returns>Success</returns>
         /// <exception cref="CirrusApiException">A server side error occurred.</exception>
-        public virtual System.Threading.Tasks.Task RemoveTransactionsAsync(string walletName, System.Collections.Generic.IEnumerable<string> ids, System.DateTimeOffset? fromDate, bool? all, bool? reSync)
+        public virtual System.Threading.Tasks.Task<CirrusResponse> RemoveTransactionsAsync(string walletName, System.Collections.Generic.IEnumerable<string>? ids, System.DateTimeOffset? fromDate, bool? all, bool? reSync)
         {
             return RemoveTransactionsAsync(walletName, ids, fromDate, all, reSync, System.Threading.CancellationToken.None);
         }
@@ -9730,7 +9732,7 @@ namespace Cobra.Api.Node.Cirrus
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Success</returns>
         /// <exception cref="CirrusApiException">A server side error occurred.</exception>
-        public virtual async System.Threading.Tasks.Task RemoveTransactionsAsync(string walletName, System.Collections.Generic.IEnumerable<string> ids, System.DateTimeOffset? fromDate, bool? all, bool? reSync, System.Threading.CancellationToken cancellationToken)
+        public virtual async System.Threading.Tasks.Task<CirrusResponse> RemoveTransactionsAsync(string walletName, System.Collections.Generic.IEnumerable<string>? ids, System.DateTimeOffset? fromDate, bool? all, bool? reSync, System.Threading.CancellationToken cancellationToken)
         {
             if (walletName == null)
                 throw new System.ArgumentNullException("walletName");
@@ -9787,7 +9789,7 @@ namespace Cobra.Api.Node.Cirrus
                         var status_ = (int)response_.StatusCode;
                         if (status_ == 200)
                         {
-                            return;
+                            return new CirrusResponse(status_, headers_);
                         }
                         else
                         {
@@ -9811,7 +9813,7 @@ namespace Cobra.Api.Node.Cirrus
 
         /// <returns>Success</returns>
         /// <exception cref="CirrusApiException">A server side error occurred.</exception>
-        public virtual System.Threading.Tasks.Task RemoveWalletAsync(string walletName)
+        public virtual System.Threading.Tasks.Task<CirrusResponse> RemoveWalletAsync(string walletName)
         {
             return RemoveWalletAsync(walletName, System.Threading.CancellationToken.None);
         }
@@ -9819,7 +9821,7 @@ namespace Cobra.Api.Node.Cirrus
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Success</returns>
         /// <exception cref="CirrusApiException">A server side error occurred.</exception>
-        public virtual async System.Threading.Tasks.Task RemoveWalletAsync(string walletName, System.Threading.CancellationToken cancellationToken)
+        public virtual async System.Threading.Tasks.Task<CirrusResponse> RemoveWalletAsync(string walletName, System.Threading.CancellationToken cancellationToken)
         {
             if (walletName == null)
                 throw new System.ArgumentNullException("walletName");
@@ -9860,7 +9862,7 @@ namespace Cobra.Api.Node.Cirrus
                         var status_ = (int)response_.StatusCode;
                         if (status_ == 200)
                         {
-                            return;
+                            return new CirrusResponse(status_, headers_);
                         }
                         else
                         {
@@ -9884,7 +9886,7 @@ namespace Cobra.Api.Node.Cirrus
 
         /// <returns>Success</returns>
         /// <exception cref="CirrusApiException">A server side error occurred.</exception>
-        public virtual System.Threading.Tasks.Task ExtpubkeyAsync(string walletName, string accountName)
+        public virtual System.Threading.Tasks.Task<CirrusResponse> ExtpubkeyAsync(string walletName, string? accountName)
         {
             return ExtpubkeyAsync(walletName, accountName, System.Threading.CancellationToken.None);
         }
@@ -9892,7 +9894,7 @@ namespace Cobra.Api.Node.Cirrus
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Success</returns>
         /// <exception cref="CirrusApiException">A server side error occurred.</exception>
-        public virtual async System.Threading.Tasks.Task ExtpubkeyAsync(string walletName, string accountName, System.Threading.CancellationToken cancellationToken)
+        public virtual async System.Threading.Tasks.Task<CirrusResponse> ExtpubkeyAsync(string walletName, string? accountName, System.Threading.CancellationToken cancellationToken)
         {
             if (walletName == null)
                 throw new System.ArgumentNullException("walletName");
@@ -9937,7 +9939,7 @@ namespace Cobra.Api.Node.Cirrus
                         var status_ = (int)response_.StatusCode;
                         if (status_ == 200)
                         {
-                            return;
+                            return new CirrusResponse(status_, headers_);
                         }
                         else
                         {
@@ -9961,7 +9963,7 @@ namespace Cobra.Api.Node.Cirrus
 
         /// <returns>Success</returns>
         /// <exception cref="CirrusApiException">A server side error occurred.</exception>
-        public virtual System.Threading.Tasks.Task PrivatekeyAsync(RetrievePrivateKeyModel body)
+        public virtual System.Threading.Tasks.Task<CirrusResponse> PrivatekeyAsync(RetrievePrivateKeyModel? body)
         {
             return PrivatekeyAsync(body, System.Threading.CancellationToken.None);
         }
@@ -9969,7 +9971,7 @@ namespace Cobra.Api.Node.Cirrus
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Success</returns>
         /// <exception cref="CirrusApiException">A server side error occurred.</exception>
-        public virtual async System.Threading.Tasks.Task PrivatekeyAsync(RetrievePrivateKeyModel body, System.Threading.CancellationToken cancellationToken)
+        public virtual async System.Threading.Tasks.Task<CirrusResponse> PrivatekeyAsync(RetrievePrivateKeyModel? body, System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/api/Wallet/privatekey");
@@ -10009,7 +10011,7 @@ namespace Cobra.Api.Node.Cirrus
                         var status_ = (int)response_.StatusCode;
                         if (status_ == 200)
                         {
-                            return;
+                            return new CirrusResponse(status_, headers_);
                         }
                         else
                         {
@@ -10033,7 +10035,7 @@ namespace Cobra.Api.Node.Cirrus
 
         /// <returns>Success</returns>
         /// <exception cref="CirrusApiException">A server side error occurred.</exception>
-        public virtual System.Threading.Tasks.Task SyncAsync(HashModel body)
+        public virtual System.Threading.Tasks.Task<CirrusResponse> SyncAsync(HashModel? body)
         {
             return SyncAsync(body, System.Threading.CancellationToken.None);
         }
@@ -10041,7 +10043,7 @@ namespace Cobra.Api.Node.Cirrus
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Success</returns>
         /// <exception cref="CirrusApiException">A server side error occurred.</exception>
-        public virtual async System.Threading.Tasks.Task SyncAsync(HashModel body, System.Threading.CancellationToken cancellationToken)
+        public virtual async System.Threading.Tasks.Task<CirrusResponse> SyncAsync(HashModel? body, System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/api/Wallet/sync");
@@ -10081,7 +10083,7 @@ namespace Cobra.Api.Node.Cirrus
                         var status_ = (int)response_.StatusCode;
                         if (status_ == 200)
                         {
-                            return;
+                            return new CirrusResponse(status_, headers_);
                         }
                         else
                         if (status_ == 400)
@@ -10111,7 +10113,7 @@ namespace Cobra.Api.Node.Cirrus
 
         /// <returns>Success</returns>
         /// <exception cref="CirrusApiException">A server side error occurred.</exception>
-        public virtual System.Threading.Tasks.Task SyncFromDateAsync(WalletSyncRequest body)
+        public virtual System.Threading.Tasks.Task<CirrusResponse> SyncFromDateAsync(WalletSyncRequest? body)
         {
             return SyncFromDateAsync(body, System.Threading.CancellationToken.None);
         }
@@ -10119,7 +10121,7 @@ namespace Cobra.Api.Node.Cirrus
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Success</returns>
         /// <exception cref="CirrusApiException">A server side error occurred.</exception>
-        public virtual async System.Threading.Tasks.Task SyncFromDateAsync(WalletSyncRequest body, System.Threading.CancellationToken cancellationToken)
+        public virtual async System.Threading.Tasks.Task<CirrusResponse> SyncFromDateAsync(WalletSyncRequest? body, System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/api/Wallet/sync-from-date");
@@ -10159,7 +10161,7 @@ namespace Cobra.Api.Node.Cirrus
                         var status_ = (int)response_.StatusCode;
                         if (status_ == 200)
                         {
-                            return;
+                            return new CirrusResponse(status_, headers_);
                         }
                         else
                         {
@@ -10183,7 +10185,7 @@ namespace Cobra.Api.Node.Cirrus
 
         /// <returns>Success</returns>
         /// <exception cref="CirrusApiException">A server side error occurred.</exception>
-        public virtual System.Threading.Tasks.Task WalletStatsAsync(string walletName, string accountName, int? minConfirmations, bool? verbose)
+        public virtual System.Threading.Tasks.Task<CirrusResponse> WalletStatsAsync(string walletName, string? accountName, int? minConfirmations, bool? verbose)
         {
             return WalletStatsAsync(walletName, accountName, minConfirmations, verbose, System.Threading.CancellationToken.None);
         }
@@ -10191,7 +10193,7 @@ namespace Cobra.Api.Node.Cirrus
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Success</returns>
         /// <exception cref="CirrusApiException">A server side error occurred.</exception>
-        public virtual async System.Threading.Tasks.Task WalletStatsAsync(string walletName, string accountName, int? minConfirmations, bool? verbose, System.Threading.CancellationToken cancellationToken)
+        public virtual async System.Threading.Tasks.Task<CirrusResponse> WalletStatsAsync(string walletName, string? accountName, int? minConfirmations, bool? verbose, System.Threading.CancellationToken cancellationToken)
         {
             if (walletName == null)
                 throw new System.ArgumentNullException("walletName");
@@ -10244,7 +10246,7 @@ namespace Cobra.Api.Node.Cirrus
                         var status_ = (int)response_.StatusCode;
                         if (status_ == 200)
                         {
-                            return;
+                            return new CirrusResponse(status_, headers_);
                         }
                         else
                         {
@@ -10268,7 +10270,7 @@ namespace Cobra.Api.Node.Cirrus
 
         /// <returns>Success</returns>
         /// <exception cref="CirrusApiException">A server side error occurred.</exception>
-        public virtual System.Threading.Tasks.Task SplitcoinsAsync(SplitCoinsRequest body)
+        public virtual System.Threading.Tasks.Task<CirrusResponse> SplitcoinsAsync(SplitCoinsRequest? body)
         {
             return SplitcoinsAsync(body, System.Threading.CancellationToken.None);
         }
@@ -10276,7 +10278,7 @@ namespace Cobra.Api.Node.Cirrus
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Success</returns>
         /// <exception cref="CirrusApiException">A server side error occurred.</exception>
-        public virtual async System.Threading.Tasks.Task SplitcoinsAsync(SplitCoinsRequest body, System.Threading.CancellationToken cancellationToken)
+        public virtual async System.Threading.Tasks.Task<CirrusResponse> SplitcoinsAsync(SplitCoinsRequest? body, System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/api/Wallet/splitcoins");
@@ -10316,7 +10318,7 @@ namespace Cobra.Api.Node.Cirrus
                         var status_ = (int)response_.StatusCode;
                         if (status_ == 200)
                         {
-                            return;
+                            return new CirrusResponse(status_, headers_);
                         }
                         else
                         {
@@ -10340,7 +10342,7 @@ namespace Cobra.Api.Node.Cirrus
 
         /// <returns>Success</returns>
         /// <exception cref="CirrusApiException">A server side error occurred.</exception>
-        public virtual System.Threading.Tasks.Task DistributeUtxosAsync(DistributeUtxosRequest body)
+        public virtual System.Threading.Tasks.Task<CirrusResponse> DistributeUtxosAsync(DistributeUtxosRequest? body)
         {
             return DistributeUtxosAsync(body, System.Threading.CancellationToken.None);
         }
@@ -10348,7 +10350,7 @@ namespace Cobra.Api.Node.Cirrus
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Success</returns>
         /// <exception cref="CirrusApiException">A server side error occurred.</exception>
-        public virtual async System.Threading.Tasks.Task DistributeUtxosAsync(DistributeUtxosRequest body, System.Threading.CancellationToken cancellationToken)
+        public virtual async System.Threading.Tasks.Task<CirrusResponse> DistributeUtxosAsync(DistributeUtxosRequest? body, System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/api/Wallet/distribute-utxos");
@@ -10388,7 +10390,7 @@ namespace Cobra.Api.Node.Cirrus
                         var status_ = (int)response_.StatusCode;
                         if (status_ == 200)
                         {
-                            return;
+                            return new CirrusResponse(status_, headers_);
                         }
                         else
                         {
@@ -10412,7 +10414,7 @@ namespace Cobra.Api.Node.Cirrus
 
         /// <returns>Success</returns>
         /// <exception cref="CirrusApiException">A server side error occurred.</exception>
-        public virtual System.Threading.Tasks.Task SweepAsync(SweepRequest body)
+        public virtual System.Threading.Tasks.Task<CirrusResponse> SweepAsync(SweepRequest? body)
         {
             return SweepAsync(body, System.Threading.CancellationToken.None);
         }
@@ -10420,7 +10422,7 @@ namespace Cobra.Api.Node.Cirrus
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Success</returns>
         /// <exception cref="CirrusApiException">A server side error occurred.</exception>
-        public virtual async System.Threading.Tasks.Task SweepAsync(SweepRequest body, System.Threading.CancellationToken cancellationToken)
+        public virtual async System.Threading.Tasks.Task<CirrusResponse> SweepAsync(SweepRequest? body, System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/api/Wallet/sweep");
@@ -10460,7 +10462,7 @@ namespace Cobra.Api.Node.Cirrus
                         var status_ = (int)response_.StatusCode;
                         if (status_ == 200)
                         {
-                            return;
+                            return new CirrusResponse(status_, headers_);
                         }
                         else
                         {
@@ -10484,7 +10486,7 @@ namespace Cobra.Api.Node.Cirrus
 
         /// <returns>Success</returns>
         /// <exception cref="CirrusApiException">A server side error occurred.</exception>
-        public virtual System.Threading.Tasks.Task BuildOfflineSignRequestAsync(BuildOfflineSignRequest body)
+        public virtual System.Threading.Tasks.Task<CirrusResponse> BuildOfflineSignRequestAsync(BuildOfflineSignRequest? body)
         {
             return BuildOfflineSignRequestAsync(body, System.Threading.CancellationToken.None);
         }
@@ -10492,7 +10494,7 @@ namespace Cobra.Api.Node.Cirrus
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Success</returns>
         /// <exception cref="CirrusApiException">A server side error occurred.</exception>
-        public virtual async System.Threading.Tasks.Task BuildOfflineSignRequestAsync(BuildOfflineSignRequest body, System.Threading.CancellationToken cancellationToken)
+        public virtual async System.Threading.Tasks.Task<CirrusResponse> BuildOfflineSignRequestAsync(BuildOfflineSignRequest? body, System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/api/Wallet/build-offline-sign-request");
@@ -10532,7 +10534,7 @@ namespace Cobra.Api.Node.Cirrus
                         var status_ = (int)response_.StatusCode;
                         if (status_ == 200)
                         {
-                            return;
+                            return new CirrusResponse(status_, headers_);
                         }
                         else
                         {
@@ -10556,7 +10558,7 @@ namespace Cobra.Api.Node.Cirrus
 
         /// <returns>Success</returns>
         /// <exception cref="CirrusApiException">A server side error occurred.</exception>
-        public virtual System.Threading.Tasks.Task OfflineSignRequestAsync(OfflineSignRequest body)
+        public virtual System.Threading.Tasks.Task<CirrusResponse> OfflineSignRequestAsync(OfflineSignRequest? body)
         {
             return OfflineSignRequestAsync(body, System.Threading.CancellationToken.None);
         }
@@ -10564,7 +10566,7 @@ namespace Cobra.Api.Node.Cirrus
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Success</returns>
         /// <exception cref="CirrusApiException">A server side error occurred.</exception>
-        public virtual async System.Threading.Tasks.Task OfflineSignRequestAsync(OfflineSignRequest body, System.Threading.CancellationToken cancellationToken)
+        public virtual async System.Threading.Tasks.Task<CirrusResponse> OfflineSignRequestAsync(OfflineSignRequest? body, System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/api/Wallet/offline-sign-request");
@@ -10604,7 +10606,7 @@ namespace Cobra.Api.Node.Cirrus
                         var status_ = (int)response_.StatusCode;
                         if (status_ == 200)
                         {
-                            return;
+                            return new CirrusResponse(status_, headers_);
                         }
                         else
                         {
@@ -10628,7 +10630,7 @@ namespace Cobra.Api.Node.Cirrus
 
         /// <returns>Success</returns>
         /// <exception cref="CirrusApiException">A server side error occurred.</exception>
-        public virtual System.Threading.Tasks.Task ConsolidateAsync(ConsolidationRequest body)
+        public virtual System.Threading.Tasks.Task<CirrusResponse> ConsolidateAsync(ConsolidationRequest? body)
         {
             return ConsolidateAsync(body, System.Threading.CancellationToken.None);
         }
@@ -10636,7 +10638,7 @@ namespace Cobra.Api.Node.Cirrus
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Success</returns>
         /// <exception cref="CirrusApiException">A server side error occurred.</exception>
-        public virtual async System.Threading.Tasks.Task ConsolidateAsync(ConsolidationRequest body, System.Threading.CancellationToken cancellationToken)
+        public virtual async System.Threading.Tasks.Task<CirrusResponse> ConsolidateAsync(ConsolidationRequest? body, System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/api/Wallet/consolidate");
@@ -10676,7 +10678,7 @@ namespace Cobra.Api.Node.Cirrus
                         var status_ = (int)response_.StatusCode;
                         if (status_ == 200)
                         {
-                            return;
+                            return new CirrusResponse(status_, headers_);
                         }
                         else
                         {
@@ -10717,7 +10719,7 @@ namespace Cobra.Api.Node.Cirrus
         {
             if (response == null || response.Content == null)
             {
-                return new ObjectResponseResult<T>(default(T), string.Empty);
+                return new ObjectResponseResult<T>(default(T)!, string.Empty);
             }
 
             if (ReadResponseAsString)
@@ -10726,7 +10728,7 @@ namespace Cobra.Api.Node.Cirrus
                 try
                 {
                     var typedBody = Newtonsoft.Json.JsonConvert.DeserializeObject<T>(responseText, JsonSerializerSettings);
-                    return new ObjectResponseResult<T>(typedBody, responseText);
+                    return new ObjectResponseResult<T>(typedBody!, responseText);
                 }
                 catch (Newtonsoft.Json.JsonException exception)
                 {
@@ -10744,7 +10746,7 @@ namespace Cobra.Api.Node.Cirrus
                     {
                         var serializer = Newtonsoft.Json.JsonSerializer.Create(JsonSerializerSettings);
                         var typedBody = serializer.Deserialize<T>(jsonTextReader);
-                        return new ObjectResponseResult<T>(typedBody, string.Empty);
+                        return new ObjectResponseResult<T>(typedBody!, string.Empty);
                     }
                 }
                 catch (Newtonsoft.Json.JsonException exception)
@@ -10755,7 +10757,7 @@ namespace Cobra.Api.Node.Cirrus
             }
         }
 
-        private string ConvertToString(object value, System.Globalization.CultureInfo cultureInfo)
+        private string ConvertToString(object? value, System.Globalization.CultureInfo cultureInfo)
         {
             if (value == null)
             {
@@ -10808,7 +10810,7 @@ namespace Cobra.Api.Node.Cirrus
         /// The contract address to add.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("address", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Address { get; set; }
+        public string? Address { get; set; } = default!;
 
     }
 
@@ -10818,11 +10820,11 @@ namespace Cobra.Api.Node.Cirrus
         [Newtonsoft.Json.JsonProperty("label", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         [System.ComponentModel.DataAnnotations.StringLength(200)]
-        public string Label { get; set; }
+        public string Label { get; set; } = default!;
 
         [Newtonsoft.Json.JsonProperty("address", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Address { get; set; }
+        public string Address { get; set; } = default!;
 
     }
 
@@ -10831,14 +10833,14 @@ namespace Cobra.Api.Node.Cirrus
     {
         [Newtonsoft.Json.JsonProperty("address", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Address { get; set; }
+        public string Address { get; set; } = default!;
 
         [Newtonsoft.Json.JsonProperty("keyPath", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string KeyPath { get; set; }
+        public string KeyPath { get; set; } = default!;
 
         [Newtonsoft.Json.JsonProperty("addressType", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string AddressType { get; set; }
+        public string? AddressType { get; set; } = default!;
 
     }
 
@@ -10854,61 +10856,61 @@ namespace Cobra.Api.Node.Cirrus
         /// </summary>
         [Newtonsoft.Json.JsonProperty("walletName", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string WalletName { get; set; }
+        public string WalletName { get; set; } = default!;
 
         /// <summary>
         /// The name of the wallet account containing funds to use to cover transaction fees, gas, and any funds specified in the
         /// <br/>Amount field. Defaults to "account 0".
         /// </summary>
         [Newtonsoft.Json.JsonProperty("accountName", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string AccountName { get; set; }
+        public string? AccountName { get; set; } = default!;
 
         /// <summary>
         /// A list of outpoints to use as inputs for the transaction.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("outpoints", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<OutpointRequest> Outpoints { get; set; }
+        public System.Collections.Generic.ICollection<OutpointRequest>? Outpoints { get; set; } = default!;
 
         /// <summary>
         /// The address of the smart contract containing the method.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("contractAddress", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string ContractAddress { get; set; }
+        public string ContractAddress { get; set; } = default!;
 
         /// <summary>
         /// The name of the method to call.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("methodName", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string MethodName { get; set; }
+        public string MethodName { get; set; } = default!;
 
         /// <summary>
         /// The amount of STRAT (or sidechain coin) to send to the smart contract address.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("amount", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Amount { get; set; }
+        public string Amount { get; set; } = default!;
 
         /// <summary>
         /// The fees in STRAT (or sidechain coin) to cover the method call transaction.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("feeAmount", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string FeeAmount { get; set; }
+        public string? FeeAmount { get; set; } = default!;
 
         /// <summary>
         /// The password for the wallet.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("password", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Password { get; set; }
+        public string Password { get; set; } = default!;
 
         /// <summary>
         /// The gas price to charge when the method is run by the miner mining the call transaction.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("gasPrice", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [System.ComponentModel.DataAnnotations.Range(100D, 10000D)]
-        public long GasPrice { get; set; }
+        public long GasPrice { get; set; } = default!;
 
         /// <summary>
         /// The maximum amount of gas that can be spent executing this transaction.
@@ -10918,14 +10920,14 @@ namespace Cobra.Api.Node.Cirrus
         /// </summary>
         [Newtonsoft.Json.JsonProperty("gasLimit", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [System.ComponentModel.DataAnnotations.Range(10000D, 250000D)]
-        public long GasLimit { get; set; }
+        public long GasLimit { get; set; } = default!;
 
         /// <summary>
         /// An optional field, this is only used in the case where a transaction needs to simultaneously call a contract as well as transfer funds to one or more recipients.
         /// <br/>The recipient(s) are entirely independent of the contract call address and any resulting transaction outputs are separate.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("recipients", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<RecipientModel> Recipients { get; set; }
+        public System.Collections.Generic.ICollection<RecipientModel>? Recipients { get; set; } = default!;
 
         /// <summary>
         /// A wallet address containing the funds to cover transaction fees, gas, and any funds specified in the
@@ -10938,7 +10940,7 @@ namespace Cobra.Api.Node.Cirrus
         /// </summary>
         [Newtonsoft.Json.JsonProperty("sender", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Sender { get; set; }
+        public string Sender { get; set; } = default!;
 
         /// <summary>
         /// An array of encoded strings containing the parameters (and their type) to pass to the smart contract
@@ -10947,14 +10949,14 @@ namespace Cobra.Api.Node.Cirrus
         /// <br/>&lt;a target="_blank" href="https://academy.stratisplatform.com/SmartContracts/working-with-contracts.html#parameter-serialization"&gt;here&lt;/a&gt;.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("parameters", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<string> Parameters { get; set; }
+        public System.Collections.Generic.ICollection<string>? Parameters { get; set; } = default!;
 
         /// <summary>
         /// A flag indicating that the output paying the multisig relates to an interop associated fee.
         /// <br/>This will skip the OP_RETURN validation in the cross chain deposit validation helper.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("isInteropFeeForMultisig", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public bool IsInteropFeeForMultisig { get; set; }
+        public bool IsInteropFeeForMultisig { get; set; } = default!;
 
     }
 
@@ -10963,49 +10965,49 @@ namespace Cobra.Api.Node.Cirrus
     {
         [Newtonsoft.Json.JsonProperty("sender", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Sender { get; set; }
+        public string Sender { get; set; } = default!;
 
         [Newtonsoft.Json.JsonProperty("feeAmount", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string FeeAmount { get; set; }
+        public string? FeeAmount { get; set; } = default!;
 
         [Newtonsoft.Json.JsonProperty("password", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Password { get; set; }
+        public string Password { get; set; } = default!;
 
         [Newtonsoft.Json.JsonProperty("segwitChangeAddress", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public bool SegwitChangeAddress { get; set; }
+        public bool SegwitChangeAddress { get; set; } = default!;
 
         [Newtonsoft.Json.JsonProperty("walletName", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string WalletName { get; set; }
+        public string WalletName { get; set; } = default!;
 
         [Newtonsoft.Json.JsonProperty("accountName", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string AccountName { get; set; }
+        public string? AccountName { get; set; } = default!;
 
         [Newtonsoft.Json.JsonProperty("outpoints", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<OutpointRequest> Outpoints { get; set; }
+        public System.Collections.Generic.ICollection<OutpointRequest>? Outpoints { get; set; } = default!;
 
         [Newtonsoft.Json.JsonProperty("recipients", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [System.ComponentModel.DataAnnotations.MinLength(1)]
-        public System.Collections.Generic.ICollection<RecipientModel> Recipients { get; set; }
+        public System.Collections.Generic.ICollection<RecipientModel>? Recipients { get; set; } = default!;
 
         [Newtonsoft.Json.JsonProperty("opReturnData", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string OpReturnData { get; set; }
+        public string? OpReturnData { get; set; } = default!;
 
         [Newtonsoft.Json.JsonProperty("opReturnAmount", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string OpReturnAmount { get; set; }
+        public string? OpReturnAmount { get; set; } = default!;
 
         [Newtonsoft.Json.JsonProperty("feeType", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string FeeType { get; set; }
+        public string? FeeType { get; set; } = default!;
 
         [Newtonsoft.Json.JsonProperty("allowUnconfirmed", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public bool AllowUnconfirmed { get; set; }
+        public bool AllowUnconfirmed { get; set; } = default!;
 
         [Newtonsoft.Json.JsonProperty("shuffleOutputs", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public bool? ShuffleOutputs { get; set; }
+        public bool? ShuffleOutputs { get; set; } = default!;
 
         [Newtonsoft.Json.JsonProperty("changeAddress", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string ChangeAddress { get; set; }
+        public string? ChangeAddress { get; set; } = default!;
 
     }
 
@@ -11021,54 +11023,54 @@ namespace Cobra.Api.Node.Cirrus
         /// </summary>
         [Newtonsoft.Json.JsonProperty("walletName", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string WalletName { get; set; }
+        public string WalletName { get; set; } = default!;
 
         /// <summary>
         /// The name of the wallet account containing funds to use to cover transaction fees, gas, and any funds specified in the
         /// <br/>Amount field. Defaults to "account 0".
         /// </summary>
         [Newtonsoft.Json.JsonProperty("accountName", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string AccountName { get; set; }
+        public string? AccountName { get; set; } = default!;
 
         /// <summary>
         /// A list of outpoints to use as inputs for the transaction.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("outpoints", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<OutpointRequest> Outpoints { get; set; }
+        public System.Collections.Generic.ICollection<OutpointRequest>? Outpoints { get; set; } = default!;
 
         /// <summary>
         /// The amount of STRAT (or the sidechain coin) to send to the smart contract address on creation.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("amount", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Amount { get; set; }
+        public string Amount { get; set; } = default!;
 
         /// <summary>
         /// The fees in STRAT (or the sidechain coin) to cover the smart contract creation transaction.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("feeAmount", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string FeeAmount { get; set; }
+        public string? FeeAmount { get; set; } = default!;
 
         /// <summary>
         /// The password for the wallet.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("password", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Password { get; set; }
+        public string Password { get; set; } = default!;
 
         /// <summary>
         /// The smart contract bytecode.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("contractCode", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string ContractCode { get; set; }
+        public string ContractCode { get; set; } = default!;
 
         /// <summary>
         /// The gas price to charge when the smart contract constructor is run by the miner mining the creation transaction.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("gasPrice", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [System.ComponentModel.DataAnnotations.Range(100D, 10000D)]
-        public long GasPrice { get; set; }
+        public long GasPrice { get; set; } = default!;
 
         /// <summary>
         /// The maximum amount of gas that can be spent executing this transaction.
@@ -11078,7 +11080,7 @@ namespace Cobra.Api.Node.Cirrus
         /// </summary>
         [Newtonsoft.Json.JsonProperty("gasLimit", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [System.ComponentModel.DataAnnotations.Range(12000D, 250000D)]
-        public long GasLimit { get; set; }
+        public long GasLimit { get; set; } = default!;
 
         /// <summary>
         /// A wallet address containing the funds to cover transaction fees, gas, and any funds specified in the
@@ -11091,7 +11093,7 @@ namespace Cobra.Api.Node.Cirrus
         /// </summary>
         [Newtonsoft.Json.JsonProperty("sender", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Sender { get; set; }
+        public string Sender { get; set; } = default!;
 
         /// <summary>
         /// An array of encoded strings containing the parameters (and their type) to pass to the smart contract
@@ -11100,7 +11102,7 @@ namespace Cobra.Api.Node.Cirrus
         /// <br/>&lt;a target="_blank" href="https://academy.stratisplatform.com/SmartContracts/working-with-contracts.html#parameter-serialization"&gt;here&lt;/a&gt;.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("parameters", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<string> Parameters { get; set; }
+        public System.Collections.Generic.ICollection<string>? Parameters { get; set; } = default!;
 
     }
 
@@ -11108,53 +11110,53 @@ namespace Cobra.Api.Node.Cirrus
     public partial class BuildInterFluxTransactionRequest
     {
         [Newtonsoft.Json.JsonProperty("destinationChain", Required = Newtonsoft.Json.Required.Always)]
-        public int DestinationChain { get; set; }
+        public int DestinationChain { get; set; } = default!;
 
         [Newtonsoft.Json.JsonProperty("destinationAddress", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string DestinationAddress { get; set; }
+        public string DestinationAddress { get; set; } = default!;
 
         [Newtonsoft.Json.JsonProperty("feeAmount", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string FeeAmount { get; set; }
+        public string? FeeAmount { get; set; } = default!;
 
         [Newtonsoft.Json.JsonProperty("password", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Password { get; set; }
+        public string Password { get; set; } = default!;
 
         [Newtonsoft.Json.JsonProperty("segwitChangeAddress", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public bool SegwitChangeAddress { get; set; }
+        public bool SegwitChangeAddress { get; set; } = default!;
 
         [Newtonsoft.Json.JsonProperty("walletName", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string WalletName { get; set; }
+        public string WalletName { get; set; } = default!;
 
         [Newtonsoft.Json.JsonProperty("accountName", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string AccountName { get; set; }
+        public string? AccountName { get; set; } = default!;
 
         [Newtonsoft.Json.JsonProperty("outpoints", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<OutpointRequest> Outpoints { get; set; }
+        public System.Collections.Generic.ICollection<OutpointRequest>? Outpoints { get; set; } = default!;
 
         [Newtonsoft.Json.JsonProperty("recipients", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [System.ComponentModel.DataAnnotations.MinLength(1)]
-        public System.Collections.Generic.ICollection<RecipientModel> Recipients { get; set; }
+        public System.Collections.Generic.ICollection<RecipientModel>? Recipients { get; set; } = default!;
 
         [Newtonsoft.Json.JsonProperty("opReturnData", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string OpReturnData { get; set; }
+        public string? OpReturnData { get; set; } = default!;
 
         [Newtonsoft.Json.JsonProperty("opReturnAmount", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string OpReturnAmount { get; set; }
+        public string? OpReturnAmount { get; set; } = default!;
 
         [Newtonsoft.Json.JsonProperty("feeType", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string FeeType { get; set; }
+        public string? FeeType { get; set; } = default!;
 
         [Newtonsoft.Json.JsonProperty("allowUnconfirmed", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public bool AllowUnconfirmed { get; set; }
+        public bool AllowUnconfirmed { get; set; } = default!;
 
         [Newtonsoft.Json.JsonProperty("shuffleOutputs", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public bool? ShuffleOutputs { get; set; }
+        public bool? ShuffleOutputs { get; set; } = default!;
 
         [Newtonsoft.Json.JsonProperty("changeAddress", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string ChangeAddress { get; set; }
+        public string? ChangeAddress { get; set; } = default!;
 
     }
 
@@ -11162,39 +11164,39 @@ namespace Cobra.Api.Node.Cirrus
     public partial class BuildOfflineSignRequest
     {
         [Newtonsoft.Json.JsonProperty("feeAmount", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string FeeAmount { get; set; }
+        public string? FeeAmount { get; set; } = default!;
 
         [Newtonsoft.Json.JsonProperty("walletName", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string WalletName { get; set; }
+        public string WalletName { get; set; } = default!;
 
         [Newtonsoft.Json.JsonProperty("accountName", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string AccountName { get; set; }
+        public string? AccountName { get; set; } = default!;
 
         [Newtonsoft.Json.JsonProperty("outpoints", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<OutpointRequest> Outpoints { get; set; }
+        public System.Collections.Generic.ICollection<OutpointRequest>? Outpoints { get; set; } = default!;
 
         [Newtonsoft.Json.JsonProperty("recipients", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [System.ComponentModel.DataAnnotations.MinLength(1)]
-        public System.Collections.Generic.ICollection<RecipientModel> Recipients { get; set; }
+        public System.Collections.Generic.ICollection<RecipientModel>? Recipients { get; set; } = default!;
 
         [Newtonsoft.Json.JsonProperty("opReturnData", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string OpReturnData { get; set; }
+        public string? OpReturnData { get; set; } = default!;
 
         [Newtonsoft.Json.JsonProperty("opReturnAmount", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string OpReturnAmount { get; set; }
+        public string? OpReturnAmount { get; set; } = default!;
 
         [Newtonsoft.Json.JsonProperty("feeType", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string FeeType { get; set; }
+        public string? FeeType { get; set; } = default!;
 
         [Newtonsoft.Json.JsonProperty("allowUnconfirmed", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public bool AllowUnconfirmed { get; set; }
+        public bool AllowUnconfirmed { get; set; } = default!;
 
         [Newtonsoft.Json.JsonProperty("shuffleOutputs", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public bool? ShuffleOutputs { get; set; }
+        public bool? ShuffleOutputs { get; set; } = default!;
 
         [Newtonsoft.Json.JsonProperty("changeAddress", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string ChangeAddress { get; set; }
+        public string? ChangeAddress { get; set; } = default!;
 
     }
 
@@ -11202,46 +11204,46 @@ namespace Cobra.Api.Node.Cirrus
     public partial class BuildTransactionRequest
     {
         [Newtonsoft.Json.JsonProperty("feeAmount", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string FeeAmount { get; set; }
+        public string? FeeAmount { get; set; } = default!;
 
         [Newtonsoft.Json.JsonProperty("password", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Password { get; set; }
+        public string Password { get; set; } = default!;
 
         [Newtonsoft.Json.JsonProperty("segwitChangeAddress", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public bool SegwitChangeAddress { get; set; }
+        public bool SegwitChangeAddress { get; set; } = default!;
 
         [Newtonsoft.Json.JsonProperty("walletName", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string WalletName { get; set; }
+        public string WalletName { get; set; } = default!;
 
         [Newtonsoft.Json.JsonProperty("accountName", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string AccountName { get; set; }
+        public string? AccountName { get; set; } = default!;
 
         [Newtonsoft.Json.JsonProperty("outpoints", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<OutpointRequest> Outpoints { get; set; }
+        public System.Collections.Generic.ICollection<OutpointRequest>? Outpoints { get; set; } = default!;
 
         [Newtonsoft.Json.JsonProperty("recipients", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [System.ComponentModel.DataAnnotations.MinLength(1)]
-        public System.Collections.Generic.ICollection<RecipientModel> Recipients { get; set; }
+        public System.Collections.Generic.ICollection<RecipientModel>? Recipients { get; set; } = default!;
 
         [Newtonsoft.Json.JsonProperty("opReturnData", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string OpReturnData { get; set; }
+        public string? OpReturnData { get; set; } = default!;
 
         [Newtonsoft.Json.JsonProperty("opReturnAmount", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string OpReturnAmount { get; set; }
+        public string? OpReturnAmount { get; set; } = default!;
 
         [Newtonsoft.Json.JsonProperty("feeType", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string FeeType { get; set; }
+        public string? FeeType { get; set; } = default!;
 
         [Newtonsoft.Json.JsonProperty("allowUnconfirmed", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public bool AllowUnconfirmed { get; set; }
+        public bool AllowUnconfirmed { get; set; } = default!;
 
         [Newtonsoft.Json.JsonProperty("shuffleOutputs", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public bool? ShuffleOutputs { get; set; }
+        public bool? ShuffleOutputs { get; set; } = default!;
 
         [Newtonsoft.Json.JsonProperty("changeAddress", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string ChangeAddress { get; set; }
+        public string? ChangeAddress { get; set; } = default!;
 
     }
 
@@ -11250,26 +11252,26 @@ namespace Cobra.Api.Node.Cirrus
     {
         [Newtonsoft.Json.JsonProperty("walletName", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string WalletName { get; set; }
+        public string WalletName { get; set; } = default!;
 
         [Newtonsoft.Json.JsonProperty("accountName", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string AccountName { get; set; }
+        public string? AccountName { get; set; } = default!;
 
         [Newtonsoft.Json.JsonProperty("walletPassword", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string WalletPassword { get; set; }
+        public string WalletPassword { get; set; } = default!;
 
         [Newtonsoft.Json.JsonProperty("singleAddress", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string SingleAddress { get; set; }
+        public string? SingleAddress { get; set; } = default!;
 
         [Newtonsoft.Json.JsonProperty("destinationAddress", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string DestinationAddress { get; set; }
+        public string? DestinationAddress { get; set; } = default!;
 
         [Newtonsoft.Json.JsonProperty("utxoValueThreshold", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string UtxoValueThreshold { get; set; }
+        public string? UtxoValueThreshold { get; set; } = default!;
 
         [Newtonsoft.Json.JsonProperty("broadcast", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public bool Broadcast { get; set; }
+        public bool Broadcast { get; set; } = default!;
 
     }
 
@@ -11277,7 +11279,7 @@ namespace Cobra.Api.Node.Cirrus
     public partial class DecodeRawTransactionModel
     {
         [Newtonsoft.Json.JsonProperty("rawHex", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string RawHex { get; set; }
+        public string? RawHex { get; set; } = default!;
 
     }
 
@@ -11285,7 +11287,7 @@ namespace Cobra.Api.Node.Cirrus
     public partial class DisconnectPeerViewModel
     {
         [Newtonsoft.Json.JsonProperty("peerAddress", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string PeerAddress { get; set; }
+        public string? PeerAddress { get; set; } = default!;
 
     }
 
@@ -11294,17 +11296,17 @@ namespace Cobra.Api.Node.Cirrus
     {
         [Newtonsoft.Json.JsonProperty("walletName", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string WalletName { get; set; }
+        public string WalletName { get; set; } = default!;
 
         [Newtonsoft.Json.JsonProperty("accountName", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string AccountName { get; set; }
+        public string? AccountName { get; set; } = default!;
 
         [Newtonsoft.Json.JsonProperty("walletPassword", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string WalletPassword { get; set; }
+        public string WalletPassword { get; set; } = default!;
 
         [Newtonsoft.Json.JsonProperty("singleDestinationAddress", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string SingleDestinationAddress { get; set; }
+        public string? SingleDestinationAddress { get; set; } = default!;
 
         [Newtonsoft.Json.JsonProperty("useUniqueAddressPerUtxo", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public bool UseUniqueAddressPerUtxo { get; set; } = false;
@@ -11316,10 +11318,10 @@ namespace Cobra.Api.Node.Cirrus
         public bool UseChangeAddresses { get; set; } = false;
 
         [Newtonsoft.Json.JsonProperty("utxosCount", Required = Newtonsoft.Json.Required.Always)]
-        public int UtxosCount { get; set; }
+        public int UtxosCount { get; set; } = default!;
 
         [Newtonsoft.Json.JsonProperty("utxoPerTransaction", Required = Newtonsoft.Json.Required.Always)]
-        public int UtxoPerTransaction { get; set; }
+        public int UtxoPerTransaction { get; set; } = default!;
 
         [Newtonsoft.Json.JsonProperty("timestampDifferenceBetweenTransactions", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public int TimestampDifferenceBetweenTransactions { get; set; } = 0;
@@ -11328,10 +11330,10 @@ namespace Cobra.Api.Node.Cirrus
         public int MinConfirmations { get; set; } = 1;
 
         [Newtonsoft.Json.JsonProperty("outpoints", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<OutpointRequest> Outpoints { get; set; }
+        public System.Collections.Generic.ICollection<OutpointRequest>? Outpoints { get; set; } = default!;
 
         [Newtonsoft.Json.JsonProperty("dryRun", Required = Newtonsoft.Json.Required.Always)]
-        public bool DryRun { get; set; }
+        public bool DryRun { get; set; } = default!;
 
     }
 
@@ -11340,11 +11342,11 @@ namespace Cobra.Api.Node.Cirrus
     {
         [Newtonsoft.Json.JsonProperty("walletName", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string WalletName { get; set; }
+        public string WalletName { get; set; } = default!;
 
         [Newtonsoft.Json.JsonProperty("password", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Password { get; set; }
+        public string Password { get; set; } = default!;
 
     }
 
@@ -11353,7 +11355,7 @@ namespace Cobra.Api.Node.Cirrus
     {
         [Newtonsoft.Json.JsonProperty("hash", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Hash { get; set; }
+        public string Hash { get; set; } = default!;
 
     }
 
@@ -11362,27 +11364,27 @@ namespace Cobra.Api.Node.Cirrus
     {
         [Newtonsoft.Json.JsonProperty("collateralAddress", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string CollateralAddress { get; set; }
+        public string CollateralAddress { get; set; } = default!;
 
         [Newtonsoft.Json.JsonProperty("collateralWalletName", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string CollateralWalletName { get; set; }
+        public string CollateralWalletName { get; set; } = default!;
 
         [Newtonsoft.Json.JsonProperty("collateralWalletPassword", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string CollateralWalletPassword { get; set; }
+        public string CollateralWalletPassword { get; set; } = default!;
 
         [Newtonsoft.Json.JsonProperty("walletName", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string WalletName { get; set; }
+        public string WalletName { get; set; } = default!;
 
         [Newtonsoft.Json.JsonProperty("walletPassword", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string WalletPassword { get; set; }
+        public string WalletPassword { get; set; } = default!;
 
         [Newtonsoft.Json.JsonProperty("walletAccount", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string WalletAccount { get; set; }
+        public string WalletAccount { get; set; } = default!;
 
     }
 
@@ -11390,7 +11392,7 @@ namespace Cobra.Api.Node.Cirrus
     public partial class KickFederationMemberModel
     {
         [Newtonsoft.Json.JsonProperty("pubkey", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Pubkey { get; set; }
+        public string? Pubkey { get; set; } = default!;
 
     }
 
@@ -11404,21 +11406,21 @@ namespace Cobra.Api.Node.Cirrus
         /// The height at which to query the contract's state. If unset, will default to the current chain tip.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("blockHeight", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public long? BlockHeight { get; set; }
+        public long? BlockHeight { get; set; } = default!;
 
         /// <summary>
         /// The address of the smart contract containing the method.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("contractAddress", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string ContractAddress { get; set; }
+        public string ContractAddress { get; set; } = default!;
 
         /// <summary>
         /// The name of the method to call.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("methodName", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string MethodName { get; set; }
+        public string MethodName { get; set; } = default!;
 
         /// <summary>
         /// The amount of STRAT (or sidechain coin) to send to the smart contract address. 
@@ -11426,7 +11428,7 @@ namespace Cobra.Api.Node.Cirrus
         /// <br/>certain scenarios, where the funds sent dictates the result, to be checked.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("amount", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Amount { get; set; }
+        public string? Amount { get; set; } = default!;
 
         /// <summary>
         /// The gas price to use. This is used to calculate the expected expenditure
@@ -11435,7 +11437,7 @@ namespace Cobra.Api.Node.Cirrus
         /// </summary>
         [Newtonsoft.Json.JsonProperty("gasPrice", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [System.ComponentModel.DataAnnotations.Range(1D, 10000D)]
-        public long GasPrice { get; set; }
+        public long GasPrice { get; set; } = default!;
 
         /// <summary>
         /// The maximum amount of gas that can be spent executing this transaction.
@@ -11444,7 +11446,7 @@ namespace Cobra.Api.Node.Cirrus
         /// </summary>
         [Newtonsoft.Json.JsonProperty("gasLimit", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [System.ComponentModel.DataAnnotations.Range(10000D, 250000D)]
-        public long GasLimit { get; set; }
+        public long GasLimit { get; set; } = default!;
 
         /// <summary>
         /// A wallet address containing the funds to cover transaction fees, gas, and any funds specified in the
@@ -11455,7 +11457,7 @@ namespace Cobra.Api.Node.Cirrus
         /// <br/>by the deployer, and in this case, it is the Sender address that identifies the deployer.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("sender", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Sender { get; set; }
+        public string? Sender { get; set; } = default!;
 
         /// <summary>
         /// An array of encoded strings containing the parameters (and their type) to pass to the smart contract
@@ -11464,7 +11466,7 @@ namespace Cobra.Api.Node.Cirrus
         /// <br/>&lt;a target="_blank" href="https://academy.stratisplatform.com/SmartContracts/working-with-contracts.html#parameter-serialization"&gt;here&lt;/a&gt;.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("parameters", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<string> Parameters { get; set; }
+        public System.Collections.Generic.ICollection<string>? Parameters { get; set; } = default!;
 
     }
 
@@ -11473,11 +11475,11 @@ namespace Cobra.Api.Node.Cirrus
     {
         [Newtonsoft.Json.JsonProperty("ruleName", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string RuleName { get; set; }
+        public string RuleName { get; set; } = default!;
 
         [Newtonsoft.Json.JsonProperty("logLevel", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string LogLevel { get; set; }
+        public string LogLevel { get; set; } = default!;
 
     }
 
@@ -11485,7 +11487,7 @@ namespace Cobra.Api.Node.Cirrus
     public partial class LogRulesRequest
     {
         [Newtonsoft.Json.JsonProperty("logRules", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<LogRuleRequest> LogRules { get; set; }
+        public System.Collections.Generic.ICollection<LogRuleRequest>? LogRules { get; set; } = default!;
 
     }
 
@@ -11536,25 +11538,25 @@ namespace Cobra.Api.Node.Cirrus
     {
         [Newtonsoft.Json.JsonProperty("walletPassword", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string WalletPassword { get; set; }
+        public string WalletPassword { get; set; } = default!;
 
         [Newtonsoft.Json.JsonProperty("walletName", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string WalletName { get; set; }
+        public string? WalletName { get; set; } = default!;
 
         [Newtonsoft.Json.JsonProperty("walletAccount", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string WalletAccount { get; set; }
+        public string? WalletAccount { get; set; } = default!;
 
         [Newtonsoft.Json.JsonProperty("unsignedTransaction", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string UnsignedTransaction { get; set; }
+        public string? UnsignedTransaction { get; set; } = default!;
 
         [Newtonsoft.Json.JsonProperty("fee", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Fee { get; set; }
+        public string? Fee { get; set; } = default!;
 
         [Newtonsoft.Json.JsonProperty("utxos", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<UtxoDescriptor> Utxos { get; set; }
+        public System.Collections.Generic.ICollection<UtxoDescriptor>? Utxos { get; set; } = default!;
 
         [Newtonsoft.Json.JsonProperty("addresses", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<AddressDescriptor> Addresses { get; set; }
+        public System.Collections.Generic.ICollection<AddressDescriptor>? Addresses { get; set; } = default!;
 
     }
 
@@ -11563,10 +11565,10 @@ namespace Cobra.Api.Node.Cirrus
     {
         [Newtonsoft.Json.JsonProperty("transactionId", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string TransactionId { get; set; }
+        public string TransactionId { get; set; } = default!;
 
         [Newtonsoft.Json.JsonProperty("index", Required = Newtonsoft.Json.Required.Always)]
-        public int Index { get; set; }
+        public int Index { get; set; } = default!;
 
     }
 
@@ -11580,49 +11582,49 @@ namespace Cobra.Api.Node.Cirrus
         /// The peer endpoint.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("peerEndPoint", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string PeerEndPoint { get; set; }
+        public string? PeerEndPoint { get; set; } = default!;
 
         /// <summary>
         /// Indicates whether the peer is connected.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("connected", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public bool Connected { get; set; }
+        public bool Connected { get; set; } = default!;
 
         /// <summary>
         /// Indicates whether this is an inbound peer.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("inbound", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public bool Inbound { get; set; }
+        public bool Inbound { get; set; } = default!;
 
         /// <summary>
         /// The number of bytes sent to the peer.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("bytesSent", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public long BytesSent { get; set; }
+        public long BytesSent { get; set; } = default!;
 
         /// <summary>
         /// The number of bytes received from the peer.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("bytesReceived", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public long BytesReceived { get; set; }
+        public long BytesReceived { get; set; } = default!;
 
         /// <summary>
         /// The number of messages received from the peer.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("receivedMessages", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int ReceivedMessages { get; set; }
+        public int ReceivedMessages { get; set; } = default!;
 
         /// <summary>
         /// The number of messages sent to the peer.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("sentMessages", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int SentMessages { get; set; }
+        public int SentMessages { get; set; } = default!;
 
         /// <summary>
         /// The list of latest events.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("latestEvents", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<string> LatestEvents { get; set; }
+        public System.Collections.Generic.ICollection<string>? LatestEvents { get; set; } = default!;
 
     }
 
@@ -11631,11 +11633,11 @@ namespace Cobra.Api.Node.Cirrus
     {
         [Newtonsoft.Json.JsonProperty("walletName", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string WalletName { get; set; }
+        public string WalletName { get; set; } = default!;
 
         [Newtonsoft.Json.JsonProperty("externalAddress", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string ExternalAddress { get; set; }
+        public string ExternalAddress { get; set; } = default!;
 
     }
 
@@ -11643,17 +11645,17 @@ namespace Cobra.Api.Node.Cirrus
     public partial class RecipientModel
     {
         [Newtonsoft.Json.JsonProperty("destinationAddress", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string DestinationAddress { get; set; }
+        public string? DestinationAddress { get; set; } = default!;
 
         [Newtonsoft.Json.JsonProperty("destinationScript", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string DestinationScript { get; set; }
+        public string? DestinationScript { get; set; } = default!;
 
         [Newtonsoft.Json.JsonProperty("subtractFeeFromAmount", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public bool SubtractFeeFromAmount { get; set; }
+        public bool SubtractFeeFromAmount { get; set; } = default!;
 
         [Newtonsoft.Json.JsonProperty("amount", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Amount { get; set; }
+        public string Amount { get; set; } = default!;
 
     }
 
@@ -11662,15 +11664,15 @@ namespace Cobra.Api.Node.Cirrus
     {
         [Newtonsoft.Json.JsonProperty("password", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Password { get; set; }
+        public string Password { get; set; } = default!;
 
         [Newtonsoft.Json.JsonProperty("walletName", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string WalletName { get; set; }
+        public string WalletName { get; set; } = default!;
 
         [Newtonsoft.Json.JsonProperty("address", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Address { get; set; }
+        public string Address { get; set; } = default!;
 
     }
 
@@ -11679,39 +11681,39 @@ namespace Cobra.Api.Node.Cirrus
     {
         [Newtonsoft.Json.JsonProperty("sender", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Sender { get; set; }
+        public string Sender { get; set; } = default!;
 
         [Newtonsoft.Json.JsonProperty("walletName", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string WalletName { get; set; }
+        public string WalletName { get; set; } = default!;
 
         [Newtonsoft.Json.JsonProperty("accountName", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string AccountName { get; set; }
+        public string? AccountName { get; set; } = default!;
 
         [Newtonsoft.Json.JsonProperty("outpoints", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<OutpointRequest> Outpoints { get; set; }
+        public System.Collections.Generic.ICollection<OutpointRequest>? Outpoints { get; set; } = default!;
 
         [Newtonsoft.Json.JsonProperty("recipients", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [System.ComponentModel.DataAnnotations.MinLength(1)]
-        public System.Collections.Generic.ICollection<RecipientModel> Recipients { get; set; }
+        public System.Collections.Generic.ICollection<RecipientModel>? Recipients { get; set; } = default!;
 
         [Newtonsoft.Json.JsonProperty("opReturnData", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string OpReturnData { get; set; }
+        public string? OpReturnData { get; set; } = default!;
 
         [Newtonsoft.Json.JsonProperty("opReturnAmount", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string OpReturnAmount { get; set; }
+        public string? OpReturnAmount { get; set; } = default!;
 
         [Newtonsoft.Json.JsonProperty("feeType", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string FeeType { get; set; }
+        public string? FeeType { get; set; } = default!;
 
         [Newtonsoft.Json.JsonProperty("allowUnconfirmed", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public bool AllowUnconfirmed { get; set; }
+        public bool AllowUnconfirmed { get; set; } = default!;
 
         [Newtonsoft.Json.JsonProperty("shuffleOutputs", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public bool? ShuffleOutputs { get; set; }
+        public bool? ShuffleOutputs { get; set; } = default!;
 
         [Newtonsoft.Json.JsonProperty("changeAddress", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string ChangeAddress { get; set; }
+        public string? ChangeAddress { get; set; } = default!;
 
     }
 
@@ -11720,7 +11722,7 @@ namespace Cobra.Api.Node.Cirrus
     {
         [Newtonsoft.Json.JsonProperty("hex", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Hex { get; set; }
+        public string Hex { get; set; } = default!;
 
     }
 
@@ -11728,13 +11730,13 @@ namespace Cobra.Api.Node.Cirrus
     public partial class SetBanPeerViewModel
     {
         [Newtonsoft.Json.JsonProperty("banCommand", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string BanCommand { get; set; }
+        public string? BanCommand { get; set; } = default!;
 
         [Newtonsoft.Json.JsonProperty("banDurationSeconds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int? BanDurationSeconds { get; set; }
+        public int? BanDurationSeconds { get; set; } = default!;
 
         [Newtonsoft.Json.JsonProperty("peerAddress", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string PeerAddress { get; set; }
+        public string? PeerAddress { get; set; } = default!;
 
     }
 
@@ -11743,19 +11745,19 @@ namespace Cobra.Api.Node.Cirrus
     {
         [Newtonsoft.Json.JsonProperty("walletName", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string WalletName { get; set; }
+        public string WalletName { get; set; } = default!;
 
         [Newtonsoft.Json.JsonProperty("password", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Password { get; set; }
+        public string Password { get; set; } = default!;
 
         [Newtonsoft.Json.JsonProperty("externalAddress", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string ExternalAddress { get; set; }
+        public string ExternalAddress { get; set; } = default!;
 
         [Newtonsoft.Json.JsonProperty("message", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Message { get; set; }
+        public string Message { get; set; } = default!;
 
     }
 
@@ -11764,21 +11766,21 @@ namespace Cobra.Api.Node.Cirrus
     {
         [Newtonsoft.Json.JsonProperty("walletName", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string WalletName { get; set; }
+        public string WalletName { get; set; } = default!;
 
         [Newtonsoft.Json.JsonProperty("accountName", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string AccountName { get; set; }
+        public string? AccountName { get; set; } = default!;
 
         [Newtonsoft.Json.JsonProperty("walletPassword", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string WalletPassword { get; set; }
+        public string WalletPassword { get; set; } = default!;
 
         [Newtonsoft.Json.JsonProperty("totalAmountToSplit", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string TotalAmountToSplit { get; set; }
+        public string TotalAmountToSplit { get; set; } = default!;
 
         [Newtonsoft.Json.JsonProperty("utxosCount", Required = Newtonsoft.Json.Required.Always)]
-        public int UtxosCount { get; set; }
+        public int UtxosCount { get; set; } = default!;
 
     }
 
@@ -11791,10 +11793,10 @@ namespace Cobra.Api.Node.Cirrus
 
         [Newtonsoft.Json.JsonProperty("destinationAddress", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string DestinationAddress { get; set; }
+        public string DestinationAddress { get; set; } = default!;
 
         [Newtonsoft.Json.JsonProperty("broadcast", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public bool Broadcast { get; set; }
+        public bool Broadcast { get; set; } = default!;
 
     }
 
@@ -11803,35 +11805,35 @@ namespace Cobra.Api.Node.Cirrus
     {
         [Newtonsoft.Json.JsonProperty("walletName", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string WalletName { get; set; }
+        public string WalletName { get; set; } = default!;
 
         [Newtonsoft.Json.JsonProperty("accountName", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string AccountName { get; set; }
+        public string? AccountName { get; set; } = default!;
 
         [Newtonsoft.Json.JsonProperty("outpoints", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<OutpointRequest> Outpoints { get; set; }
+        public System.Collections.Generic.ICollection<OutpointRequest>? Outpoints { get; set; } = default!;
 
         [Newtonsoft.Json.JsonProperty("recipients", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [System.ComponentModel.DataAnnotations.MinLength(1)]
-        public System.Collections.Generic.ICollection<RecipientModel> Recipients { get; set; }
+        public System.Collections.Generic.ICollection<RecipientModel>? Recipients { get; set; } = default!;
 
         [Newtonsoft.Json.JsonProperty("opReturnData", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string OpReturnData { get; set; }
+        public string? OpReturnData { get; set; } = default!;
 
         [Newtonsoft.Json.JsonProperty("opReturnAmount", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string OpReturnAmount { get; set; }
+        public string? OpReturnAmount { get; set; } = default!;
 
         [Newtonsoft.Json.JsonProperty("feeType", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string FeeType { get; set; }
+        public string? FeeType { get; set; } = default!;
 
         [Newtonsoft.Json.JsonProperty("allowUnconfirmed", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public bool AllowUnconfirmed { get; set; }
+        public bool AllowUnconfirmed { get; set; } = default!;
 
         [Newtonsoft.Json.JsonProperty("shuffleOutputs", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public bool? ShuffleOutputs { get; set; }
+        public bool? ShuffleOutputs { get; set; } = default!;
 
         [Newtonsoft.Json.JsonProperty("changeAddress", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string ChangeAddress { get; set; }
+        public string? ChangeAddress { get; set; } = default!;
 
     }
 
@@ -11840,18 +11842,18 @@ namespace Cobra.Api.Node.Cirrus
     {
         [Newtonsoft.Json.JsonProperty("transactionId", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string TransactionId { get; set; }
+        public string TransactionId { get; set; } = default!;
 
         [Newtonsoft.Json.JsonProperty("index", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Index { get; set; }
+        public string Index { get; set; } = default!;
 
         [Newtonsoft.Json.JsonProperty("scriptPubKey", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string ScriptPubKey { get; set; }
+        public string ScriptPubKey { get; set; } = default!;
 
         [Newtonsoft.Json.JsonProperty("amount", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Amount { get; set; }
+        public string? Amount { get; set; } = default!;
 
     }
 
@@ -11860,15 +11862,15 @@ namespace Cobra.Api.Node.Cirrus
     {
         [Newtonsoft.Json.JsonProperty("signature", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Signature { get; set; }
+        public string Signature { get; set; } = default!;
 
         [Newtonsoft.Json.JsonProperty("externalAddress", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string ExternalAddress { get; set; }
+        public string ExternalAddress { get; set; } = default!;
 
         [Newtonsoft.Json.JsonProperty("message", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Message { get; set; }
+        public string Message { get; set; } = default!;
 
     }
 
@@ -11890,19 +11892,19 @@ namespace Cobra.Api.Node.Cirrus
     public partial class WalletCreationRequest
     {
         [Newtonsoft.Json.JsonProperty("mnemonic", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Mnemonic { get; set; }
+        public string? Mnemonic { get; set; } = default!;
 
         [Newtonsoft.Json.JsonProperty("password", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Password { get; set; }
+        public string Password { get; set; } = default!;
 
         [Newtonsoft.Json.JsonProperty("passphrase", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Passphrase { get; set; }
+        public string Passphrase { get; set; } = default!;
 
         [Newtonsoft.Json.JsonProperty("name", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Name { get; set; }
+        public string Name { get; set; } = default!;
 
     }
 
@@ -11911,17 +11913,17 @@ namespace Cobra.Api.Node.Cirrus
     {
         [Newtonsoft.Json.JsonProperty("extPubKey", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string ExtPubKey { get; set; }
+        public string ExtPubKey { get; set; } = default!;
 
         [Newtonsoft.Json.JsonProperty("accountIndex", Required = Newtonsoft.Json.Required.Always)]
-        public int AccountIndex { get; set; }
+        public int AccountIndex { get; set; } = default!;
 
         [Newtonsoft.Json.JsonProperty("name", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Name { get; set; }
+        public string Name { get; set; } = default!;
 
         [Newtonsoft.Json.JsonProperty("creationDate", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.DateTimeOffset CreationDate { get; set; }
+        public System.DateTimeOffset CreationDate { get; set; } = default!;
 
     }
 
@@ -11930,11 +11932,11 @@ namespace Cobra.Api.Node.Cirrus
     {
         [Newtonsoft.Json.JsonProperty("password", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Password { get; set; }
+        public string Password { get; set; } = default!;
 
         [Newtonsoft.Json.JsonProperty("name", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Name { get; set; }
+        public string Name { get; set; } = default!;
 
     }
 
@@ -11943,22 +11945,22 @@ namespace Cobra.Api.Node.Cirrus
     {
         [Newtonsoft.Json.JsonProperty("mnemonic", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Mnemonic { get; set; }
+        public string Mnemonic { get; set; } = default!;
 
         [Newtonsoft.Json.JsonProperty("password", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Password { get; set; }
+        public string Password { get; set; } = default!;
 
         [Newtonsoft.Json.JsonProperty("passphrase", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Passphrase { get; set; }
+        public string Passphrase { get; set; } = default!;
 
         [Newtonsoft.Json.JsonProperty("name", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Name { get; set; }
+        public string Name { get; set; } = default!;
 
         [Newtonsoft.Json.JsonProperty("creationDate", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.DateTimeOffset CreationDate { get; set; }
+        public System.DateTimeOffset CreationDate { get; set; } = default!;
 
     }
 
@@ -11966,16 +11968,42 @@ namespace Cobra.Api.Node.Cirrus
     public partial class WalletSyncRequest
     {
         [Newtonsoft.Json.JsonProperty("date", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.DateTimeOffset Date { get; set; }
+        public System.DateTimeOffset Date { get; set; } = default!;
 
         [Newtonsoft.Json.JsonProperty("all", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public bool All { get; set; }
+        public bool All { get; set; } = default!;
 
         [Newtonsoft.Json.JsonProperty("walletName", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string WalletName { get; set; }
+        public string? WalletName { get; set; } = default!;
 
     }
 
+
+    [System.CodeDom.Compiler.GeneratedCode("NSwag", "13.18.2.0 (NJsonSchema v10.8.0.0 (Newtonsoft.Json v13.0.0.0))")]
+    public partial class CirrusResponse
+    {
+        public int StatusCode { get; private set; }
+
+        public System.Collections.Generic.IReadOnlyDictionary<string, System.Collections.Generic.IEnumerable<string>> Headers { get; private set; }
+
+        public CirrusResponse(int statusCode, System.Collections.Generic.IReadOnlyDictionary<string, System.Collections.Generic.IEnumerable<string>> headers)
+        {
+            StatusCode = statusCode;
+            Headers = headers;
+        }
+    }
+
+    [System.CodeDom.Compiler.GeneratedCode("NSwag", "13.18.2.0 (NJsonSchema v10.8.0.0 (Newtonsoft.Json v13.0.0.0))")]
+    public partial class CirrusResponse<TResult> : CirrusResponse
+    {
+        public TResult Result { get; private set; }
+
+        public CirrusResponse(int statusCode, System.Collections.Generic.IReadOnlyDictionary<string, System.Collections.Generic.IEnumerable<string>> headers, TResult result)
+            : base(statusCode, headers)
+        {
+            Result = result;
+        }
+    }
 
 
     [System.CodeDom.Compiler.GeneratedCode("NSwag", "13.18.2.0 (NJsonSchema v10.8.0.0 (Newtonsoft.Json v13.0.0.0))")]
@@ -11983,11 +12011,11 @@ namespace Cobra.Api.Node.Cirrus
     {
         public int StatusCode { get; private set; }
 
-        public string Response { get; private set; }
+        public string? Response { get; private set; }
 
         public System.Collections.Generic.IReadOnlyDictionary<string, System.Collections.Generic.IEnumerable<string>> Headers { get; private set; }
 
-        public CirrusApiException(string message, int statusCode, string response, System.Collections.Generic.IReadOnlyDictionary<string, System.Collections.Generic.IEnumerable<string>> headers, System.Exception innerException)
+        public CirrusApiException(string message, int statusCode, string? response, System.Collections.Generic.IReadOnlyDictionary<string, System.Collections.Generic.IEnumerable<string>> headers, System.Exception? innerException)
             : base(message + "\n\nStatus: " + statusCode + "\nResponse: \n" + ((response == null) ? "(null)" : response.Substring(0, response.Length >= 512 ? 512 : response.Length)), innerException)
         {
             StatusCode = statusCode;
@@ -12006,7 +12034,7 @@ namespace Cobra.Api.Node.Cirrus
     {
         public TResult Result { get; private set; }
 
-        public CirrusApiException(string message, int statusCode, string response, System.Collections.Generic.IReadOnlyDictionary<string, System.Collections.Generic.IEnumerable<string>> headers, TResult result, System.Exception innerException)
+        public CirrusApiException(string message, int statusCode, string? response, System.Collections.Generic.IReadOnlyDictionary<string, System.Collections.Generic.IEnumerable<string>> headers, TResult result, System.Exception? innerException)
             : base(message, statusCode, response, headers, innerException)
         {
             Result = result;

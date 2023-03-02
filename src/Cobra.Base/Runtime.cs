@@ -17,6 +17,7 @@ public abstract class Runtime
         IsUnitTestRun = EntryAssembly?.FullName?.StartsWith("testhost") ?? false;
         SessionId = Rng.Next(0, 99999);            
         Logger = new ConsoleLogger();
+        HttpClient.DefaultRequestHeaders.UserAgent.ParseAdd("Cobra/" + AssemblyVersion.ToString(2));
     }
 
     public Runtime(CancellationToken ct)
@@ -40,7 +41,7 @@ public abstract class Runtime
 
     public static string PathSeparator { get; } = Environment.OSVersion.Platform == PlatformID.Win32NT ? "\\" : "/";
 
-    public static string ToolName { get; set; } = "Stratis DevEx";
+    public static string ToolName { get; set; } = "Cobra";
         
     public static string LogName { get; set; } = "BASE";
 
@@ -50,7 +51,7 @@ public abstract class Runtime
 
     public static string AppDataDir => Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
 
-    public static string StratisDevDir => Path.Combine(AppDataDir, "StratisDev");
+    public static string CobraDataDir => Path.Combine(AppDataDir, "Cobra");
 
     public static Random Rng { get; } = new Random();
 
@@ -67,6 +68,8 @@ public abstract class Runtime
     public static Version AssemblyVersion { get; } = Assembly.GetAssembly(typeof(Runtime))!.GetName().Version!;
         
     public static bool IsUnitTestRun { get; set; }
+
+    public static HttpClient HttpClient { get; } = new HttpClient();
     #endregion
 
     #region Methods
@@ -85,10 +88,10 @@ public abstract class Runtime
                 Logger.Close();
                 ToolName = toolname;
                 LogName = logname;
-                var fulllogfilename = StratisDevDir.CombinePath($"{ToolName}.{SessionId}.log");
+                var fulllogfilename = CobraDataDir.CombinePath($"{ToolName}.{SessionId}.log");
                 Logger = new FileLogger(fulllogfilename, false, LogName); ;
                 Info("{0} initialized from entry assembly {1} with log file {2}...", ToolName, EntryAssembly?.GetName().FullName ?? "(none)", fulllogfilename); ;
-                var globalCfgFile = StratisDevDir.CombinePath(ToolName + ".cfg");
+                var globalCfgFile = CobraDataDir.CombinePath(ToolName + ".cfg");
                 if (!File.Exists(globalCfgFile))
                 {
                     Info("Creating new global configuration file for {0}...", ToolName);
@@ -107,7 +110,7 @@ public abstract class Runtime
                 }
                 Info("Loaded {0} section(s) with {1} value(s) from global configuration at {2}.", GlobalConfig.SectionCount, GlobalConfig.Sum(s => s.SettingCount), globalCfgFile);
                 var d = GlobalSetting("General", "DeleteLogsOlderThan", 3, true);
-                var logfiles = Directory.GetFiles(StratisDevDir, "*.log", SearchOption.AllDirectories) ?? new string[] { };
+                var logfiles = Directory.GetFiles(CobraDataDir, "*.log", SearchOption.AllDirectories) ?? new string[] { };
                 Info("{0} existing log files found.", logfiles.Length);
                 foreach(var l in logfiles)
                 {

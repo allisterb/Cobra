@@ -21,6 +21,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\src\Cobra.Api\Cobra.Api.csproj" />
+    <ProjectReference Include="..\..\src\Cobra.Base\Cobra.Base.csproj" />
   </ItemGroup>
 
 </Project>
