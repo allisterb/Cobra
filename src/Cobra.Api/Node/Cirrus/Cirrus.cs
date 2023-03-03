@@ -9113,7 +9113,7 @@ namespace Cobra.Api.Node.Cirrus
 
         /// <returns>Success</returns>
         /// <exception cref="CirrusApiException">A server side error occurred.</exception>
-        public virtual System.Threading.Tasks.Task<CirrusResponse> ListWalletsAsync()
+        public virtual System.Threading.Tasks.Task<CirrusResponse<WalletList>> ListWalletsAsync()
         {
             return ListWalletsAsync(System.Threading.CancellationToken.None);
         }
@@ -9121,7 +9121,7 @@ namespace Cobra.Api.Node.Cirrus
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Success</returns>
         /// <exception cref="CirrusApiException">A server side error occurred.</exception>
-        public virtual async System.Threading.Tasks.Task<CirrusResponse> ListWalletsAsync(System.Threading.CancellationToken cancellationToken)
+        public virtual async System.Threading.Tasks.Task<CirrusResponse<WalletList>> ListWalletsAsync(System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/api/Wallet/list-wallets");
@@ -9157,7 +9157,12 @@ namespace Cobra.Api.Node.Cirrus
                         var status_ = (int)response_.StatusCode;
                         if (status_ == 200)
                         {
-                            return new CirrusResponse(status_, headers_);
+                            var objectResponse_ = await ReadObjectResponseAsync<WalletList>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new CirrusApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            return new CirrusResponse<WalletList>(status_, headers_, objectResponse_.Object);
                         }
                         else
                         {
