@@ -1,4 +1,4 @@
-﻿namespace Cobra.Api.Node.Cirrus;
+﻿namespace Cobra.Api.Node.Cirrus.Models;
 
 using Newtonsoft.Json;
 

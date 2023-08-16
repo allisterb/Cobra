@@ -19,6 +19,8 @@ namespace Cobra.Api.Node.Cirrus
 {
     using System = global::System;
 
+    using Cobra.Api.Node.Cirrus.Models;
+
     [System.CodeDom.Compiler.GeneratedCode("NSwag", "13.18.2.0 (NJsonSchema v10.8.0.0 (Newtonsoft.Json v13.0.0.0))")]
     public partial class Client
     {
@@ -3309,7 +3311,7 @@ namespace Cobra.Api.Node.Cirrus
 
         /// <returns>Success</returns>
         /// <exception cref="CirrusApiException">A server side error occurred.</exception>
-        public virtual System.Threading.Tasks.Task<CirrusResponse> StatusAsync(bool? publish)
+        public virtual System.Threading.Tasks.Task<CirrusResponse<Status>> StatusAsync(bool? publish)
         {
             return StatusAsync(publish, System.Threading.CancellationToken.None);
         }
@@ -3317,7 +3319,7 @@ namespace Cobra.Api.Node.Cirrus
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Success</returns>
         /// <exception cref="CirrusApiException">A server side error occurred.</exception>
-        public virtual async System.Threading.Tasks.Task<CirrusResponse> StatusAsync(bool? publish, System.Threading.CancellationToken cancellationToken)
+        public virtual async System.Threading.Tasks.Task<CirrusResponse<Status>> StatusAsync(bool? publish, System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/api/Node/status?");
@@ -3358,7 +3360,13 @@ namespace Cobra.Api.Node.Cirrus
                         var status_ = (int)response_.StatusCode;
                         if (status_ == 200)
                         {
-                            return new CirrusResponse(status_, headers_);
+                            var objectResponse_ = await ReadObjectResponseAsync<Status>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new CirrusApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            return new CirrusResponse<Status>(status_, headers_, objectResponse_.Object);
+                            //return new CirrusResponse(status_, headers_);
                         }
                         else
                         {
